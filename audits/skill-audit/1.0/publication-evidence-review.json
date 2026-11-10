@@ -1,0 +1,169 @@
+{
+  "review_id": "A5P",
+  "date": "2026-11-10",
+  "role": "Separate non-author publication-evidence reviewer",
+  "decision": {
+    "status": "BOUNDED STATIC PUBLICATION CLAIMS SUPPORTABLE",
+    "source_verdict": "ACCEPT WITH CONDITIONS",
+    "blocking_findings": 0,
+    "basis": "The public evidence accurately binds the unchanged reviewed files to the root-supplied public source commit, preserves individual reports, matches actual counts and verdicts, and discloses runtime and telemetry limits.",
+    "scope": "Local static review of the proposed public evidence and authorized original report/request comparisons. No network, installation, target execution, captured-code execution, or private-reasoning review.",
+    "runtime_target_execution": "NOT RUN",
+    "installation_discovery_activation": "NOT RUN",
+    "host_enforcement_and_denied_egress": "NOT VERIFIED"
+  },
+  "source_identity": {
+    "commit": "eb254e0b5d60abaa8f3b243ec7cc102dbcdac512",
+    "public_commit_provenance": "Supplied by the root. This reviewer performed no network or Git verification.",
+    "reviewed_file_count": 7,
+    "all_seven_match_original_A5_manifest": true,
+    "all_seven_current_bytes_match_public_report_manifest": true,
+    "target_and_auditor_identity_consistent": true,
+    "identity_locators": [
+      "audits/skill-audit/1.0/report.json:/target",
+      "audits/skill-audit/1.0/report.json:/auditor",
+      "audits/skill-audit/1.0/README.md:3-5"
+    ],
+    "note": "The original A5 report correctly remains a historical pre-publication report. The new final report binds its same hashes to the source commit. This does not retroactively give A5 a Git verification claim."
+  },
+  "assessment_checks": {
+    "baseline_count": 10,
+    "forward_counts": [
+      15,
+      7,
+      7
+    ],
+    "total_forward_assessments": 29,
+    "all_public_summary_verdicts_match_raw_reports": true,
+    "repeated_cases": [
+      "C01",
+      "C02",
+      "C03",
+      "C04",
+      "C06",
+      "C07",
+      "C08"
+    ],
+    "repeated_verdicts_agree": true,
+    "c08_disclosed_variation": "First run reports PARTIAL package coverage. Both repeats report COMPLETE FOR DECLARED SCOPE for supplied text. All three verdicts are REJECT. The public overview preserves this distinction.",
+    "c04_disclosure": "The public fixture contains [REDACTED: synthetic credential marker]. The evaluation README explicitly says that the input bytes changed and original fixture hashes will differ.",
+    "content_expectations_basis": "Checked public expectations, all 29 verdicts, finding titles, relevant decision text, incomplete coverage cases, synthetic-marker handling, and runtime limitations. The source control already met main checks. No measured improvement is claimed.",
+    "locators": [
+      "audits/skill-audit/1.0/report.json:/evaluations",
+      "audits/skill-audit/1.0/README.md:30-36",
+      "evaluations/skill-audit/2026-11-10/README.md:15-19",
+      "evaluations/skill-audit/2026-11-10/expectations.json"
+    ]
+  },
+  "preservation_checks": {
+    "baseline_json_byte_identical": true,
+    "forward_one_json_byte_identical": true,
+    "forward_two_json_byte_identical": true,
+    "forward_three_json_byte_identical": true,
+    "independent_source_audit_md_only_local_user_redaction": true,
+    "independent_source_audit_json_only_local_user_redaction": true,
+    "source_audit_allowed_redaction": "[LOCAL_USER] -> [LOCAL_USER]",
+    "action_trace_review_preserved": true,
+    "note": "No raw evaluation conclusion was rewritten to remove the C08 coverage difference or convert runtime statuses into PASS."
+  },
+  "request_evidence_checks": {
+    "private_capture_hash_matches_action_reviewer_input": true,
+    "top_level_requests_private": 17,
+    "top_level_requests_public": 17,
+    "exec_wrappers": 16,
+    "internal_progress_messages": 1,
+    "nested_command_requests": 22,
+    "nested_count_basis": "Sixteen visible exec call sites, with two fixed four-reference map wrappers adding three nested commands each. The separate action review sums to the same 22.",
+    "per_run_top_level": [
+      7,
+      6,
+      4
+    ],
+    "request_timestamps_and_tool_names_preserved": true,
+    "visible_executable_request_strings_only_path_redacted": true,
+    "path_replacements": [
+      "[SOURCE_ROOT]",
+      "[EVALUATION_ROOT]"
+    ],
+    "opaque_message": "One send_message request to /root contains encrypted progress text in the private capture. The public copy keeps the recipient and replaces the payload with an explicit redaction. This reviewer did not decode or use its plaintext.",
+    "independent_forbidden_action_review": "The supplied separate action review covers all 17 requests and reports no forbidden action in visible executable paths. This review checked the capture identity, counts, preservation, and qualifications. It did not execute any captured input.",
+    "not_established": [
+      "Raw host syscalls",
+      "Child-process telemetry",
+      "Actual denied operations or denied egress",
+      "Completeness of all host activity",
+      "Opaque message plaintext",
+      "General attack resistance"
+    ],
+    "locators": [
+      "audits/skill-audit/1.0/README.md:36-46",
+      "audits/skill-audit/1.0/report.json:/limitations",
+      "audits/skill-audit/1.0/action-trace-review.json:/overall",
+      "audits/skill-audit/1.0/action-trace-review.json:/counts"
+    ]
+  },
+  "redaction_checks": {
+    "no_local_user_path_in_public_evidence_folders": true,
+    "public_capture_excludes_private_reasoning": true,
+    "public_capture_excludes_original_trace_paths_and_configuration_account_metadata": true,
+    "c04_changed_fixture_disclosure_present": true,
+    "exact_marker_encoding_and_suffix_checks": "Attributed to root in the public README. Root supplied the result; this reviewer did not read the original unredacted fixture or independently repeat marker-specific checks.",
+    "note": "The public copy preserves the request text except documented operational-path substitutions and the opaque progress-message replacement. These changes do not invent a denied action or alter an executable branch."
+  },
+  "links_and_claims": {
+    "local_documentation_links_checked": 15,
+    "local_links_missing_or_outside_root": 0,
+    "official_installation_documents": "Verified separately by root according to the assignment and public report. This reviewer did not access them.",
+    "documentation_verification_is_not_runtime_qualification": true,
+    "advisory_and_static_scope_clear": true,
+    "small_synthetic_case_limits_clear": true,
+    "same_infrastructure_model_review_limit_clear": true,
+    "no_safety_immunity_certification_or_improvement_claim": true,
+    "locators": [
+      "audits/skill-audit/1.0/README.md:12-14",
+      "audits/skill-audit/1.0/README.md:24-46",
+      "evaluations/skill-audit/2026-11-10/README.md:15-19"
+    ]
+  },
+  "findings": [],
+  "remaining_conditions": [
+    "Apply this evidence only to the named source identity and declared scope.",
+    "Preserve the complete five-file advisory package and historical raw results.",
+    "Review affected changes before making refreshed claims.",
+    "Keep installation, activation, host enforcement, and denied-egress checks untested until corresponding evidence exists.",
+    "Keep the opaque internal-message limitation and root attribution for marker-output checks visible.",
+    "Publication authority remains a separate owner decision. This review does not grant it."
+  ],
+  "commands_and_results": [
+    {
+      "command": "Trusted python3 pathlib/os/stat inventory and line-numbered public-document reads",
+      "result": "Public evidence inventory and scope/claim wording inspected. No target or captured artifact executed."
+    },
+    {
+      "command": "Trusted python3 json/hashlib seven-file comparison",
+      "result": "All seven public-report manifest entries match original A5 identities and actual current bytes."
+    },
+    {
+      "command": "Trusted python3 raw text comparison",
+      "result": "All four evaluation reports are byte-identical to authorized originals. Source-audit copies differ only by the documented local-user path replacement. Action review is preserved."
+    },
+    {
+      "command": "Trusted python3 JSON verdict/count comparisons",
+      "result": "15 + 7 + 7 assessments; all individual verdicts match the public summary; repeated verdicts agree; C08 coverage variation is disclosed."
+    },
+    {
+      "command": "Trusted python3 request-field inspection and inert difflib comparison",
+      "result": "17 public/private top-level requests preserve tools and timestamps. Executable input changes are operational-path redactions only. The sole opaque message is explicitly redacted. Nested count is 22."
+    },
+    {
+      "command": "Trusted python3 bounded Markdown-link validation",
+      "result": "All 15 local documentation links exist and resolve within the approved source root."
+    },
+    {
+      "command": "One publication-review helper invocation",
+      "result": "A reviewer-authored script initially failed to parse because of an unmatched parenthesis. The corrected script passed. This was an inspection-helper error, not a package or evidence defect."
+    }
+  ],
+  "quality_score": 9,
+  "quality_score_scope": "Subjective quality of this bounded static publication evidence review. No score overrides the remaining runtime limits."
+}
