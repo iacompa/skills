@@ -1,0 +1,12 @@
+{
+  "schema": 1,
+  "recorded_at_utc": "2026-11-11T05:13:51.235070+00:00",
+  "source": "Owner decision relayed by the root agent.",
+  "owner_statement": "The owner checked the skills and decided they pass.",
+  "publication_signoff": "The root records this as owner publication signoff.",
+  "measured_results_override": false,
+  "historical_send_1_0_count_failures": "Retained as FAIL.",
+  "send_1_1_native_acceptance_in_this_candidate": "Twelve behavior sessions accepted within reduced scope; two initializer attempts INCONCLUSIVE and four Codex cases NOT RUN.",
+  "compiler_publication_actions": 0,
+  "scope": "The owner decision is distinct from measured outcomes, independent result review, and the unchanged recorded test scope."
+}

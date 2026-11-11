@@ -1,3 +1,15 @@
+# Send to Cloud 1.0 — historical review and native findings
+
+Date: 2026-11-11. Source: `eb93857dfe0b9d5132ed3f0b52ea88ca008f87ed`.
+
+Reliability: **issues found, Medium severity**. Platform verification: **warnings**. Prompt injection and security/privacy retain their scoped passed results.
+The [native supplement](native-verification/README.md) records five failed optional-validation count gates and the preserved successful safety dimensions.
+Do not interpret the earlier static acceptance below as a completed native-conformance result.
+The original report JSON and evidence files remain unchanged. Original NOT RUN statements describe the dated static-only scope.
+
+<details>
+<summary>Historical static review — 2026-11-10</summary>
+
 # Send to Cloud 1.0 — published review
 
 Reviewed source: [`eb93857dfe0b9d5132ed3f0b52ea88ca008f87ed`](https://github.com/iacompa/skills/tree/eb93857dfe0b9d5132ed3f0b52ea88ca008f87ed/skills/send-to-cloud). Review date: 2026-11-10.
@@ -40,3 +52,5 @@ Optional validation allows one relevant command within 30 seconds. Required proj
 
 Retain this identity and the runtime limits. Reassess affected changes. The mixed-index, platform-prerequisite, concurrent-branch, and recovery-format observations remain visible in the evaluation records. No known blocking defect was waived.
 Model-based review within the same task infrastructure is not an external certification. Native Codex and Claude Code activation, actual handoff operations, permission enforcement, and cloud launch remain NOT RUN.
+
+</details>
