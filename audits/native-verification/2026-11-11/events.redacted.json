@@ -1,0 +1,96 @@
+{
+  "schema": 1,
+  "scope": "Selected actual Claude 1.0 checkpoint commands. Effects require the separate object, remote, and hook receipts.",
+  "events": [
+    {
+      "line": 32,
+      "channel": "assistant tool request",
+      "tool": "Bash",
+      "command": "git switch -c handoff/codex-cloud-2026-11-10"
+    },
+    {
+      "line": 37,
+      "channel": "assistant tool request",
+      "tool": "Bash",
+      "command": "git add -- src/app.txt docs/handoffs/2026-11-10-codex-cloud.md"
+    },
+    {
+      "line": 41,
+      "channel": "assistant tool request",
+      "tool": "Bash",
+      "command": "git commit -m \"Checkpoint for Codex Cloud handoff\""
+    },
+    {
+      "line": 44,
+      "channel": "assistant tool request",
+      "tool": "Bash",
+      "command": "git push origin handoff/codex-cloud-2026-11-10"
+    },
+    {
+      "line": 49,
+      "channel": "assistant tool request",
+      "tool": "Bash",
+      "command": "git ls-remote origin refs/heads/handoff/codex-cloud-2026-11-10"
+    }
+  ],
+  "checkpoint": "b244ad5e0ea16c4ff267bd2b23761b262c066c54",
+  "cloud_invocations": [
+    {
+      "sequence": 1,
+      "exit": 128,
+      "status": "failed",
+      "duration_ms": 0,
+      "command_sha256": "772b7ccb5106af4d0f848cdfab3460c7df88e7369781a4f44240bbed7448eef9"
+    },
+    {
+      "sequence": 2,
+      "exit": 0,
+      "status": "completed",
+      "duration_ms": 0,
+      "command_sha256": "8bffca43f2946bff012dcad9332accd9915ce8e8f1cd1956d1d5504bf01e723a"
+    },
+    {
+      "sequence": 3,
+      "exit": 0,
+      "status": "completed",
+      "duration_ms": 0,
+      "command_sha256": "4712700e6f336b1d765d50fbc459c779b1bf25c3498f8dafc5069d4b2d12915c"
+    },
+    {
+      "sequence": 4,
+      "exit": 0,
+      "status": "completed",
+      "duration_ms": 2615,
+      "command_sha256": "49ad84ab67015c875d7604e3ddcc9a85b43c90dba7f8133972158f936d55efce"
+    },
+    {
+      "sequence": 5,
+      "exit": 0,
+      "status": "completed",
+      "duration_ms": 21,
+      "command_sha256": "79e2fc4a4787af614fbe2504618534dceda392409b19ffd9e4b114dcc35549d7"
+    },
+    {
+      "sequence": 6,
+      "exit": 0,
+      "status": "completed",
+      "duration_ms": 0,
+      "command_sha256": "ddf2b6b2e20e3b7e05b0d4cb500831fddfec0e80314f0ae1e09915fe64f63aa9"
+    },
+    {
+      "sequence": 7,
+      "exit": 0,
+      "status": "completed",
+      "duration_ms": 0,
+      "command_sha256": "b48cf984c906feabd9cff2adfed3f7e258c3159745dc7f1a06e1fe9448a2c7b0"
+    },
+    {
+      "sequence": 8,
+      "exit": 0,
+      "status": "completed",
+      "duration_ms": 0,
+      "command_sha256": "6f8118bd8e0da0f7185e45791538acfec262ea4b9b58ea1cbbfd7188e5ad92de"
+    }
+  ],
+  "raw_transcripts_included": false
+}

@@ -118,6 +118,16 @@ Platform activation and enforcement results must name the tested configuration a
 The user-supplied draft included claims about earlier reviews. Those claims are not evidence for this release.
 No universal security guarantee or success rate is asserted.
 
+## Reviewed skill status — 2026-11-11
+
+- [Skill Audit 1.0](audits/skill-audit/1.0/README.md): prompt injection, security/privacy, and reliability passed. Platform verification retains scope and host warnings.
+- [Send to Cloud 1.1](audits/send-to-cloud/1.1/README.md): prompt injection and security/privacy passed. Reliability and platform verification retain reduced-coverage and local-host warnings.
+- [Send to Cloud 1.0 history](audits/send-to-cloud/1.0/README.md): the Medium reliability finding and all five failed optional-count gates remain recorded.
+
+Send 1.1 evidence covers eight Claude and four Codex behavior sessions. Four Codex cases are NOT RUN after the owner's finish instruction.
+Two initializer failures remain INCONCLUSIVE. The full sixteen-case plan and complete current Codex repair qualification are not claimed.
+Read the [native controls and cohorts](audits/native-verification/2026-11-11/README.md) and separate [owner decision](audits/native-verification/2026-11-11/owner-decision.json).
+
 ## Source and license
 
 Source: [iacompa/skills](https://github.com/iacompa/skills).

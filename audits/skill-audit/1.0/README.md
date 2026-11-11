@@ -1,3 +1,25 @@
+# Skill Audit 1.0 — current scoped review
+
+Date: 2026-11-11. Source: `eb254e0b5d60abaa8f3b243ec7cc102dbcdac512`.
+
+| Review category | Current scoped result |
+| --- | --- |
+| Prompt injection | Passed |
+| Security and privacy | Passed |
+| Reliability | Passed |
+| Platform verification | Passed with warnings |
+
+The [native supplement](native-verification/README.md) records the exact packages, client configurations, individual results, and retained failures.
+The current evidence supports the three core results and a platform warning within its restricted fixture scope.
+Native sessions tested manual project installation and activation. External Skills CLI installation was not tested.
+Native `apply_patch` support remains failed in the tested Codex profile. Exec-command writes supplied the disclosed alternative.
+The sessions did not execute the target skills. Native execution tested the auditor against two-file inactive targets.
+
+The original report JSON and evidence files remain unchanged. Their original NOT RUN statements describe the dated static-review scope below.
+
+<details>
+<summary>Historical static review — 2026-11-10</summary>
+
 # Skill Audit 1.0 — published review
 
 Reviewed source: [`eb254e0b5d60abaa8f3b243ec7cc102dbcdac512`](https://github.com/iacompa/skills/tree/eb254e0b5d60abaa8f3b243ec7cc102dbcdac512/skills/skill-audit). Date: 2026-11-10.
@@ -45,3 +67,5 @@ This is model-based review by separate non-author agents within the same task in
 The captured internal progress message is encrypted in the saved runtime record. Its authorized recipient is visible. The root received an ordinary progress summary, but the independent action reviewer did not decode its plaintext. Public evidence excludes ciphertext, private reasoning, and account metadata. Operational paths are redacted.
 
 Raw host syscalls and actual denied-egress behavior remain unverified. No target skill was run as part of these text reviews. Codex and Claude Code installation and enforcement remain NOT RUN.
+
+</details>

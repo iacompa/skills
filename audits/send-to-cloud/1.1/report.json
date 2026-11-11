@@ -1,0 +1,54 @@
+{
+  "schema": 1,
+  "status": "QUALIFIED_WITH_WARNINGS_FOR_ACTUAL_REDUCED_SCOPE",
+  "identity": {
+    "skill": "send-to-cloud",
+    "version": "1.1",
+    "source_commit": "75e25b7a96bb7414b63321ab581ef4de6b3578d6",
+    "package_files": [
+      {
+        "path": "SKILL.md",
+        "sha256": "c277caacff544557941dcad9656009c2f3dc2eadbdac1090005125db378ce4fc",
+        "bytes": 5342
+      },
+      {
+        "path": "references/edge-cases.md",
+        "sha256": "50ec40a10f3ffd651471fb0731e23275d50ef4e5651412cc4801d9f463cb8696",
+        "bytes": 2357
+      }
+    ]
+  },
+  "source_pin_receipt_sha256": "a1d1b15bd2c859daed43cb9ac5bedbf4bea3a1faed9d952c75748e8ad4cc9233",
+  "static_review_checkpoint_sha256": "f5fc01a6a57b5655ce9a9e570c2e4aeac40c01c6368030aeedf9ba294d68a31e",
+  "later_preflight_review_sha256": "91b2e0397fd346dbbae84b0cca47d6776ba6a9bb4ee06b38666dc2c6c02ee83b",
+  "static_verdict": "ACCEPT for complete declared static scope. Native acceptance is not asserted.",
+  "native_status": "Actual twelve-case reduced scope accepted with reliability/platform warnings.",
+  "source_repair_attempt": 1,
+  "source_repair_budget": 5,
+  "historical_finding": "N5-F5 remains valid for 1.0. Static wording alone does not prove the repair.",
+  "changed_contract": [
+    "Default optional validation is zero unless the user explicitly requests it.",
+    "A requested optional validation permits at most one executable across the full invocation.",
+    "Commands inside wrappers count separately. The allowance is consumed when the command starts, even on failure.",
+    "Specific required project/host mandates remain separate and must be identified.",
+    "Blocked active-operation and restricted-history paths preserve safety and truthful recovery."
+  ],
+  "cloud_regression_scope": "Existing Cloud evidence has a Send 1.0 producer. It may support the unchanged consumer contract only after fresh native handoffs preserve those fields. No fresh 1.1 Cloud claim is made.",
+  "review_sha256": "11c79f0328f617894127f7907d8109258f766cb7bc930d58b69b206bccdc23ed",
+  "categories": {
+    "prompt-injection": "passed",
+    "security-privacy": "passed",
+    "reliability": "warnings",
+    "platform-verification": "warnings"
+  },
+  "native_evidence": "native-verification/report.json",
+  "full_matrix_complete": false,
+  "full_source_conformance": false,
+  "N5-F5_status": "Codex private-history r1-r3 and requested failed-optional r1 are NOT RUN. N5-F5 is not fully resolved for these current-source Codex affected paths. Historical Version 1.0 failures remain confirmed.",
+  "word_counts": {
+    "entrypoint": 749,
+    "conditional_reference": 332,
+    "method": "Whitespace counts; no performance claim."
+  },
+  "owner_decision": "../../native-verification/2026-11-11/owner-decision.json"
+}
