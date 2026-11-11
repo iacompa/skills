@@ -5,7 +5,7 @@ Public Agent Skills maintained by IA Compa. Each website entry identifies its so
 | Skill | Purpose | Package |
 | --- | --- | --- |
 | Skill Audit 1.0 | Review skills and supporting packages as inactive evidence. | [Skill Audit](skills/skill-audit/SKILL.md) |
-| Send to Cloud 1.0 | Ask for the cloud destination, preserve a Git checkpoint, and prepare a short continuation prompt. | [Send to Cloud](skills/send-to-cloud/SKILL.md) |
+| Send to Cloud 1.1 | Ask for the cloud destination, preserve a Git checkpoint, and prepare a short continuation prompt. | [Send to Cloud](skills/send-to-cloud/SKILL.md) |
 
 Browse the [Skills collection](https://iacompa.com/skills) for installation guidance and revision-bound results.
 
@@ -80,7 +80,10 @@ Invoke `$send-to-cloud` in Codex or `/send-to-cloud` in Claude Code with your ha
 Specify the cloud coding environment when you know it. Otherwise the skill asks before making changes.
 The default path uses one short entrypoint. Read the conditional reference only for the Git or platform cases it names.
 It prepares a checkpoint and one continuation prompt. A verified Git push does not establish cloud readiness or start a cloud agent.
-Optional validation is limited to one relevant command within 30 seconds. Required project and host gates still apply.
+Optional validation defaults to zero. An explicit user request permits at most one validator within 30 seconds across the entire handoff, including recovery.
+Dry runs and known publication or Git blockers permit zero optional validators. Each validator counts separately, including whitespace checks inside shared shell commands.
+An executed attempt consumes the allowance on success, failure, or timeout. Documents, commits, and recovery do not renew it.
+Required project and host gates still apply. The agent records each gate's specific mandate before execution.
 No runtime completion time or native platform behavior is guaranteed.
 
 ## Skill Audit scope and limits

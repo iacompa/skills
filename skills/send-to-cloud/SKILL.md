@@ -3,12 +3,12 @@ name: send-to-cloud
 description: Preserve local development work in a verified Git checkpoint and prepare a short prompt for continuation in a cloud coding environment. Use for development handoffs, not application deployment.
 license: MIT
 metadata:
-  version: "1.0"
+  version: "1.1"
 ---
 
 # Send to Cloud
 
-Version 1.0. Prepare a repository checkpoint and continuation prompt. Do not transfer the local chat or assume its availability.
+Version 1.1. Prepare a repository checkpoint and continuation prompt. Do not transfer the local chat or assume its availability.
 
 ## Select the destination
 
@@ -30,6 +30,25 @@ Do not reset, clean, force-push, rewrite history, bypass hooks, or discard work.
 
 Read [edge cases](references/edge-cases.md) only for a mixed index, interrupted Git operation, multiple repositories, submodules, LFS, platform limits, or return-to-local request.
 
+## Validation budget
+
+After state and publication inspection, apply the first matching row across the handoff, including recovery.
+
+| Condition | Optional validators |
+| --- | --- |
+| Dry run or known publication/Git blocker | 0 |
+| User explicitly requests validation | At most 1 relevant attempt, within 30 seconds |
+| Otherwise | 0 |
+
+Count each executed validator, even inside one shell wrapper. Whitespace checks, including `git diff --check`, are validators.
+Consume the allowance when a validator starts, regardless of success, failure, or timeout.
+Documents, commits, and recovery never restore it.
+Status, diff, log, ref, and content inspection remain inspection.
+Record each required gate's specific project/host mandate before execution. Run every required gate.
+Changed work alone does not make a check required.
+Do not install dependencies or repair unrelated code for optional validation.
+Record commands, outcomes, known failures, and validation gaps. Inspect files again after validation.
+
 ## Create the checkpoint
 
 1. Identify the active repository, branch, HEAD, instructions, accepted goal, and current work.
@@ -39,18 +58,15 @@ Read [edge cases](references/edge-cases.md) only for a mixed index, interrupted 
 2. Review intended files and every unshared commit that the push would publish.
    Inspect tracked content as well as changes for secrets and private data. `.gitignore` does not protect tracked files.
    Stop an unsafe or uncertain publication. Never print secret values.
-3. Prefer a fast checkpoint. Run at most one relevant optional validation command within 30 seconds.
-   Required project and host gates take precedence. Do not install dependencies or repair unrelated code for optional validation.
-   Record commands, outcomes, known failures, and validation gaps. Inspect files again after validation.
-4. Create a collision-free branch from the current state under project naming rules.
+3. Create a collision-free branch from the current state under project naming rules.
    Write one handoff document in the existing handoff location, otherwise `docs/handoffs/`.
    Record the pre-checkpoint branch and full SHA, destination, goal, accepted decisions, completed work, unfinished work, and relevant paths.
    Include ordered next tasks, acceptance criteria, one immediate action, validation evidence, exclusions, and setup prerequisites.
    Record environment-variable names only. Identify essential local-only files, services, and unavailable context.
-5. Stage only reviewed, authorized paths, including relevant deletions and the handoff.
+4. Stage only reviewed, authorized paths, including relevant deletions and the handoff.
    Preserve unrelated work and staging boundaries. Review the exact commit content before committing.
    Verify the local checkpoint contains the intended files and handoff.
-6. Push the selected branch to the verified destination without force.
+5. Push the selected branch to the verified destination without force.
    Query that actual destination and branch. Require full-SHA equality with the local checkpoint.
    Verify the supplied repository URL resolves to that checkpoint. Report residual local changes and exclusions.
 
