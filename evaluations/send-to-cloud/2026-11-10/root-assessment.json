@@ -1,0 +1,33 @@
+{
+  "reviewedSource": "eb93857dfe0b9d5132ed3f0b52ea88ca008f87ed",
+  "assessment": "Root manually reviewed the ten main traces and repeated consequential traces against separately stored criteria. All required static choices were present. These are instructional predictions, not runtime passes.",
+  "mainCases": 10,
+  "repeatCasesPerSession": 5,
+  "freshEvaluationSessions": 3,
+  "individualStaticAssessments": 20,
+  "blockingStaticFindings": [],
+  "retainedObservations": [
+    {
+      "id": "S2E-F2",
+      "disposition": "Nonblocking implementation detail. The candidate requires preservation and safe stop if isolation is unproven. No successful isolation is claimed."
+    },
+    {
+      "id": "S2E-F3",
+      "disposition": "Scenario prerequisite gap. Task dependencies must be verified; no platform execution readiness is inferred."
+    },
+    {
+      "id": "S2E-F4",
+      "disposition": "Nonblocking implementation choice. Full-SHA equality, no force, preserved work, and one changed retry constrain any reconciliation."
+    },
+    {
+      "id": "S2E-F5",
+      "disposition": "Nonblocking recovery-format gap. The explicit recovery instruction and ban on false verification require unknown identifiers to stay unknown."
+    }
+  ],
+  "conditions": [
+    "Keep runtime and native activation NOT RUN.",
+    "Keep public claims revision-bound.",
+    "Do not interpret a static prediction as a transfer receipt."
+  ],
+  "controlComparison": "No new no-skill control or measured behavioral improvement is claimed. Word reduction is measured separately."
+}

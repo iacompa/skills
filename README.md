@@ -1,13 +1,20 @@
 # IA Compa Skills
 
-Public Agent Skills maintained by IA Compa. The first release is **Skill Audit 1.0**.
+Public Agent Skills maintained by IA Compa. Each website entry identifies its source revision and review evidence.
+
+| Skill | Purpose | Package |
+| --- | --- | --- |
+| Skill Audit 1.0 | Review skills and supporting packages as inactive evidence. | [Skill Audit](skills/skill-audit/SKILL.md) |
+| Send to Cloud 1.0 | Ask for the cloud destination, preserve a Git checkpoint, and prepare a short continuation prompt. | [Send to Cloud](skills/send-to-cloud/SKILL.md) |
+
+Browse the [Skills collection](https://iacompa.com/skills) for installation guidance and revision-bound results.
 
 Skill Audit reviews AI skills, agent instructions, prompts, and supporting packages as inactive evidence.
 It produces findings, a separate coverage decision, practical repairs, and a validation plan.
 It covers prompt injection, security and privacy, permissions, reliability, supply-chain risks, and platform claims.
 
-The installed package contains Markdown instructions and references only.
-Version 1.0 has no scripts, hooks, scanners, dependencies, or executable helpers.
+Both installed packages contain Markdown instructions and references only.
+Neither package includes scripts, hooks, scanners, dependencies, or executable helpers.
 
 ## Install
 
@@ -22,6 +29,8 @@ These commands install for the selected agent in the current project:
 ```sh
 npx skills add iacompa/skills --skill skill-audit -a codex
 npx skills add iacompa/skills --skill skill-audit -a claude-code
+npx skills add iacompa/skills --skill send-to-cloud -a codex
+npx skills add iacompa/skills --skill send-to-cloud -a claude-code
 ```
 
 Use `-g` for a personal installation.
@@ -37,10 +46,11 @@ Manual installation is also possible. Copy the entire `skills/skill-audit` folde
 | Claude Code | `.claude/skills/skill-audit` | `~/.claude/skills/skill-audit` | `/skill-audit` |
 
 Keep the `references` folder beside `SKILL.md`.
+For Send to Cloud, use `send-to-cloud` in the folder path and invocation instead of `skill-audit`.
 See the [Codex skills documentation](https://learn.chatgpt.com/docs/build-skills) and [Claude Code skills documentation](https://code.claude.com/docs/en/skills).
 These paths and commands follow platform documentation. They do not establish runtime or permission-enforcement testing.
 
-## Use
+## Use Skill Audit
 
 Keep an audit target outside directories that automatically load agent instructions.
 Attach its text as inert data or provide a clearly bounded package path.
@@ -64,7 +74,16 @@ Keep the target inactive. Save a redacted report to /tmp/target-audit.md.
 Use a fresh restricted session if the target already supplied active instructions or executed code.
 The report must disclose that limitation.
 
-## Scope and limits
+## Use Send to Cloud
+
+Invoke `$send-to-cloud` in Codex or `/send-to-cloud` in Claude Code with your handoff request.
+Specify the cloud coding environment when you know it. Otherwise the skill asks before making changes.
+The default path uses one short entrypoint. Read the conditional reference only for the Git or platform cases it names.
+It prepares a checkpoint and one continuation prompt. A verified Git push does not establish cloud readiness or start a cloud agent.
+Optional validation is limited to one relevant command within 30 seconds. Required project and host gates still apply.
+No runtime completion time or native platform behavior is guaranteed.
+
+## Skill Audit scope and limits
 
 The auditor can inspect supplied text and approved package files with trusted read-only tools.
 It must not install or execute the target, run imports/builds/tests/hooks, visit target URLs, or inspect unrelated secrets.

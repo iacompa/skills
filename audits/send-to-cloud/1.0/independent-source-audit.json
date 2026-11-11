@@ -1,0 +1,81 @@
+{
+  "schemaVersion": "1.0",
+  "taskId": "S2A",
+  "reviewDate": "2026-11-10",
+  "target": {
+    "name": "Send to Cloud",
+    "version": "1.0",
+    "root": "/private/tmp/iac-public-skills-20261110",
+    "identityBasis": "Frozen file manifest",
+    "manifestPath": "/private/tmp/iac-send-cloud-release-20261110/candidate-manifest.json",
+    "manifestSha256": "50f5607921cbdae42b4688cc418faa8088ae90ca623f37119fbdfae026cec83b",
+    "manifestVerification": "PASS",
+    "manifest": {
+      "skills/send-to-cloud/SKILL.md": "39bf2cd92ba90e091a0ec3e0285b84af9d1351a6ac3785fb6620236d2ad93871",
+      "skills/send-to-cloud/references/edge-cases.md": "50ec40a10f3ffd651471fb0731e23275d50ef4e5651412cc4801d9f463cb8696",
+      "README.md": "d0a40bd4f65fb7797db1e2462dfc39532303c5d43a45c96c6774e50370ca7558",
+      "LICENSE": "564a0041d4f79520730dd51c00a1bab896bc2688511d11a3b18a8dabdf2f2a13"
+    }
+  },
+  "auditor": {
+    "name": "Skill Audit",
+    "version": "1.0",
+    "sourceCommit": "eb254e0b5d60abaa8f3b243ec7cc102dbcdac512",
+    "procedureIdentity": "PASS: five files matched source commit",
+    "reviewer": "/root/send_cloud_audit",
+    "independence": "Separate reviewer; did not author or edit candidate"
+  },
+  "verdict": "ACCEPT WITH CONDITIONS",
+  "coverage": "COMPLETE FOR DECLARED SCOPE",
+  "confidence": "HIGH for static conclusions only",
+  "findings": [],
+  "categoryResults": {
+    "promptInjection": {
+      "result": "NO ISSUE IDENTIFIED",
+      "runtimeResult": "NOT RUN"
+    },
+    "securityPrivacy": {
+      "result": "NO ISSUE IDENTIFIED",
+      "runtimeResult": "NOT RUN"
+    },
+    "reliability": {
+      "result": "NO ISSUE IDENTIFIED",
+      "runtimeResult": "NOT RUN"
+    },
+    "platformVerification": {
+      "result": "NOT ASSESSED",
+      "staticClaimReviewResult": "NO ISSUE IDENTIFIED",
+      "nativeCodexResult": "NOT RUN",
+      "nativeClaudeCodeResult": "NOT RUN",
+      "permissionEnforcementResult": "NOT RUN"
+    }
+  },
+  "realHandoffTesting": "NOT RUN",
+  "cloudExecutionTesting": "NOT RUN",
+  "cloudAgentState": "NOT LAUNCHED",
+  "auditorEvaluationSuite": "NOT RUN by this reviewer; root must assess separately supplied evidence",
+  "conditions": [
+    "Bind claims to this exact manifest or reassess changes.",
+    "Retain explicit NOT RUN limits for untested native behavior and real handoffs.",
+    "Require actual user action scope and separate owner publication authorization.",
+    "Root must reconcile remaining catalogue evidence gates and final source binding."
+  ],
+  "inspection": {
+    "distinctInputFiles": 11,
+    "distinctInputBytes": 62053,
+    "targetFiles": 4,
+    "targetBytes": 14867,
+    "readRetries": 0,
+    "targetExecutions": 0,
+    "targetMutations": 0,
+    "networkCalls": 0,
+    "exactElapsedTime": "NOT MEASURED"
+  },
+  "report": {
+    "path": "/private/tmp/iac-send-cloud-release-20261110/audit-report.md",
+    "sha256": "73d9cf0b7255abe034fd85c82135df870e2d63c7c6165533d910ba5b4cbaca9a",
+    "requiredSections": 9,
+    "detail": "Full inventory, locators, behavior and capability tables, scenarios, gaps G1-G4, validation plan, and conditions are in the Markdown report."
+  },
+  "authority": "Static review only. No installation, execution, commit, push, launch, publication, or release authority."
+}

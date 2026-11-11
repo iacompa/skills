@@ -1,0 +1,42 @@
+{
+  "skill": {
+    "name": "Send to Cloud",
+    "version": "1.0",
+    "sourceCommit": "eb93857dfe0b9d5132ed3f0b52ea88ca008f87ed",
+    "repositoryPath": "skills/send-to-cloud",
+    "manifest": {
+      "skills/send-to-cloud/SKILL.md": "39bf2cd92ba90e091a0ec3e0285b84af9d1351a6ac3785fb6620236d2ad93871",
+      "skills/send-to-cloud/references/edge-cases.md": "50ec40a10f3ffd651471fb0731e23275d50ef4e5651412cc4801d9f463cb8696",
+      "README.md": "d0a40bd4f65fb7797db1e2462dfc39532303c5d43a45c96c6774e50370ca7558",
+      "LICENSE": "564a0041d4f79520730dd51c00a1bab896bc2688511d11a3b18a8dabdf2f2a13"
+    }
+  },
+  "auditor": {
+    "name": "Skill Audit",
+    "version": "1.0",
+    "sourceCommit": "eb254e0b5d60abaa8f3b243ec7cc102dbcdac512",
+    "reviewer": "Separate non-author Codex agent; root evidence review"
+  },
+  "reviewedAt": "2026-11-10",
+  "verdict": "ACCEPT WITH CONDITIONS",
+  "coverage": "COMPLETE FOR DECLARED STATIC SCOPE",
+  "findings": [],
+  "checks": {
+    "prompt-injection": "passed-static",
+    "security-privacy": "passed-static",
+    "reliability": "passed-static",
+    "platform-verification": "NOT RUN"
+  },
+  "evidence": {
+    "independentReport": "independent-source-audit.md",
+    "manifest": "candidate-manifest.json",
+    "staticEvaluation": "../../../evaluations/send-to-cloud/2026-11-10/README.md",
+    "capturedRequests": "captured-action-requests.redacted.json",
+    "auditorEvaluation": "https://github.com/iacompa/skills/blob/b7c2b8532b44466d96304e4ab3dfd938c146ab29/audits/skill-audit/1.0/README.md"
+  },
+  "limits": [
+    "Markdown instructions are advisory.",
+    "Native installation, discovery, enforcement, actual Git handoff, and cloud execution NOT RUN.",
+    "No measured transfer time, token count, security success rate, or improvement over a no-skill control."
+  ]
+}
