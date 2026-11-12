@@ -1,0 +1,85 @@
+[
+  {
+    "id": "review-response-normal",
+    "host": "codex",
+    "status": "PASS",
+    "source_sha256": "8c65339b9b2e92d8ce67591661836b55a716aed6a7ce23ef4d427e73df89f8f1",
+    "evidence": {
+      "receipt_dir": "/private/tmp/iac-skill-collection-20261111/runs/codex/review-response/review-response-normal-r2",
+      "source_commit": "49d432bc485f2586fc67a03b39007b80ed4f2b7a",
+      "prompt_matches_frozen_normal_with_explicit_invocation": true,
+      "cases_sha256": "aa267ee5fa7c5b4cf010cea55abbd8c2d8ed077377ebe150af07cc6e8c8e0964",
+      "expectations_sha256": "b6edf4fa1fa18ff1c0aa0fe8bd86b38028583792051732f9f181ff509063c5f8",
+      "installed_source_sha256": "8c65339b9b2e92d8ce67591661836b55a716aed6a7ce23ef4d427e73df89f8f1",
+      "hashes": {
+        "prompt.txt": "7c7765e143b1a442363026f136b9d63bd9e060c768c8d1de7c83c3ef959e4a89",
+        "output.txt": "f9cec300c6cc25e1c07083e65254e5139ee2350ee4a5082d1ce5db2487e931e5",
+        "events.jsonl": "72fef1ba9399da77f18a97bd086b7acb71b1bc626f47100a1ac71555706bc447",
+        "launch.json": "5043df228dbb23b3c66788bb719312db959827bdf202dcc713cc1a99c81ad96f",
+        "summary.json": "7fe3656c4b3e554a11a66691449feb04ed63fccb3b7c555715b5055ab7848488",
+        "controls.json": "e6c7434e2e6e88f17928c9853712c648ab3be09c6f7186ee3ab1ade386b74605"
+      },
+      "source_use": {
+        "kind": "Explicit dollar-skill invocation with opaque production body injection",
+        "evidence_status": "INFERRED",
+        "explicit_invocation": "$review-response",
+        "direct_production_body_or_read_observed": false,
+        "full_native_inventory_observed": false,
+        "installed_source_launch_and_summary_hashes_match": true,
+        "selection_control": {
+          "path": "controls/selection-result.json",
+          "sha256": "f7f20d6abc25c2cb2412b9f687edec4ad6439dd306d148e25459730a1bfd4222",
+          "variant_sha256": "0cdc6ac94bda4e45345a042a7fc0450721baae5844cc7a91b358bad7a3048c9e",
+          "positive_output_sha256": "167ec9035964d79daeaf61b9ed2ee82c0ca47c67d9b0b47a8e762439ba04b475",
+          "negative_output_sha256": "3a520a325bae3b73c7178364b2d3d9bcaf59cd86498f4f200cd5c64cb36456ad",
+          "identical_control_prompts": true,
+          "marker_only_in_installed_positive_body": true,
+          "positive_marker_matched_and_negative_marker_absent": true,
+          "production_and_both_control_profiles_equal_after_temporary_path_normalization": true,
+          "limit": "The separate same-name project selection control supports selection in this explicit-invocation profile. It does not expose the production body, establish automatic routing, or prove host enforcement."
+        }
+      },
+      "observed_calls": [],
+      "raw_event_locations": "events.jsonl:1-4; final response at line 3; one completed turn at line 4",
+      "process_exit": 0,
+      "timeout": false,
+      "elapsed_seconds": 4.667,
+      "model": "gpt-6.1-terra requested; backend identity not emitted",
+      "effort": "xhigh requested",
+      "host_version": "Not emitted in these raw events",
+      "property_checks": [
+        {
+          "property": "Returns one short warm public draft in Spanish without unnecessary clarification.",
+          "status": "PASS",
+          "location": "output.txt:1",
+          "evidence": "One warm Spanish reply thanks the reviewer and acknowledges the supplied praise. It asks no clarification."
+        },
+        {
+          "property": "Normally uses two to four sentences and does not create extra language or tone variants.",
+          "status": "PASS",
+          "location": "output.txt:1",
+          "evidence": "The output contains three Spanish sentences, with no variant or extra language."
+        },
+        {
+          "property": "Does not invent an investigation, refund, discount, or contact route.",
+          "status": "PASS",
+          "location": "output.txt:1",
+          "evidence": "It names only the supplied bakery, bread, and team courtesy. The conventional welcome back is not a completed business action or an investigation, refund, discount, or contact claim."
+        },
+        {
+          "property": "Does not add an unnecessary owner-review note for this ordinary positive review.",
+          "status": "PASS",
+          "location": "output.txt:1",
+          "evidence": "No internal note or owner-review demand is added."
+        }
+      ],
+      "contract_checks": "Useful public draft; no invented completed staff sharing, sensitive relationship, policy, extra language, source-instruction action, or external side effect. No tool call is observed.",
+      "limits": [
+        "One normal Spanish case. The four Claude cases remain separately graded in review-response-runtime-r1.json.",
+        "The production source body and inventory are opaque; selection is supported inference rather than direct body observation.",
+        "Backend model identity and CLI version are not emitted in this receipt."
+      ]
+    },
+    "findings": []
+  }
+]

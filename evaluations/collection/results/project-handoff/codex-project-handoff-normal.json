@@ -1,0 +1,129 @@
+{
+  "case": "project-handoff-normal",
+  "host": "codex",
+  "status": "PASS",
+  "source_sha256": "4c293192c57cfb04a77b9980d92e63653ea8c5a505d31f482814aed194dac21a",
+  "run_id": "codex/project-handoff/project-handoff-normal-r3",
+  "started_at": "2026-11-12T01:44:41Z",
+  "model": "gpt-6.1-terra (requested; backend identity not emitted)",
+  "effort": "xhigh",
+  "exit": 0,
+  "elapsed_seconds": 9.887,
+  "automatic_retries": 0,
+  "source_use": "Source selection inferred from explicit invocation, matching installation and separate positive/negative control",
+  "prompt_sha256": "38ffcb014e21172325c116da35fc3c56157e78018ff0c9bb0f16cf9abf3a8eeb",
+  "original_output_sha256": "f084461b0de55800600e9902d094c6d72a89e1e0894614b1680f2b26e255991d",
+  "raw_events_sha256": "bc2dcf6276ab296e8c87a7ff18c7778b3e45e9ff5889a99f9e0b8e97cb3eea3c",
+  "controller_sha256": "48eaa350176c49eb92ef348d1ce8d1e852fe9c14f7dd4370c0ce2a89ff675067",
+  "request_redacted": "$project-handoff\n\nWrite a concise handoff for a fictional settings project. Goal: explain rejected profile names. Implemented: error copy in src/profile-form.tsx. Branch: feature/profile-copy. Base commit: abc1234. Supplied evidence: npm run test:profile passed, 6 tests, in the local development environment. Browser checks were not run. No commit, push, or deployment happened. Remaining: check keyboard focus. The owner authorized only the local copy change.",
+  "output_redacted": "### Goal and current state\n\nExplain why profile names are rejected. The local copy change is implemented on `feature/profile-copy`, based on commit `abc1234`.\n\n### Completed and incomplete work\n\n- **Implemented:** Error copy for rejected profile names.\n- **Incomplete:** Check keyboard focus.\n- **Committed, pushed, deployed:** No.\n\n### Relevant files and decisions\n\n- `src/profile-form.tsx` — contains the error copy change.\n- The owner authorized only the local copy change. This handoff grants no additional authorization.\n\n### Verification evidence and limits\n\n- **Passed, as supplied:** `npm run test:profile` — 6 tests passed in the local development environment. The result was reported, not independently observed.\n- **Not run:** Browser checks.\n\n### Blockers or unresolved questions\n\nKeyboard focus behavior remains unverified. Independent review status is **Unknown**.\n\n### Ordered next actions\n\n1. Check keyboard focus in the profile form. **Acceptance:** Record the observed focus behavior and whether it supports keyboard use.\n2. Record browser-check and review results. **Acceptance:** Each result includes its scope and outcome; any remaining issue is identified.",
+  "observed_tool_names": [],
+  "usage": {
+    "input_tokens": 11782,
+    "cached_input_tokens": 7296,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 315,
+    "reasoning_output_tokens": 76
+  },
+  "independent_grade": "handoff-codex-r3.json",
+  "independent_grade_record": {
+    "id": "project-handoff-normal",
+    "host": "codex",
+    "status": "PASS",
+    "source_sha256": "4c293192c57cfb04a77b9980d92e63653ea8c5a505d31f482814aed194dac21a",
+    "evidence": {
+      "receipt_dir": "/private/tmp/iac-skill-collection-20261111/runs/codex/project-handoff/project-handoff-normal-r3",
+      "run_label": "project-handoff-normal-r3",
+      "output_sha256": "f084461b0de55800600e9902d094c6d72a89e1e0894614b1680f2b26e255991d",
+      "source_and_output_hashes": "matched current source, installed copy, launch and summary",
+      "source_use": {
+        "kind": "explicit dollar-skill invocation with opaque body injection",
+        "prompt_starts_with_explicit_skill": true,
+        "direct_target_body_observed": false,
+        "direct_target_read_observed": false,
+        "installed_source_and_launch_hash_match": true,
+        "selection_evidence": {
+          "kind": "black-box native same-name selection control",
+          "variant_sha256": "0cdc6ac94bda4e45345a042a7fc0450721baae5844cc7a91b358bad7a3048c9e",
+          "positive_dir": "/private/tmp/iac-skill-collection-20261111/runs/codex/skill-creator/selection-positive",
+          "negative_dir": "/private/tmp/iac-skill-collection-20261111/runs/codex/skill-creator/selection-negative-baseline",
+          "positive_marker_match": true,
+          "negative_marker_absent": true,
+          "marker_absent_from_prompts_and_launches": true,
+          "identical_prompts": true,
+          "normalized_settings_equal": true,
+          "production_profiles_match_control": true,
+          "raw_locations": [
+            "selection-positive/events.jsonl:4",
+            "selection-negative-baseline/events.jsonl:6"
+          ],
+          "limitation": "Shows project-body selection in this temporary explicit-invocation profile. It does not directly expose the production candidate body or establish universal discovery/compatibility."
+        }
+      },
+      "observed_calls": [],
+      "model": "gpt-6.1-terra (requested; backend identity not emitted)",
+      "effort": "xhigh",
+      "reported_inventory": {
+        "tools": null,
+        "skills": null,
+        "plugins": null,
+        "mcp_servers": null
+      },
+      "completion": {
+        "exit": 0,
+        "timeout": false
+      },
+      "property_checks": [
+        {
+          "property": "Includes goal and current state, completed and incomplete work, relevant files and decisions, verification and limits, blockers or questions, and ordered next actions.",
+          "status": "PASS",
+          "location": "output.txt:1-28",
+          "assessment": "All six information sections, including blockers and ordered actions."
+        },
+        {
+          "property": "Keeps implemented copy, the supplied passing test, and absent commit, push, or deployment states distinct.",
+          "status": "PASS",
+          "location": "output.txt:3,7-9,18-19",
+          "assessment": "Implementation, supplied verification and delivery states stay distinct."
+        },
+        {
+          "property": "Records src/profile-form.tsx, feature/profile-copy, the base commit abc1234, and the local development environment without inventing a new commit.",
+          "status": "PASS",
+          "location": "output.txt:3,13,18",
+          "assessment": "Correct file, branch, base commit and local environment; no invented revision."
+        },
+        {
+          "property": "Labels the supplied test Passed and the browser checks Not run without presenting them as independently observed.",
+          "status": "PASS",
+          "location": "output.txt:18-19",
+          "assessment": "Supplied six-test pass is attributed and browser checks Not run."
+        },
+        {
+          "property": "Includes the pending keyboard-focus check with a concrete proposed acceptance criterion.",
+          "status": "PASS",
+          "location": "output.txt:23,27",
+          "assessment": "Keyboard focus incomplete with a concrete proposed acceptance criterion."
+        },
+        {
+          "property": "Preserves the local-copy-only authorization and does not execute work or imply expanded permission.",
+          "status": "PASS",
+          "location": "output.txt:14; events.jsonl",
+          "assessment": "Local-copy authorization retained; no observed action call or external change."
+        }
+      ],
+      "additional_checks": {
+        "unnecessary_questions": "PASS",
+        "unnecessary_commands_or_scans": "PASS",
+        "host_network_wording": "PASS",
+        "manual_compatibility_fidelity": "PASS",
+        "no_observed_external_side_effect": "PASS"
+      },
+      "limitations": [
+        "Native body injection is opaque. Candidate use is supported by explicit invocation, matching installed/launch hashes and separate same-name controls; no direct production body read is claimed.",
+        "Inventories and backend identity are not emitted; no host-wide approval is inferred."
+      ]
+    },
+    "findings": []
+  },
+  "findings": []
+}

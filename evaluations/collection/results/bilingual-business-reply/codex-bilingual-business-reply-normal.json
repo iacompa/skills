@@ -1,0 +1,49 @@
+{
+  "case": "bilingual-business-reply-normal",
+  "host": "codex",
+  "status": "PASS",
+  "source_sha256": "15368569283d2e06b03f5a5b1ca5e645328649d96d84308c32b96b691751e621",
+  "run_id": "codex/bilingual-business-reply/bilingual-business-reply-normal-r5",
+  "started_at": "2026-11-12T02:22:32Z",
+  "model": "gpt-6.1-terra (requested; backend identity not emitted)",
+  "effort": "xhigh",
+  "exit": 0,
+  "elapsed_seconds": 7.675,
+  "automatic_retries": 0,
+  "source_use": "Source selection inferred from explicit invocation, matching installation and separate positive/negative control",
+  "prompt_sha256": "a6b7c1daea928d7f521f84859e7e54b5ad4b40fd954c9ea6e0a744271cafa8a8",
+  "original_output_sha256": "fb0f3536d6b53dae80031438443035109255d5fe467c6416e0637a9f17fd2546",
+  "raw_events_sha256": "bb15049f4e917625c38992713a22896cb7bc1d7e606baa4204904ee3b15fbb15",
+  "controller_sha256": "48eaa350176c49eb92ef348d1ce8d1e852fe9c14f7dd4370c0ce2a89ff675067",
+  "request_redacted": "$bilingual-business-reply\n\nPrepare a customer reply for fictional Brook Studio. Mina asks whether package P-219 still costs USD 165.00 and includes Friday delivery. Our approved price is USD 165.00. Delivery is available Friday only if payment arrives by Wednesday at 3 PM Eastern. Use a friendly professional tone for email.",
+  "output_redacted": "**English**\n\nSubject: Package P-219\n\nHi Mina,\n\nYes, package P-219 costs USD 165.00. Friday delivery is available if payment arrives by Wednesday at 3:00 PM Eastern Time.\n\nBest,  \nBrook Studio\n\n**Español**\n\nAsunto: Paquete P-219\n\nHola, Mina:\n\nSí, el paquete P-219 cuesta USD 165.00. La entrega el viernes está disponible si recibimos el pago a más tardar el miércoles a las 3:00 p. m., hora del Este.\n\nSaludos cordiales,  \nBrook Studio",
+  "observed_tool_names": [],
+  "usage": {
+    "input_tokens": 11681,
+    "cached_input_tokens": 7296,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 198,
+    "reasoning_output_tokens": 45
+  },
+  "independent_grade": "bilingual-runtime-r5.json",
+  "independent_grade_record": {
+    "id": "bilingual-business-reply-normal",
+    "host": "codex",
+    "status": "PASS",
+    "source_sha256": "15368569283d2e06b03f5a5b1ca5e645328649d96d84308c32b96b691751e621",
+    "evidence": [
+      "Run directory: /private/tmp/iac-skill-collection-20261111/runs/codex/bilingual-business-reply/bilingual-business-reply-normal-r5",
+      "Explicit $ invocation; both language drafts preserve reference, amount, payment condition, Friday, Wednesday, time/zone, and respectful Spanish. Equivalent 3 PM / 3:00 PM formatting does not change the time.",
+      "No tool calls appear. Installed project-copy hash matches. Exact injected body and inventory are not emitted; selection remains supported inference via the unchanged previously verified positive/negative control.",
+      "Launch requests gpt-6.1-terra / xhigh; backend identity and Codex version are not emitted.",
+      "output.txt SHA256: fb0f3536d6b53dae80031438443035109255d5fe467c6416e0637a9f17fd2546",
+      "events.jsonl SHA256: bb15049f4e917625c38992713a22896cb7bc1d7e606baa4204904ee3b15fbb15",
+      "launch.json SHA256: 6f384ce5a6cbe3510beb0fcc94dc3533d478a60f5612dddb6f6e6149e7631134",
+      "summary.json SHA256: 6180228de936a95642344abb9b878856b95cae60aaa4abb8ffd67b7f91072d62",
+      "prompt.txt SHA256: a6b7c1daea928d7f521f84859e7e54b5ad4b40fd954c9ea6e0a744271cafa8a8",
+      "controls.json SHA256: d6a316049cac0419aa4410e8ded5cfe3b599da3cae293abb8fd4b94a3923af50"
+    ],
+    "findings": []
+  },
+  "findings": []
+}

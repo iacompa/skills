@@ -1,0 +1,99 @@
+{
+  "slug": "project-handoff",
+  "name": {
+    "en": "Project Handoff Writer",
+    "es": "Redactor de traspasos de proyectos"
+  },
+  "description": {
+    "en": "Turn a work session into a concise handoff with known state, evidence, limits, and next actions.",
+    "es": "Convierte una sesión de trabajo en un traspaso breve con estado conocido, evidencia, límites y siguientes acciones."
+  },
+  "overview": {
+    "en": "Prepare a handoff another person or assistant can resume from supplied session context. Separate planned, implemented, verified, committed, pushed, and deployed work. Keep later corrections, failed checks, and missing evidence visible without requiring repository access.",
+    "es": "Prepara un traspaso que otra persona o asistente pueda retomar con el contexto de la sesión. Distingue el trabajo planeado, implementado, verificado, registrado en un commit, enviado al repositorio remoto y desplegado. Conserva las correcciones posteriores, las comprobaciones fallidas y la evidencia faltante sin exigir acceso al repositorio."
+  },
+  "inputs": [
+    {
+      "en": "Current goal and available session context.",
+      "es": "Objetivo actual y contexto disponible de la sesión."
+    },
+    {
+      "en": "Constraints, authorization, and relevant decisions.",
+      "es": "Restricciones, autorizaciones y decisiones relevantes."
+    },
+    {
+      "en": "Relevant files, changes, and supplied artifacts.",
+      "es": "Archivos, cambios y materiales proporcionados que sean relevantes."
+    },
+    {
+      "en": "Check commands, outcomes, and evidence pointers when known.",
+      "es": "Comandos de comprobación, resultados y referencias a la evidencia cuando se conozcan."
+    },
+    {
+      "en": "Known branch, commit, environment, and delivery state.",
+      "es": "Rama, commit, entorno y estado de entrega conocidos."
+    }
+  ],
+  "outcomes": [
+    {
+      "en": "Goal, current state, and completed or incomplete work.",
+      "es": "Objetivo, estado actual y trabajo completo o pendiente."
+    },
+    {
+      "en": "Relevant files, decisions, verification evidence, and its limits.",
+      "es": "Archivos, decisiones y evidencia de verificación relevantes, con sus límites."
+    },
+    {
+      "en": "Blockers, unresolved questions, and ordered next actions with acceptance criteria.",
+      "es": "Bloqueos, preguntas sin resolver y siguientes acciones ordenadas con criterios de aceptación."
+    },
+    {
+      "en": "A short resume prompt only when requested or useful without duplication.",
+      "es": "Un prompt breve para retomar el trabajo solo cuando se solicita o aporta valor sin repetir el traspaso."
+    }
+  ],
+  "language": {
+    "en": "Uses the requested language. English and Spanish examples are provided here.",
+    "es": "Usa el idioma solicitado. Aquí se incluyen ejemplos en inglés y español."
+  },
+  "examplePrompt": {
+    "en": "Write a concise handoff for a fictional login project. Goal: clarify failed login messages. Implemented: error copy in src/login.tsx. Supplied result: npm test -- login passed. Keyboard focus was not checked. No commit, push, or deployment happened. Remaining: check login keyboard focus. No additional decisions or blockers were supplied.",
+    "es": "Redacta un traspaso breve para un proyecto ficticio de inicio de sesión. Objetivo: aclarar los mensajes de error. Implementado: textos de error en src/login.tsx. Resultado proporcionado: npm test -- login pasó. No se comprobó el foco con el teclado. No hubo commit, envío al repositorio remoto ni despliegue. Falta comprobar el foco con el teclado. No se proporcionaron otras decisiones ni bloqueos."
+  },
+  "exampleOutput": {
+    "en": "Goal and state: Clarify login errors. Copy is implemented. The supplied targeted test passed. No commit, push, or deployment.\nWork: Copy complete. Keyboard focus pending.\nFiles and decisions: src/login.tsx. No other decisions supplied.\nVerification: Passed — npm test -- login, supplied result only. Not run — keyboard focus check.\nBlockers: None supplied.\nNext: Check keyboard focus. Proposed acceptance: every login control is reachable and focus remains visible.",
+    "es": "Objetivo y estado: Aclarar los errores de inicio de sesión. Los textos están implementados. La prueba específica proporcionada pasó. No hubo commit, envío al repositorio remoto ni despliegue.\nTrabajo: Textos completos. Foco con el teclado pendiente.\nArchivos y decisiones: src/login.tsx. No se proporcionaron otras decisiones.\nVerificación: Pasó — npm test -- login, solo según el resultado proporcionado. No ejecutada — comprobación del foco con el teclado.\nBloqueos: No se proporcionaron.\nSiguiente acción: Comprobar el foco con el teclado. Aceptación propuesta: todos los controles son accesibles con el teclado y el foco permanece visible."
+  },
+  "reviewAreas": [
+    {
+      "en": "Evidence for implementation, verification, and delivery states.",
+      "es": "Evidencia de los estados de implementación, verificación y entrega."
+    },
+    {
+      "en": "Later corrections, failed checks, and unresolved conflicts.",
+      "es": "Correcciones posteriores, comprobaciones fallidas y conflictos sin resolver."
+    },
+    {
+      "en": "Authorization boundaries and instructions embedded in logs.",
+      "es": "Límites de autorización e instrucciones incluidas en los registros."
+    },
+    {
+      "en": "Secrets, relevant files, and actionable acceptance criteria.",
+      "es": "Secretos, archivos relevantes y criterios de aceptación que permitan continuar."
+    }
+  ],
+  "limitations": [
+    {
+      "en": "Writes handoff text only. It does not edit, test, commit, push, deploy, or publish.",
+      "es": "Solo redacta el traspaso. No edita, ejecuta pruebas, crea commits, envía cambios al repositorio remoto, despliega ni publica."
+    },
+    {
+      "en": "Missing evidence remains unknown. A handoff cannot prove a deployment or a passing check.",
+      "es": "La evidencia faltante permanece desconocida. Un traspaso no puede demostrar un despliegue ni una comprobación exitosa."
+    },
+    {
+      "en": "Does not grant new permissions to the next person or assistant.",
+      "es": "No concede nuevos permisos a la siguiente persona o asistente."
+    }
+  ]
+}

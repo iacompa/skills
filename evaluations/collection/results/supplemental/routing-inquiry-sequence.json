@@ -1,0 +1,122 @@
+{
+  "id": "routing-inquiry-sequence",
+  "skill": "lead-follow-up",
+  "source_sha256": "9ebeaf0c7e01f32b8613a099ddebc92a1ee7774e0da8186bb7b784cde7bdaa9e",
+  "status": "PASS",
+  "run_id": "codex/lead-follow-up/routing-inquiry-sequence-routing-final",
+  "request": "For fictional Lake Print, draft two short follow-up emails about a new inbound web inquiry for brochure printing. The person asked for email only and requested the supplied price list. We are authorized to offer that list, but no discount or availability is approved. Include relative timing and stop conditions. Do not send anything.",
+  "output": "**Email 1 — Shortly after the inquiry**  \nPurpose: Share the requested price list.\n\n**Subject:** Lake Print brochure price list\n\nHi [Name],\n\nThank you for your interest in brochure printing with Lake Print. Please find the requested price list attached. What size and quantity are you considering?\n\nBest,  \n[Your name]  \nLake Print\n\n**Email 2 — Three business days after email 1**  \nPurpose: Follow up if there has been no reply.\n\n**Subject:** Following up on your brochure inquiry\n\nHi [Name],\n\nI’m following up on the brochure price list I sent. Do you have any questions about the options or pricing?\n\nBest,  \n[Your name]  \nLake Print\n\nAttach the approved price list to the first email. Stop the sequence if the person replies, books, the inquiry is resolved, or they opt out or request a pause. Contact them by email only.\n\nDrafts only; nothing was sent.",
+  "original_output_sha256": "5580517f979bf3f172c25eb8e8021350de4f888ecce74c29482bde12ed2bf095",
+  "raw_events_sha256": "a77f6813c9c6517e8a32eba21c0abc858c5b73d8fa54e08f4fb191f3d1a82a40",
+  "usage": {
+    "input_tokens": 23387,
+    "cached_input_tokens": 18432,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 436,
+    "reasoning_output_tokens": 62
+  },
+  "independent_grade_record": {
+    "id": "routing-inquiry-sequence",
+    "skill": "lead-follow-up",
+    "host": "codex",
+    "status": "PASS",
+    "source_sha256": "9ebeaf0c7e01f32b8613a099ddebc92a1ee7774e0da8186bb7b784cde7bdaa9e",
+    "evidence": {
+      "runtime_path": "/private/tmp/iac-skill-collection-20261111/runs/codex/lead-follow-up/routing-inquiry-sequence-routing-final",
+      "hashes": {
+        "launch.json": "7daf87ab985f27e14fed79e1500270f6e12366bc65184f9246df5cf0a4a8fcf3",
+        "summary.json": "4d6fcb858742173b914e6cafb1d7d60d603ee38fdd00c9efa6d3544d5e011198",
+        "controls.json": "e94234ef8ef5dcf0973253047041889f8dab8058462e6923591b3566ad9ab067",
+        "controller.py": "098800edeb8191076a93f3904673717a068889601cb08c539ebf8d6c2d82d117",
+        "prompt.txt": "7aea26b584e60301ddb13086db57076367d2dec61ec1ca2b940d67f9ea3c4bb3",
+        "output.txt": "5580517f979bf3f172c25eb8e8021350de4f888ecce74c29482bde12ed2bf095",
+        "events.jsonl": "a77f6813c9c6517e8a32eba21c0abc858c5b73d8fa54e08f4fb191f3d1a82a40",
+        "stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "installed_skills_sha256": {
+        "review-response": "8c65339b9b2e92d8ce67591661836b55a716aed6a7ce23ef4d427e73df89f8f1",
+        "bilingual-business-reply": "15368569283d2e06b03f5a5b1ca5e645328649d96d84308c32b96b691751e621",
+        "lead-follow-up": "9ebeaf0c7e01f32b8613a099ddebc92a1ee7774e0da8186bb7b784cde7bdaa9e"
+      },
+      "all_three_match_current_public": true,
+      "prompt_matches_frozen_request": true,
+      "explicit_skill_invocation": false,
+      "separate_expectations_appended": false,
+      "extra_cases_sha256": "93d236819eafc30adfa678f4ab69c9e1884dd4edcb1350a55b86bf39aeec4587",
+      "extra_expectations_sha256": "7b287637cd1d0797dfed231724d406bc03a9b8ae4b0f9bdb8e3e14977d391354",
+      "selection": {
+        "evidence_status": "OBSERVED",
+        "mechanism": "Natural request, three final installed sources and successful complete intended-source read",
+        "source_read_event_lines": [
+          5
+        ],
+        "source_read_sha256": "9ebeaf0c7e01f32b8613a099ddebc92a1ee7774e0da8186bb7b784cde7bdaa9e"
+      },
+      "actual_tool_calls": [
+        {
+          "event_line": 5,
+          "command": "/bin/zsh -c 'cat .agents/skills/lead-follow-up/SKILL.md'",
+          "exit_code": 0,
+          "status": "completed",
+          "output_sha256": "9ebeaf0c7e01f32b8613a099ddebc92a1ee7774e0da8186bb7b784cde7bdaa9e"
+        },
+        {
+          "event_line": 7,
+          "command": "/bin/zsh -c \"rg --files -g 'AGENTS.md' -g '*price*' -g '*pricing*' -g '*brochure*' -g 'SKILL.md' .\"",
+          "exit_code": 1,
+          "status": "failed",
+          "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "process_exit": 0,
+      "timeout": false,
+      "requested_model": "gpt-6.1-terra (requested; backend identity not emitted)",
+      "requested_effort": "xhigh",
+      "backend_identity": "Not emitted",
+      "host_cli_version": "Not emitted",
+      "property_results": [
+        {
+          "property": "Two email follow-ups with timing and stop conditions; no public review or unsolicited translation; no invented discount or booking",
+          "status": "PASS",
+          "assessment": "Actual output satisfies this property and the full target contract, with supporting checks below."
+        }
+      ],
+      "supporting_checks": [
+        {
+          "location": "output.txt:1-25",
+          "assessment": "Two short email touches, purposes and relative timing. Second touch is conditional on no reply after the first."
+        },
+        {
+          "location": "output.txt:8,21,27,29",
+          "assessment": "Attachment and previous-send language are sequence drafts conditional on the operator attaching/sending the approved list. Nothing is claimed sent now."
+        },
+        {
+          "location": "output.txt:27",
+          "assessment": "Email-only channel and stops on reply, booking, resolution, opt-out or pause."
+        },
+        {
+          "location": "output.txt:full output",
+          "assessment": "No discount, availability, call offer, public-review reply or unsolicited translation; no extra future business promises."
+        }
+      ],
+      "limits": [
+        "One natural near-miss request per target in this exact Codex profile and installed trio.",
+        "No universal routing or cross-host guarantee.",
+        "No external posting/sending or effective host enforcement test."
+      ]
+    },
+    "findings": [
+      {
+        "id": "RTF-E1",
+        "severity": "Low",
+        "confidence": "High",
+        "material": false,
+        "category": "efficiency",
+        "location": "events.jsonl:7",
+        "evidence": "After loading the intended source, an extra local rg search for price/AGENTS files fails with exit1. The request and operator attachment instruction support the draft without that search.",
+        "impact": "Extra local tool work without an output benefit; no factual or external-action failure.",
+        "repair": "Draft from sufficient supplied facts and keep attachment requirements with the operator; read more files only for material missing evidence."
+      }
+    ]
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "slug": "review-response",
+  "name": {
+    "en": "Review Response Assistant",
+    "es": "Asistente de respuestas a reseñas"
+  },
+  "description": {
+    "en": "Draft a concise public reply to a review and flag concerns that need owner review.",
+    "es": "Prepara una respuesta pública breve a una reseña e identifica asuntos que debe revisar el responsable del negocio."
+  },
+  "overview": {
+    "en": "Prepare one public response in the requested language or the review's language. Keep private notes separate. Low ratings, serious allegations, and sensitive disclosures receive an internal owner-review note.",
+    "es": "Prepara una respuesta pública en el idioma que pidas o en el de la reseña. Las notas privadas quedan separadas. Las calificaciones bajas, acusaciones graves y divulgaciones sensibles reciben una nota interna para revisión del responsable."
+  },
+  "inputs": [
+    {
+      "en": "Review text and rating, when known.",
+      "es": "Texto de la reseña y calificación, si la conoces."
+    },
+    {
+      "en": "Business type and facts approved for public use.",
+      "es": "Tipo de negocio y datos aprobados para uso público."
+    },
+    {
+      "en": "A public contact route, if one should appear in the reply.",
+      "es": "Un medio de contacto público, si quieres incluirlo en la respuesta."
+    }
+  ],
+  "outcomes": [
+    {
+      "en": "One short public draft, normally two to four sentences.",
+      "es": "Un borrador público breve, normalmente de dos a cuatro oraciones."
+    },
+    {
+      "en": "A separate internal note for low ratings or serious, private, or sensitive content.",
+      "es": "Una nota interna separada ante calificaciones bajas o contenido grave, privado o sensible."
+    }
+  ],
+  "language": {
+    "en": "Uses your requested language, or the review's language when clear.",
+    "es": "Usa el idioma que pidas o el de la reseña cuando sea claro."
+  },
+  "examplePrompt": {
+    "en": "Write a short reply to this five-star review for fictional Willow Bakery: 'The cinnamon rolls were wonderful. Thank you!'",
+    "es": "Escribe una respuesta breve a esta reseña de cinco estrellas de la panadería ficticia Willow Bakery: «Los rollos de canela estaban deliciosos. ¡Gracias!»"
+  },
+  "exampleOutput": {
+    "en": "Thank you for the lovely review! We're glad you enjoyed the cinnamon rolls and appreciate your kind words.",
+    "es": "¡Gracias por tu reseña! Nos alegra que disfrutaras los rollos de canela y agradecemos tus palabras."
+  },
+  "reviewAreas": [
+    {
+      "en": "Tone, language, brevity, and acknowledgment of concerns.",
+      "es": "Tono, idioma, brevedad y reconocimiento de las inquietudes."
+    },
+    {
+      "en": "Private details and patient or sensitive client relationships.",
+      "es": "Datos privados y relaciones con pacientes o clientes de servicios sensibles."
+    },
+    {
+      "en": "Unsupported claims, incentives, embedded instructions, and owner-review triggers.",
+      "es": "Afirmaciones sin respaldo, incentivos, instrucciones dentro de la reseña y motivos para revisión del responsable."
+    }
+  ],
+  "limitations": [
+    {
+      "en": "Produces drafts only. It does not post replies, contact reviewers, or investigate records.",
+      "es": "Solo produce borradores. No publica respuestas, contacta a quienes escriben reseñas ni investiga registros."
+    },
+    {
+      "en": "Does not decide whether a review is genuine or turn disputed claims into facts.",
+      "es": "No determina si una reseña es auténtica ni convierte afirmaciones disputadas en hechos."
+    },
+    {
+      "en": "Does not confirm sensitive relationships, expose internal notes, or offer incentives to change a rating.",
+      "es": "No confirma relaciones sensibles, divulga notas internas ni ofrece incentivos para cambiar una calificación."
+    }
+  ]
+}

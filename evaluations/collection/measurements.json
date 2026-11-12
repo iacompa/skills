@@ -1,0 +1,89 @@
+{
+  "method": "tiktoken 0.14.0; o200k_base encoding. Exact text counts for this encoding, not model-independent billing totals. Complete SKILL.md includes frontmatter. Discovery counts name + newline + description. Skill Creator has a project-selected 1200-token design target.",
+  "skills": [
+    {
+      "slug": "bilingual-business-reply",
+      "source_sha256": "15368569283d2e06b03f5a5b1ca5e645328649d96d84308c32b96b691751e621",
+      "discovery_tokens": 25,
+      "skill_md_tokens": 614,
+      "target_tokens": 600,
+      "within_target": false,
+      "characters": 3359,
+      "words": 453,
+      "package_files": [
+        "SKILL.md"
+      ],
+      "optional_references_loaded_in_standard_workflow": 0
+    },
+    {
+      "slug": "agent-permissions-audit",
+      "source_sha256": "ef31d7958c3a3ca8c7d44e1221145ad112286402e1380794f30ead2f2fd87244",
+      "discovery_tokens": 33,
+      "skill_md_tokens": 1182,
+      "target_tokens": 1200,
+      "within_target": true,
+      "characters": 6693,
+      "words": 923,
+      "package_files": [
+        "SKILL.md"
+      ],
+      "optional_references_loaded_in_standard_workflow": 0
+    },
+    {
+      "slug": "lead-follow-up",
+      "source_sha256": "9ebeaf0c7e01f32b8613a099ddebc92a1ee7774e0da8186bb7b784cde7bdaa9e",
+      "discovery_tokens": 27,
+      "skill_md_tokens": 836,
+      "target_tokens": 800,
+      "within_target": false,
+      "characters": 4586,
+      "words": 659,
+      "package_files": [
+        "SKILL.md"
+      ],
+      "optional_references_loaded_in_standard_workflow": 0
+    },
+    {
+      "slug": "review-response",
+      "source_sha256": "8c65339b9b2e92d8ce67591661836b55a716aed6a7ce23ef4d427e73df89f8f1",
+      "discovery_tokens": 24,
+      "skill_md_tokens": 505,
+      "target_tokens": 550,
+      "within_target": true,
+      "characters": 2802,
+      "words": 400,
+      "package_files": [
+        "SKILL.md"
+      ],
+      "optional_references_loaded_in_standard_workflow": 0
+    },
+    {
+      "slug": "project-handoff",
+      "source_sha256": "4c293192c57cfb04a77b9980d92e63653ea8c5a505d31f482814aed194dac21a",
+      "discovery_tokens": 22,
+      "skill_md_tokens": 690,
+      "target_tokens": 800,
+      "within_target": true,
+      "characters": 3650,
+      "words": 529,
+      "package_files": [
+        "SKILL.md"
+      ],
+      "optional_references_loaded_in_standard_workflow": 0
+    },
+    {
+      "slug": "skill-creator",
+      "source_sha256": "a22f791be16392af0af6eaeda22a10126a2bde6089a286dbbdd88171a01e0ab1",
+      "discovery_tokens": 29,
+      "skill_md_tokens": 1013,
+      "target_tokens": 1200,
+      "within_target": true,
+      "characters": 5619,
+      "words": 804,
+      "package_files": [
+        "SKILL.md"
+      ],
+      "optional_references_loaded_in_standard_workflow": 0
+    }
+  ]
+}

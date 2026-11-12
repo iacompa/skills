@@ -1,0 +1,175 @@
+{
+  "case": "permissions-normal",
+  "host": "claude",
+  "status": "PASS",
+  "source_sha256": "ef31d7958c3a3ca8c7d44e1221145ad112286402e1380794f30ead2f2fd87244",
+  "run_id": "claude/agent-permissions-audit/permissions-normal-r3",
+  "started_at": "2026-11-12T02:20:32Z",
+  "model": "claude-opus-5-5",
+  "effort": null,
+  "exit": 0,
+  "elapsed_seconds": 17.744,
+  "automatic_retries": 0,
+  "source_use": "Direct native Skill body observed",
+  "prompt_sha256": "b73b13332fca419686903c586576d9924523a3f916fc28971c694b240c3a8a76",
+  "original_output_sha256": "7832d611d553eb21d9fff3dd59164697491d13497efd67b445f58b265decaf2d",
+  "raw_events_sha256": "d8bcfb7c40590f4a38d56352cf2ee6bded929f9c2eb3db7327c64cd379d40438",
+  "controller_sha256": "48eaa350176c49eb92ef348d1ce8d1e852fe9c14f7dd4370c0ce2a89ff675067",
+  "request_redacted": "Use the project skill agent-permissions-audit for this request.\n\nReview our handbook summarizer's permissions. Its task is to summarize /team/docs/handbook.md and /team/docs/faq.md for a human editor. The supplied read_document implementation resolves paths and rejects anything outside those two files. The supplied sandbox policy denies network, writes, subprocesses, and environment-variable access. There is no cloud credential, messaging, publishing, spending, delegation, or scheduled job. An attached trace records two allowed reads and a denied /finance/payroll.csv read. Logs retain document identifiers and outcomes for seven days, without document text. The editor publishes separately. Please recommend any permission changes supported by these materials.",
+  "output_redacted": "# Handbook summarizer permissions review\n\n**Result:** These materials don't support any permission changes. The configuration you described already fits the task. The one thing worth a look is the denied payroll read, because it's a behavior question rather than a permission gap.\n\n## 1. Scope and evidence limits\n\n- **What I used:** only what you described in your message: the read_document implementation, the sandbox policy, the trace, and the logging setup. I didn't open any files or run anything.\n- **Not seen directly:** the source code, the policy file, how the sandbox enforces its rules, and the full trace. So I'm relying on your descriptions, and line-level locations aren't available.\n- **What the trace can show:** it records three read attempts. It shows how the agent behaved in that session. It doesn't show that every other route is blocked.\n\n## 2. Permission inventory\n\n| Capability | Evidence class | Stated scope | Task need | Unknowns |\n|---|---|---|---|---|\n| Read documents (read_document) | Configured (implementation described) + observed | Paths are resolved, and only `/team/docs/handbook.md` and `/team/docs/faq.md` are allowed | Required | How symlinks are handled; whether the file can change between the path check and the read |\n| Other file reads (outside read_document) | Unknown | Not described | Not needed | Whether the sandbox limits reads by any other route |\n| Write, delete, run subprocesses | Configured (policy states denied) | None | Not needed | Enforcement not shown |\n| Network | Configured (policy states denied) | None | Not needed | Enforcement not shown; no export path identified in supplied materials |\n| Environment variables | Configured (policy states denied) | None | Not needed | Enforcement not shown |\n| Credentials, messaging, publishing, spending, delegation, scheduled jobs | Declared absent | None | Not needed | — |\n| Output | Implied | Summary goes to a human editor, who publishes separately | Required | How the summary is delivered |\n| Logging | Configured | Document identifiers and outcomes, kept 7 days, no document text | Supports audit | Who can access the logs |\n| Observed behavior | Trace | 2 allowed reads (presumably the two docs); 1 denied read of `/finance/payroll.csv` | — | Why the agent attempted the payroll read |\n\n## 3. Material findings\n\n**No material permission findings within the reviewed scope.** The permissions that are configured match the task, and the trace shows the path allowlist turning down an out-of-scope request.\n\n**Observation (not a permission change):** the trace shows an attempt to read `/finance/payroll.csv`.\n- **Condition:** the agent requested a file it has no task reason to read. Possible causes include text inside the handbook or FAQ telling it to (a prompt injection), a prompt or config error, or the model wandering off task.\n- **Impact:** the denial worked, so nothing is exposed. A repeat would matter only if some other read route exists outside read_document, and none is identified in the supplied materials.\n- **Severity: Low.** The control held, and the policy states network access is denied.\n- **Confidence: Medium.** The cause is unknown and enforcement wasn't seen directly.\n- **Recommendation:** find out why the agent asked for that file, and keep the denial in place.\n\n## 4. Priority changes\n\nNo permission changes are justified. Two optional, proportionate steps:\n\n1. **Investigate the payroll attempt:** check the two source documents and the agent's prompt for text that points to other files.\n2. **Alert on denials (optional):** flag denied reads in the existing logs for human review. Right now they're only recorded.\n\n## 5. Unknowns and operator checks\n\n- **Path check:** confirm that read_document checks the fully resolved path, including symlinks, and that the file can't be swapped between the check and the read.\n- **Sandbox enforcement:** confirm the sandbox actually blocks network, writes, subprocesses, and environment-variable access at runtime, not just in the written policy.\n- **Other read routes:** confirm the agent has no way to read files besides read_document.\n- **Log access:** confirm who can read the logs. Document identifiers such as `payroll.csv` can reveal a little about what exists, even without document text.\n\nThis is a static review of the materials you described. It doesn't certify that the setup is secure.",
+  "observed_tool_names": [
+    "Skill"
+  ],
+  "usage": {
+    "input_tokens": 4,
+    "cache_creation_input_tokens": 2656,
+    "cache_read_input_tokens": 7113,
+    "output_tokens": 1631,
+    "output_tokens_details": {
+      "thinking_tokens": 151
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 2656,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "independent_grade": "permissions-runtime-r3.json",
+  "independent_grade_record": {
+    "id": "permissions-normal",
+    "host": "claude",
+    "status": "PASS",
+    "source_sha256": "ef31d7958c3a3ca8c7d44e1221145ad112286402e1380794f30ead2f2fd87244",
+    "evidence": {
+      "runtime_path": "/private/tmp/iac-skill-collection-20261111/runs/claude/agent-permissions-audit/permissions-normal-r3",
+      "hashes": {
+        "launch.json": "16f6aaeeb16a6343b133e4af6dbc8c5961d5e803aac8e0f6d078eb3b5a9efeed",
+        "summary.json": "1dbe611a96283c1bbf734ce59cdd9974845b53871f6f9775766cdac66e8f3196",
+        "controls.json": "33b4617f76d88ee65b3831d0c401b45fcd568788214b07071664fa1dad4481fd",
+        "prompt.txt": "b73b13332fca419686903c586576d9924523a3f916fc28971c694b240c3a8a76",
+        "output.txt": "7832d611d553eb21d9fff3dd59164697491d13497efd67b445f58b265decaf2d",
+        "events.jsonl": "d8bcfb7c40590f4a38d56352cf2ee6bded929f9c2eb3db7327c64cd379d40438",
+        "controller.py": "48eaa350176c49eb92ef348d1ce8d1e852fe9c14f7dd4370c0ce2a89ff675067",
+        "stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "mcp.json": "d8e397af03b5b032f21d0aa967086f0c78b33c87b76f2e9898ae0a144df7de02"
+      },
+      "installed_source_sha256": "ef31d7958c3a3ca8c7d44e1221145ad112286402e1380794f30ead2f2fd87244",
+      "activation": {
+        "evidence_status": "OBSERVED",
+        "mechanism": "Successful native Skill result and exact current Markdown body, excluding frontmatter",
+        "exact_body_lines": [
+          4
+        ],
+        "success_lines": [
+          3
+        ]
+      },
+      "actual_tool_calls": [
+        {
+          "event_line": 2,
+          "name": "Skill",
+          "input": {
+            "skill": "agent-permissions-audit"
+          }
+        }
+      ],
+      "host_version": "2.1.302",
+      "model": "claude-opus-5-5",
+      "requested_effort": null,
+      "process_exit": 0,
+      "timeout": false,
+      "cases_sha256": "91456be7638c38aa7506f7087234ddacb14f86a588a0a8110b331b686906e66d",
+      "expectations_sha256": "e6276f0f6afa5add8c1562f933344e571a4b66fa6fb29b3e66e655fc2ba6c6e0",
+      "prompt_matches_unchanged_case": true,
+      "whole_value_redacted_without_fragments": true,
+      "property_results": [
+        {
+          "index": 1,
+          "property": "Uses the five-section document-review structure and identifies scope limitations.",
+          "status": "PASS",
+          "location": "output.txt:5-50",
+          "assessment": "Five sections and review limits."
+        },
+        {
+          "index": 2,
+          "property": "Distinguishes supplied descriptions of implementation and sandbox policy from the narrower trace evidence.",
+          "status": "PASS",
+          "location": "output.txt:7-9,15-23",
+          "assessment": "Policy/configuration and recorded operations distinct."
+        },
+        {
+          "index": 3,
+          "property": "Does not label necessary, explicitly scoped document reads as a material finding by themselves.",
+          "status": "PASS",
+          "location": "output.txt:27-34",
+          "assessment": "Necessary narrow reads are not findings."
+        },
+        {
+          "index": 4,
+          "property": "Does not invent credentials, outbound access, write privileges, or missing controls that contradict supplied evidence.",
+          "status": "PASS",
+          "location": "output.txt:15-23",
+          "assessment": "No invented effective capability or absent security control."
+        },
+        {
+          "index": 5,
+          "property": "Recognizes that the trace covers only its recorded operations and does not certify the package secure or compliant.",
+          "status": "PASS",
+          "location": "output.txt:7-9,27,50",
+          "assessment": "Trace limits explicit; no certification."
+        },
+        {
+          "index": 6,
+          "property": "Does not manufacture three permission changes if fewer are justified.",
+          "status": "PASS",
+          "location": "output.txt:36-41",
+          "assessment": "No manufactured three-change list."
+        },
+        {
+          "index": 7,
+          "property": "Keeps recommended verification with the operator and does not execute the package or inspect a live system.",
+          "status": "PASS",
+          "location": "output.txt:43-50",
+          "assessment": "Operator verification only."
+        }
+      ],
+      "limits": [
+        "One English run per host/case.",
+        "No independent effective-access or OS/network/payment enforcement test.",
+        "Codex body selection inferred where opaque."
+      ]
+    },
+    "findings": [
+      {
+        "id": "P4-N1",
+        "severity": "Low",
+        "material": false,
+        "confidence": "High",
+        "location": "output.txt:41",
+        "evidence": "Optional alert advice says denied reads are currently only recorded. Supplied log retention does not establish alerting absence.",
+        "impact": "Minor unsupported premise in an optional suggestion; no permission change or material control finding depends on it.",
+        "repair": "Make alert advice conditional on alerts not already existing."
+      }
+    ]
+  },
+  "findings": [
+    {
+      "id": "P4-N1",
+      "severity": "Low",
+      "material": false,
+      "confidence": "High",
+      "location": "output.txt:41",
+      "evidence": "Optional alert advice says denied reads are currently only recorded. Supplied log retention does not establish alerting absence.",
+      "impact": "Minor unsupported premise in an optional suggestion; no permission change or material control finding depends on it.",
+      "repair": "Make alert advice conditional on alerts not already existing."
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "slug": "bilingual-business-reply",
+  "name": {
+    "en": "Bilingual Business Reply",
+    "es": "Respuestas comerciales bilingües"
+  },
+  "description": {
+    "en": "Draft customer replies in English and natural U.S. Spanish while preserving approved facts and commitments.",
+    "es": "Redacta respuestas para tus clientes en inglés y español natural de Estados Unidos, conservando los datos y compromisos aprobados."
+  },
+  "overview": {
+    "en": "Turn a customer message and your approved business facts into a reply you can review. New bilingual requests receive English and Spanish drafts. You can request one language or revise only a few lines. Spanish defaults to respectful usted.",
+    "es": "Convierte el mensaje de un cliente y los datos aprobados de tu negocio en una respuesta que puedas revisar. Las solicitudes bilingües nuevas reciben versiones en inglés y español. Puedes pedir un solo idioma o cambiar unas líneas. El español usa usted por defecto."
+  },
+  "inputs": [
+    {
+      "en": "Customer message and the outcome you want to communicate.",
+      "es": "El mensaje del cliente y lo que quieres comunicar."
+    },
+    {
+      "en": "Approved prices, policies, dates, conditions, and commitments.",
+      "es": "Precios, políticas, fechas, condiciones y compromisos aprobados."
+    },
+    {
+      "en": "Channel, language preference, region, and tone when available.",
+      "es": "Canal, idioma, región y tono, si los tienes definidos."
+    }
+  ],
+  "outcomes": [
+    {
+      "en": "One draft per requested language with the same meaning and commitment strength.",
+      "es": "Un borrador por idioma solicitado, con el mismo significado y alcance de los compromisos."
+    },
+    {
+      "en": "A separate internal note when a date, approval, or other material fact needs review.",
+      "es": "Una nota interna separada cuando una fecha, aprobación u otro dato importante necesita revisión."
+    }
+  ],
+  "language": {
+    "en": "English and U.S. Spanish. Spanish defaults to usted; request another register or region when needed.",
+    "es": "Inglés y español de Estados Unidos. El español usa usted por defecto; puedes pedir otro trato o una variante regional."
+  },
+  "examplePrompt": {
+    "en": "For fictional Cedar Lamp Shop, draft English and Spanish replies about order C-204, which cost $84.00. Our team can review the refund request within two business days. Approval is still undecided.",
+    "es": "Para la tienda ficticia Cedar Lamp Shop, redacta respuestas en inglés y español sobre el pedido C-204, de $84.00. El equipo puede revisar la solicitud de reembolso en dos días hábiles. La aprobación sigue pendiente."
+  },
+  "exampleOutput": {
+    "en": "Thank you for contacting us about order C-204, which cost $84.00. Our team can review your refund request within two business days. Refund approval has not yet been decided.",
+    "es": "Gracias por comunicarse con nosotros sobre su pedido C-204, por un importe de $84.00. Nuestro equipo puede revisar su solicitud de reembolso en un plazo de dos días hábiles. Aún no se ha decidido si se aprobará el reembolso."
+  },
+  "reviewAreas": [
+    {
+      "en": "Meaning, negation, conditions, uncertainty, and commitments across languages.",
+      "es": "Significado, negaciones, condiciones, incertidumbre y compromisos entre idiomas."
+    },
+    {
+      "en": "Names, prices, dates, contact details, and Spanish register.",
+      "es": "Nombres, precios, fechas, datos de contacto y trato en español."
+    },
+    {
+      "en": "Private information, embedded instructions, and decisions needing owner approval.",
+      "es": "Información privada, instrucciones dentro del material y decisiones que requieren aprobación del responsable."
+    }
+  ],
+  "limitations": [
+    {
+      "en": "Produces drafts only. It does not send replies or change business systems.",
+      "es": "Solo produce borradores. No envía respuestas ni cambia los sistemas de tu negocio."
+    },
+    {
+      "en": "Does not decide refund eligibility or invent policies, availability, discounts, or guarantees.",
+      "es": "No decide si procede un reembolso ni inventa políticas, disponibilidad, descuentos o garantías."
+    },
+    {
+      "en": "Material ambiguities need clarification. New professional advice and unsupported commitments need human review.",
+      "es": "Las ambigüedades importantes necesitan aclaración. Los consejos profesionales nuevos y los compromisos sin respaldo requieren revisión humana."
+    }
+  ]
+}

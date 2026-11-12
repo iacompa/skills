@@ -1,0 +1,41 @@
+{
+  "positive_marker_matched": true,
+  "negative_marker_absent": true,
+  "scope": "One same-name explicit Codex project-selection control; normalized settings independently reviewed. Raw controller and events remain private. No universal host-enforcement claim.",
+  "runs": [
+    {
+      "run_id": "codex/skill-creator/selection-positive",
+      "status": "CAPTURED",
+      "prompt_sha256": "34909368216d3b9d3886f0704281115bdfc4077cce69dda770128d478b4d9ad3",
+      "output": "SYNTHETIC_ACTIVATION_2e1f104110a801fa250289d6228eaa1d",
+      "original_output_sha256": "167ec9035964d79daeaf61b9ed2ee82c0ca47c67d9b0b47a8e762439ba04b475",
+      "raw_events_sha256": "f0f478a4141a705832a6ce2878ba6316d93595a226bf5185750eac49011afa98",
+      "source_sha256": "0cdc6ac94bda4e45345a042a7fc0450721baae5844cc7a91b358bad7a3048c9e",
+      "usage": {
+        "input_tokens": 11055,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 163,
+        "reasoning_output_tokens": 114
+      },
+      "controller_sha256": "48eaa350176c49eb92ef348d1ce8d1e852fe9c14f7dd4370c0ce2a89ff675067"
+    },
+    {
+      "run_id": "codex/skill-creator/selection-negative-baseline",
+      "status": "CAPTURED",
+      "prompt_sha256": "34909368216d3b9d3886f0704281115bdfc4077cce69dda770128d478b4d9ad3",
+      "output": "Activation failed: `skill-creator` is not listed among the available skills, and I could not find it in the workspace. Filesystem restrictions prevent me from checking the installed skills directory.",
+      "original_output_sha256": "3a520a325bae3b73c7178364b2d3d9bcaf59cd86498f4f200cd5c64cb36456ad",
+      "raw_events_sha256": "0073989c6c8958fab6c565a4ca268eb530cb4298987e88ebdf3d9133fa78e878",
+      "source_sha256": "0cdc6ac94bda4e45345a042a7fc0450721baae5844cc7a91b358bad7a3048c9e",
+      "usage": {
+        "input_tokens": 21985,
+        "cached_input_tokens": 18176,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 219,
+        "reasoning_output_tokens": 53
+      },
+      "controller_sha256": "48eaa350176c49eb92ef348d1ce8d1e852fe9c14f7dd4370c0ce2a89ff675067"
+    }
+  ]
+}

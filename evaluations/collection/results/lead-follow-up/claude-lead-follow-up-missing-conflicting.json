@@ -1,0 +1,148 @@
+{
+  "case": "lead-follow-up-missing-conflicting",
+  "host": "claude",
+  "status": "PASS",
+  "source_sha256": "9ebeaf0c7e01f32b8613a099ddebc92a1ee7774e0da8186bb7b784cde7bdaa9e",
+  "run_id": "claude/lead-follow-up/lead-follow-up-missing-conflicting-r7",
+  "started_at": "2026-11-12T03:25:09Z",
+  "model": "claude-opus-5-5",
+  "effort": null,
+  "exit": 0,
+  "elapsed_seconds": 14.955,
+  "automatic_retries": 0,
+  "source_use": "Direct native Skill body observed",
+  "prompt_sha256": "ab42e05eb6e5ed81c298d66b38f62fdc25db09c0bea876887f89d0b190629de1",
+  "original_output_sha256": "d6e069e745bb50a99b647d282c4d882e4dc3e79ae31354b7d5b1f34f0b80098f",
+  "raw_events_sha256": "90b5ee03a4f11c86ea0cf0aa9690ed3400611b26e211b45cdb51e7d1dfaefe32",
+  "controller_sha256": "48eaa350176c49eb92ef348d1ce8d1e852fe9c14f7dd4370c0ce2a89ff675067",
+  "request_redacted": "Use the project skill lead-follow-up for this request.\n\nDraft a short email sequence for a cold prospect from a trade-show spreadsheet for fictional Harbor Cleaning. The sheet lists an email and phone number but no contact permission. One note says email only. Another says call this afternoon. I do not know which note is newer. We offer commercial cleaning, but no prices or discounts are approved. Please use placeholders where necessary rather than asking questions.",
+  "output_redacted": "# Harbor Cleaning: cold prospect email sequence (provisional)\n\n## Check before using\n\n- **Permission:** The spreadsheet gives an email address and phone number but no contact permission. Having someone's contact details isn't consent. Before sending anything, confirm that cold email to this contact is allowed under Harbor Cleaning's policy and applicable rules, and confirm the opt-out wording `[UNSUBSCRIBE LINE]`.\n- **Notes that conflict:** One note says \"email only\" and the other says \"call this afternoon,\" and it's unclear which is newer. Don't call until someone sorts this out. The drafts stay on email and don't offer a call.\n- **Trade-show context:** The spreadsheet doesn't show that this person visited the booth or spoke with anyone. The drafts don't claim a meeting. Only replace `[CONNECTION CONTEXT]` with something specific if you can confirm it.\n- **Business facts:** No prices, discounts, availability or results are approved, and none are mentioned. `[APPROVED NEXT STEP]` stays a placeholder until someone approves the actual offer, including who does it and how.\n\n## Touch 1: Introduction\n**Purpose:** Introduce Harbor Cleaning's commercial cleaning service and ask about the prospect's needs.\n**Timing:** Once the checks above are done.\n\n**Subject:** Commercial cleaning for [Company Name]\n\n> Hi [First Name], I'm [Your Name] with Harbor Cleaning. [CONNECTION CONTEXT – e.g., \"Your contact details came from the [Trade Show Name] list,\" only if confirmed accurate.] We provide commercial cleaning services, and I wanted to ask whether [Company Name] is currently reviewing cleaning support for your facility. If it's useful, [APPROVED NEXT STEP]. Thank you, [Your Name], Harbor Cleaning, [Email Signature]. [UNSUBSCRIBE LINE]\n\n**Stop/branch:** Stop the sequence if they reply, book, opt out, ask to pause, or the address bounces or is wrong.\n\n## Touch 2: Short follow-up\n**Purpose:** A brief reminder that asks one simple question.\n**Timing:** About [X business days] after Touch 1 if there's no reply.\n\n**Subject:** Re: Commercial cleaning for [Company Name]\n\n> Hi [First Name], following up on my earlier note. Who at [Company Name] handles decisions about commercial cleaning? Thank you, [Your Name], Harbor Cleaning. [UNSUBSCRIBE LINE]\n\n**Stop/branch:** Same as Touch 1. If they name another person, stop this sequence and check permission for that person before contacting them.\n\n## Touch 3: Closing note\n**Purpose:** A polite last message.\n**Timing:** About [X business days] after Touch 2 if there's no reply.\n\n**Subject:** Re: Commercial cleaning for [Company Name]\n\n> Hi [First Name], this is my last note on this. If commercial cleaning becomes a priority for [Company Name], you can reach Harbor Cleaning at [Business Email]. Thank you for your time, [Your Name], Harbor Cleaning. [UNSUBSCRIBE LINE]\n\n**Stop/branch:** End the sequence after this touch. Any reply moves the contact into the ongoing-conversation workflow.\n\nThese are drafts only. Nothing has been sent or scheduled.",
+  "observed_tool_names": [
+    "Skill"
+  ],
+  "usage": {
+    "input_tokens": 4,
+    "cache_creation_input_tokens": 2022,
+    "cache_read_input_tokens": 6923,
+    "output_tokens": 1411,
+    "output_tokens_details": {
+      "thinking_tokens": 195
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 2022,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "independent_grade": "lead-runtime-r7.json",
+  "independent_grade_record": {
+    "id": "lead-follow-up-missing-conflicting",
+    "host": "claude",
+    "status": "PASS",
+    "source_sha256": "9ebeaf0c7e01f32b8613a099ddebc92a1ee7774e0da8186bb7b784cde7bdaa9e",
+    "evidence": {
+      "receipt_dir": "/private/tmp/iac-skill-collection-20261111/runs/claude/lead-follow-up/lead-follow-up-missing-conflicting-r7",
+      "request_matches_frozen_fixture": true,
+      "request_wrapper": "Use the project skill lead-follow-up for this request.",
+      "output_sha256": "d6e069e745bb50a99b647d282c4d882e4dc3e79ae31354b7d5b1f34f0b80098f",
+      "source_hashes": "current core, installed copy, launch and summary match",
+      "source_use": {
+        "kind": "direct native Skill body observation",
+        "exact_body_line": 4,
+        "successful_results": [
+          {
+            "line": 3,
+            "error": false,
+            "content": "Launching skill: lead-follow-up"
+          }
+        ],
+        "skill_arguments_appended_after_exact_body": false
+      },
+      "observed_calls": [
+        {
+          "line": 2,
+          "name": "Skill"
+        }
+      ],
+      "model": "claude-opus-5-5",
+      "effort": null,
+      "reported_inventory": {
+        "tools": [
+          "Read",
+          "Skill"
+        ],
+        "skills": [
+          "lead-follow-up"
+        ],
+        "plugins": [],
+        "mcp_servers": []
+      },
+      "controller_sha256": "48eaa350176c49eb92ef348d1ce8d1e852fe9c14f7dd4370c0ce2a89ff675067",
+      "completion": {
+        "exit": 0,
+        "timeout": false
+      },
+      "property_checks": [
+        {
+          "property": "Treats the lead as a cold prospect rather than implying a prior inquiry or conversation.",
+          "status": "PASS",
+          "location": "output.txt:1,7,16",
+          "assessment": "Cold prospect and source context remain distinct from a prior visit, inquiry or conversation."
+        },
+        {
+          "property": "Identifies the unresolved contact-preference conflict and the missing permission context in separate operator notes.",
+          "status": "PASS",
+          "location": "output.txt:5-6",
+          "assessment": "Permission and conflicting notes are separate checks."
+        },
+        {
+          "property": "Does not infer permission from the email or phone number and does not propose a call before clarification.",
+          "status": "PASS",
+          "location": "output.txt:5-6",
+          "assessment": "Contact information is not consent; email only until the call conflict is resolved."
+        },
+        {
+          "property": "Provides useful conditional email drafts with labeled placeholders without asking questions or refusing all drafting.",
+          "status": "PASS",
+          "location": "output.txt:10-38",
+          "assessment": "Three useful conditional email touches with placeholders; no clarification questions or refusal."
+        },
+        {
+          "property": "States what the operator must check before using the drafts.",
+          "status": "PASS",
+          "location": "output.txt:3-8,12",
+          "assessment": "Permission, preferences, context and approved next-step checks precede use."
+        },
+        {
+          "property": "Does not invent approved offers, discounts, personal familiarity, or a legal-compliance guarantee.",
+          "status": "PASS",
+          "location": "output.txt:8,16,26,36",
+          "assessment": "No invented prices, discounts, availability, results, familiarity or legal-compliance guarantee."
+        }
+      ],
+      "additional_checks": {
+        "relative_dates_preserved": "PASS",
+        "required_operator_actions_not_reported_complete": "PASS",
+        "no_unapproved_business_promise": "PASS",
+        "known_process_states_only": "PASS",
+        "no_manager_optout_restart": "PASS",
+        "no_unnecessary_file_search_or_git_check": "PASS",
+        "requested_sequence_not_alternatives": "PASS"
+      },
+      "limitations": [
+        "This is a case-level current-source result, not host-wide discovery, permission enforcement, legal-compliance, or universal behavior approval.",
+        "Codex covers the normal case only. Hidden skill injection, backend model identity and full inventories remain unobserved."
+      ]
+    },
+    "findings": []
+  },
+  "findings": []
+}

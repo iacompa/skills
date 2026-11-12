@@ -1,0 +1,27 @@
+{
+  "slug": "agent-permissions-audit",
+  "name": {"en": "Agent Permissions Audit", "es": "Auditoría de permisos de agentes"},
+  "description": {"en": "Compare an agent's intended task with its documented tools, access, credentials, and approval requirements.", "es": "Compara la tarea prevista de un agente con sus herramientas, accesos, credenciales y requisitos de aprobación documentados."},
+  "overview": {"en": "Review supplied configurations and evidence without running the agent. Separate permission claims, configured access, and observed behavior. Identify material risks and recommend a smaller scope that still supports the intended task.", "es": "Revisa configuraciones y evidencia proporcionadas sin ejecutar el agente. Distingue los permisos declarados, el acceso configurado y el comportamiento observado. Identifica riesgos relevantes y recomienda un alcance menor que permita cumplir la tarea prevista."},
+  "inputs": [
+    {"en": "The agent's intended task and supplied tool or permission configurations.", "es": "La tarea prevista del agente y las configuraciones de herramientas o permisos disponibles."},
+    {"en": "Policies, redacted implementation excerpts, logs, approval records, or credential-scope descriptions. Secret values are not needed.", "es": "Políticas, fragmentos de implementación con datos sensibles ocultos, registros, aprobaciones o descripciones del alcance de credenciales. No se necesitan valores secretos."}
+  ],
+  "outcomes": [
+    {"en": "A permission inventory that separates declared, configured, observed, and unknown access.", "es": "Un inventario que distingue el acceso declarado, configurado, observado y desconocido."},
+    {"en": "Material findings with evidence, severity, confidence, and proportionate recommendations.", "es": "Hallazgos relevantes con evidencia, gravedad, confianza y recomendaciones proporcionales."},
+    {"en": "Priority changes and verification steps for the operator.", "es": "Cambios prioritarios y pasos de verificación para la persona operadora."}
+  ],
+  "language": {"en": "Uses the language of your request.", "es": "Usa el idioma de tu solicitud."},
+  "examplePrompt": {"en": "Fictional example: our document summarizer is described as read-only. Its configuration lists read_file, write_file, run_shell, and send_message. The cloud token's scope is missing. Review the excerpt and recommend next steps.", "es": "Ejemplo ficticio: nuestro agente de resúmenes se describe como de solo lectura. Su configuración incluye read_file, write_file, run_shell y send_message. No figura el alcance del token de nube. Revisa el fragmento y recomienda próximos pasos."},
+  "exampleOutput": {"en": "Fictional example, abbreviated review:\n1. Scope: supplied configuration only. Implementations and enforcement are unknown.\n2. Inventory: read-only is declared. File writes, shell execution, and messaging tools are configured. Token scope is Unknown.\n3. Finding: the configured capabilities exceed the stated summarization task if executable as named. Potential impact includes file changes or data disclosure. Severity: High if sensitive access is available. Confidence: Medium because implementations are missing.\n4. Priorities: remove unneeded write and message tools, constrain execution, and document a read-only token scope.\n5. Verification: the operator should inspect enforcement and denied-operation evidence. No live check was performed.", "es": "Ejemplo ficticio, revisión abreviada:\n1. Alcance: solo la configuración proporcionada. Se desconocen las implementaciones y los controles efectivos.\n2. Inventario: se declara solo lectura. Hay herramientas configuradas para escribir archivos, ejecutar comandos y enviar mensajes. Alcance del token: Desconocido.\n3. Hallazgo: las capacidades configuradas exceden la tarea de resumir si funcionan como indican sus nombres. El impacto potencial incluye cambios en archivos o divulgación de datos. Gravedad: Alta si existe acceso a información sensible. Confianza: Media porque faltan las implementaciones.\n4. Prioridades: retirar herramientas innecesarias de escritura y mensajes, limitar la ejecución y documentar un token de solo lectura.\n5. Verificación: la persona operadora debe revisar los controles y la evidencia de operaciones denegadas. No se realizó una comprobación en vivo."},
+  "reviewAreas": [
+    {"en": "Files, execution, network destinations, credentials, and combined access risks.", "es": "Archivos, ejecución, destinos de red, credenciales y riesgos de accesos combinados."},
+    {"en": "Messaging, publication, spending, approvals, delegation, and recurring jobs.", "es": "Mensajes, publicación, gastos, aprobaciones, delegación y tareas recurrentes."},
+    {"en": "Task fit, scope restrictions, supplied logs, retention, and evidence gaps.", "es": "Adecuación a la tarea, restricciones de alcance, registros disponibles, retención y evidencia faltante."}
+  ],
+  "limitations": [
+    {"en": "A document review cannot establish every effective permission or prove that an unshown control is absent.", "es": "Una revisión de documentos no puede establecer todos los permisos efectivos ni demostrar que un control no mostrado está ausente."},
+    {"en": "Does not run packages, probe systems, change permissions, or certify security or compliance.", "es": "No ejecuta paquetes, explora sistemas, cambia permisos ni certifica seguridad o cumplimiento."}
+  ]
+}

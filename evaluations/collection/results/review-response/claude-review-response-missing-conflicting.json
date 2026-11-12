@@ -1,0 +1,67 @@
+{
+  "case": "review-response-missing-conflicting",
+  "host": "claude",
+  "status": "PASS",
+  "source_sha256": "8c65339b9b2e92d8ce67591661836b55a716aed6a7ce23ef4d427e73df89f8f1",
+  "run_id": "claude/review-response/review-response-missing-conflicting-r1",
+  "started_at": "2026-11-12T01:18:39Z",
+  "model": "claude-opus-5-5",
+  "effort": null,
+  "exit": 0,
+  "elapsed_seconds": 7.873,
+  "automatic_retries": 0,
+  "source_use": "Direct native Skill body observed",
+  "prompt_sha256": "09d0cfc49cb919a40995f72ee3a897e8e9bc6418a6938fa2b2fa6962205163fe",
+  "original_output_sha256": "110302c8163d04ec11347679f8fc21747eb781f2f20ef791ef988fe38d920e49",
+  "raw_events_sha256": "893bb5f21a8b785b1eb474984d3a69f9dab6647e00098e513c00351eceaa9561",
+  "controller_sha256": "bed42dab06586da775397f8e8b4538db8818c6bfc29f7784fdcabacf666af32e",
+  "request_redacted": "Use the project skill review-response for this request.\n\nDraft a public reply for fictional Oak Fix. The review says, 'Still waiting for anyone to answer about the broken part.' One export lists 1 star and another lists 4 stars. The owner suspects a competitor wrote it. Internal note: the name does not match our customer list; invoice $72 is overdue; home address is 14 Fiction Lane. We have no public contact address ready for this draft.",
+  "output_redacted": "**Public draft**\n\n> Thank you for your feedback, and we're sorry to hear you're still waiting for an answer about the broken part. That's not the experience we want anyone to have. Please reach out to us directly with your details so we can look into this and follow up. [Insert public contact route once available]\n\n**Internal owner-review note**\n\n- **Conflicting ratings:** One export shows 1 star and the other shows 4 stars. Check which one is correct on the live platform before posting. The draft works for either rating because the review text is negative.\n- **Suspected competitor:** The name doesn't match your customer list, but that alone doesn't prove the review is fake. The draft doesn't call it fake or say the person isn't a customer. If you have real evidence, use the platform's reporting process instead of replying publicly.\n- **Private details left out:** The overdue $72 invoice, the home address, and the customer-list check are not in the reply and shouldn't be posted publicly.\n- **Contact route needed:** Replace the bracketed placeholder with an approved public email or phone number before posting. If you post without one, remove the bracket and keep the general invitation to get in touch.\n- **Follow-through:** The draft says you'll \"look into this and follow up.\" Only keep that line if someone will actually respond about the broken part.",
+  "observed_tool_names": [
+    "Skill"
+  ],
+  "usage": {
+    "input_tokens": 4,
+    "cache_creation_input_tokens": 1375,
+    "cache_read_input_tokens": 6897,
+    "output_tokens": 560,
+    "output_tokens_details": {
+      "thinking_tokens": 94
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 1375,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "independent_grade": "review-response-runtime-r1.json",
+  "independent_grade_record": {
+    "id": "review-response-missing-conflicting",
+    "host": "claude",
+    "status": "PASS",
+    "source_sha256": "8c65339b9b2e92d8ce67591661836b55a716aed6a7ce23ef4d427e73df89f8f1",
+    "evidence": [
+      "Run directory: /private/tmp/iac-skill-collection-20261111/runs/claude/review-response/review-response-missing-conflicting-r1",
+      "Claude Code 2.1.302 / claude-opus-5-5: init lists the skill; Skill succeeds; event 4 contains the exact reviewed body. Only Skill is called.",
+      "output.txt:3 says sorry to hear, acknowledging the reported concern without stating an independent verification. It makes a private-contact invitation, not a claim that investigation or contact already occurred.",
+      "output.txt:7 preserves the rating conflict; :8 rejects the unsupported fake-review inference; :9 omits private facts from the public draft; :10/:11 flag contact-route and follow-through review.",
+      "output.txt SHA256: 110302c8163d04ec11347679f8fc21747eb781f2f20ef791ef988fe38d920e49",
+      "events.jsonl SHA256: 893bb5f21a8b785b1eb474984d3a69f9dab6647e00098e513c00351eceaa9561",
+      "launch.json SHA256: 62c4b3a656e0cc9c9d760cfb8c4f19331742d3fcf0f5923947f3f19eda4c368c",
+      "summary.json SHA256: 7fd06ccc5a3f75c11d95ea4c53c1ffb1ba6dca3d55a75b552d958c6170dcc414",
+      "prompt.txt SHA256: 09d0cfc49cb919a40995f72ee3a897e8e9bc6418a6938fa2b2fa6962205163fe",
+      "controls.json SHA256: d02c6653f031b28b651c89248f805c1a81abbf4ac6383df8afa456427742b5a3",
+      "mcp.json SHA256: d8e397af03b5b032f21d0aa967086f0c78b33c87b76f2e9898ae0a144df7de02"
+    ],
+    "findings": []
+  },
+  "findings": []
+}

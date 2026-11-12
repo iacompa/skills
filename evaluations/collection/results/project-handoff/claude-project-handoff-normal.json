@@ -1,0 +1,143 @@
+{
+  "case": "project-handoff-normal",
+  "host": "claude",
+  "status": "PASS",
+  "source_sha256": "4c293192c57cfb04a77b9980d92e63653ea8c5a505d31f482814aed194dac21a",
+  "run_id": "claude/project-handoff/project-handoff-normal-r2",
+  "started_at": "2026-11-12T01:16:19Z",
+  "model": "claude-opus-5-5",
+  "effort": null,
+  "exit": 0,
+  "elapsed_seconds": 9.398,
+  "automatic_retries": 0,
+  "source_use": "Direct native Skill body observed",
+  "prompt_sha256": "07d4dca3cdd3e08dfff4bb82f721fbeb971258f608754cc8d972923af986aa89",
+  "original_output_sha256": "8ee3b2c0867ab77f86af2c2cd3fded96ccf85b11038c1703065eb624ca86c891",
+  "raw_events_sha256": "31927fd4375e8045ed951846612ae1dfd71f9fb144aeffb85d6698f8bdeebb24",
+  "controller_sha256": "bed42dab06586da775397f8e8b4538db8818c6bfc29f7784fdcabacf666af32e",
+  "request_redacted": "Use the project skill project-handoff for this request.\n\nWrite a concise handoff for a fictional settings project. Goal: explain rejected profile names. Implemented: error copy in src/profile-form.tsx. Branch: feature/profile-copy. Base commit: abc1234. Supplied evidence: npm run test:profile passed, 6 tests, in the local development environment. Browser checks were not run. No commit, push, or deployment happened. Remaining: check keyboard focus. The owner authorized only the local copy change.",
+  "output_redacted": "# Handoff: Profile Name Rejection Copy\n\n**1. Goal and current state**\n- **Goal:** Tell users why a profile name was rejected.\n- **State:** Implemented and verified by the supplied unit-test report. Not committed, not pushed and not deployed, as the user reported.\n- **Branch:** `feature/profile-copy`. **Base commit:** `abc1234`.\n- **Environment:** Local development only.\n\n**2. Completed and incomplete work**\n- **Completed:** Wrote the error copy for rejected profile names in `src/profile-form.tsx`.\n- **Incomplete:**\n  - Keyboard focus behavior hasn't been checked.\n  - Browser checks haven't been run.\n\n**3. Relevant files and decisions**\n- `src/profile-form.tsx` contains the error copy change.\n- **Scope decision:** The owner authorized only the local copy change. That approval does not cover committing, pushing or deploying.\n\n**4. Verification evidence and limits**\n\n| Check | Command | Status | Scope / evidence |\n|---|---|---|---|\n| Profile unit tests | `npm run test:profile` | Passed (6 tests) | Local dev environment. Reported by the user, not observed in this session. |\n| Browser checks | — | Not run | — |\n| Keyboard focus | — | Not run | — |\n\nThe unit tests passing doesn't show how the copy renders in a browser or how it behaves with a keyboard.\n\n**5. Blockers or unresolved questions**\n- **Unresolved:** Committing, pushing or deploying needs new approval from the owner.\n- **Unknown:** What \"correct\" keyboard focus should be. For example, should focus move to the field with the error, or should the error be announced?\n\n**6. Ordered next actions**\n1. **Check keyboard focus on a rejected profile name.**\n   - *Done when:* Using only the keyboard, the user can reach the error message and the invalid field, and the error is visible.\n2. **Run the browser checks on the error copy.**\n   - *Done when:* The copy appears correctly when a name is rejected, and the results are recorded as Passed or Failed with their scope.\n3. **Re-run `npm run test:profile` if anything changes.**\n   - *Done when:* All tests pass, and the run is recorded with its environment.\n4. **Ask the owner before committing, pushing or deploying.**\n   - *Done when:* There is explicit approval for each step.",
+  "observed_tool_names": [
+    "Skill"
+  ],
+  "usage": {
+    "input_tokens": 4,
+    "cache_creation_input_tokens": 1706,
+    "cache_read_input_tokens": 6944,
+    "output_tokens": 899,
+    "output_tokens_details": {
+      "thinking_tokens": 42
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 1706,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "independent_grade": "handoff-codex-r3.json",
+  "independent_grade_record": {
+    "id": "project-handoff-normal",
+    "host": "claude",
+    "status": "PASS",
+    "source_sha256": "4c293192c57cfb04a77b9980d92e63653ea8c5a505d31f482814aed194dac21a",
+    "evidence": {
+      "receipt_dir": "/private/tmp/iac-skill-collection-20261111/runs/claude/project-handoff/project-handoff-normal-r2",
+      "run_label": "project-handoff-normal-r2",
+      "output_sha256": "8ee3b2c0867ab77f86af2c2cd3fded96ccf85b11038c1703065eb624ca86c891",
+      "source_and_output_hashes": "matched current source, installed copy, launch and summary",
+      "source_load": {
+        "kind": "native Skill invocation",
+        "exact_body_line": 4,
+        "skill_result_locations": [
+          "events.jsonl:3"
+        ],
+        "exact_body_match": true
+      },
+      "calls": [
+        {
+          "line": 2,
+          "name": "Skill"
+        }
+      ],
+      "completion": {
+        "exit": 0,
+        "timeout": false
+      },
+      "model": "claude-opus-5-5",
+      "effort": null,
+      "reported_inventory": {
+        "tools": [
+          "Read",
+          "Skill"
+        ],
+        "skills": [
+          "project-handoff"
+        ],
+        "plugins": [],
+        "mcp_servers": []
+      },
+      "property_checks": [
+        {
+          "property": "Includes goal and current state, completed and incomplete work, relevant files and decisions, verification and limits, blockers or questions, and ordered next actions.",
+          "status": "PASS",
+          "location": "output.txt:3-41",
+          "assessment": "All six information sections including blockers and ordered actions."
+        },
+        {
+          "property": "Keeps implemented copy, the supplied passing test, and absent commit, push, or deployment states distinct.",
+          "status": "PASS",
+          "location": "output.txt:5,23-27",
+          "assessment": "Implementation and supplied verification remain distinct from absent delivery states."
+        },
+        {
+          "property": "Records src/profile-form.tsx, feature/profile-copy, the base commit abc1234, and the local development environment without inventing a new commit.",
+          "status": "PASS",
+          "location": "output.txt:6-7,10,16",
+          "assessment": "Correct file, branch, base commit and local environment."
+        },
+        {
+          "property": "Labels the supplied test Passed and the browser checks Not run without presenting them as independently observed.",
+          "status": "PASS",
+          "location": "output.txt:23-25",
+          "assessment": "Reported six-test pass and unrun browser checks are attributed correctly."
+        },
+        {
+          "property": "Includes the pending keyboard-focus check with a concrete proposed acceptance criterion.",
+          "status": "PASS",
+          "location": "output.txt:34-37",
+          "assessment": "Keyboard-focus work remains pending with proposed acceptance criteria."
+        },
+        {
+          "property": "Preserves the local-copy-only authorization and does not execute work or imply expanded permission.",
+          "status": "PASS",
+          "location": "output.txt:17,30,40-41",
+          "assessment": "Local-copy authority retained and no action executed."
+        }
+      ],
+      "additional_checks": {
+        "unnecessary_questions": "PASS",
+        "unnecessary_tools": "PASS",
+        "no_unsupported_host_enforcement_claim": "PASS",
+        "manual_compatibility_fidelity": "PASS",
+        "unknown_consistency": "PASS",
+        "all_required_handoff_sections": "PASS",
+        "no_observed_external_side_effect": "PASS"
+      },
+      "limitations": [
+        "Explicit Skill invocation was observed. Automatic routing and downstream generated-skill behavior were not tested."
+      ],
+      "reused_from": "evaluations/collection/reviews/handoff-runtime-r2.json",
+      "reuse_verification": "Unchanged target source; original launch and actual output hashes independently rechecked during G-B3."
+    },
+    "findings": []
+  },
+  "findings": []
+}

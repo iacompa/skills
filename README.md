@@ -6,6 +6,12 @@ Public Agent Skills maintained by IA Compa. Each website entry identifies its so
 | --- | --- | --- |
 | Skill Audit 1.0 | Review skills and supporting packages as inactive evidence. | [Skill Audit](skills/skill-audit/SKILL.md) |
 | Send to Cloud 1.1 | Ask for the cloud destination, preserve a Git checkpoint, and prepare a short continuation prompt. | [Send to Cloud](skills/send-to-cloud/SKILL.md) |
+| Bilingual Business Reply 1.0 | Draft English and U.S. Spanish replies without changing facts or promises. | [Bilingual reply](skills/bilingual-business-reply/SKILL.md) |
+| Agent Permissions Audit 1.0 | Review supplied permissions and recommend proportionate restrictions. | [Permissions audit](skills/agent-permissions-audit/SKILL.md) |
+| Lead Follow-Up Playbook 1.0 | Draft channel-specific follow-ups with contact preferences and stop conditions. | [Lead follow-up](skills/lead-follow-up/SKILL.md) |
+| Review Response Assistant 1.0 | Draft a short public reply and separate owner-review concerns. | [Review response](skills/review-response/SKILL.md) |
+| Project Handoff Writer 1.0 | Preserve work state, evidence, constraints, and useful next steps. | [Project handoff](skills/project-handoff/SKILL.md) |
+| Skill Creator 1.0 | Design a portable skill with concise instructions and a separate evaluation plan. | [Skill Creator](skills/skill-creator/SKILL.md) |
 
 Browse the [Skills collection](https://iacompa.com/skills) for installation guidance and revision-bound results.
 
@@ -13,8 +19,27 @@ Skill Audit reviews AI skills, agent instructions, prompts, and supporting packa
 It produces findings, a separate coverage decision, practical repairs, and a validation plan.
 It covers prompt injection, security and privacy, permissions, reliability, supply-chain risks, and platform claims.
 
-Both installed packages contain Markdown instructions and references only.
-Neither package includes scripts, hooks, scanners, dependencies, or executable helpers.
+All packages contain Markdown instructions and optional Markdown references only.
+They include no scripts, hooks, scanners, dependencies, or executable helpers.
+The business and authoring skills in this release have complete standard workflows in `SKILL.md` alone.
+Their examples, catalogue text, fixtures, outputs, and measurements remain outside the installable directories.
+
+## Portable business and authoring skills
+
+Download a reviewed package from its website detail page or inspect its exact Git source first.
+Each new download includes the installable skill folder and the complete MIT notice beside it.
+Copy the folder into your project's `.agents/skills` for Codex, `.claude/skills` for Claude Code, or `.cursor/skills` for Cursor.
+Use the host's skill selection interface and verify the selected source.
+The website separates observed native use, official-documentation guidance, and untested manual use.
+Read the [collection report](audits/collection/1.0/README.md) for exact cases, hosts, models, failures, repairs, and limitations.
+
+Codex includes a different built-in `skill-creator`. Keep that copy intact.
+Select this package by its project path when names collide. Installation never grants host permissions.
+See the official [Codex](https://learn.chatgpt.com/docs/build-skills), [Claude Code](https://code.claude.com/docs/en/skills), and [Cursor](https://cursor.com/docs/skills) guidance.
+
+Development tools are separate from downloads. `scripts/validate-collection.py` uses development-only `tiktoken` and `PyYAML`.
+The measurements name the exact encoding and distinguish instruction text from full provider usage.
+Run it in a temporary virtual environment; do not add those dependencies to a runtime skill.
 
 ## Install
 
