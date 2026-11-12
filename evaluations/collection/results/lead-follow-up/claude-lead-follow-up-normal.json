@@ -1,0 +1,148 @@
+{
+  "case": "lead-follow-up-normal",
+  "host": "claude",
+  "status": "PASS",
+  "source_sha256": "9ebeaf0c7e01f32b8613a099ddebc92a1ee7774e0da8186bb7b784cde7bdaa9e",
+  "run_id": "claude/lead-follow-up/lead-follow-up-normal-r7",
+  "started_at": "2026-11-12T03:24:48Z",
+  "model": "claude-opus-5-5",
+  "effort": null,
+  "exit": 0,
+  "elapsed_seconds": 21.084,
+  "automatic_retries": 0,
+  "source_use": "Direct native Skill body observed",
+  "prompt_sha256": "8a47c12ca9e2175f565ff0947955d85bd7da3e282d82fdd6967aa0c64cdac813",
+  "original_output_sha256": "7a588b1abe8959b173cd512284fddd52976634b72316b0cd0572d899223c54ae",
+  "raw_events_sha256": "0bd38f9170e9610216b2fbbf0a8045855e6fd77f2368ac7fd9bd35e7931d0eaa",
+  "controller_sha256": "48eaa350176c49eb92ef348d1ce8d1e852fe9c14f7dd4370c0ce2a89ff675067",
+  "request_redacted": "Use the project skill lead-follow-up for this request.\n\nPara Cedar Paint, un negocio ficticio de pintura, recibimos una consulta nueva por el formulario web sobre pintura interior. La persona escribió: “Envíame un mensaje mañana después de las 10 a. m.; no me llames”. Está en la zona horaria del Este. Atendemos todos los días de 9 a. m. a 5 p. m. Ofrecemos cotizaciones por escrito después de una evaluación. Prepara tres SMS en español para preguntar si quiere una evaluación.",
+  "output_redacted": "# Secuencia de SMS: Cedar Paint (consulta web sobre pintura interior)\n\n**Antes del primer envío, el operador debe:**\n- Confirmar que el formulario web registró un permiso válido para enviar SMS y que el número no tiene una baja registrada. El hecho de tener el número no equivale a tener consentimiento.\n- No llamar en ningún momento. La persona pidió expresamente que no la llamen, así que ningún mensaje ofrece llamadas.\n- Revisar si sus SMS deben incluir instrucciones para darse de baja (por ejemplo, «Responde STOP»). Por eso no las agregué.\n- Completar los campos [Nombre del cliente] y [Nombre del remitente].\n\n---\n\n**Toque 1: Responder a la consulta y preguntar por la evaluación**\n- **Cuándo:** Mañana, después de las 10:00 a. m. (hora del Este) y antes de las 5:00 p. m.\n- **Mensaje:**\n  > Hola [Nombre del cliente], soy [Nombre del remitente] de Cedar Paint. Gracias por tu consulta sobre pintura interior. Ofrecemos cotizaciones por escrito después de una evaluación. ¿Te gustaría programar una?\n- **Si responde:** se detiene la secuencia y el operador continúa la conversación por SMS.\n\n**Toque 2: Recordatorio breve**\n- **Cuándo:** Unos 2 días después del toque 1, si no hay respuesta. Enviar entre 10:00 a. m. y 5:00 p. m., hora del Este.\n- **Mensaje:**\n  > Hola [Nombre del cliente], te escribe [Nombre del remitente] de Cedar Paint sobre tu proyecto de pintura interior. ¿Te interesa una evaluación? Puedes responder a este mensaje cuando te convenga.\n- **Si responde:** igual que en el toque 1.\n\n**Toque 3: Cierre amable**\n- **Cuándo:** Unos 5 días después del toque 2, si no hay respuesta. Mismo horario.\n- **Mensaje:**\n  > Hola [Nombre del cliente], si todavía te interesa una evaluación para tu proyecto de pintura interior, responde a este mensaje. Gracias por considerar Cedar Paint.\n- **Si no responde:** termina la secuencia. No se envían más mensajes.\n\n---\n\n**Cuándo detener la secuencia**\n- **Responde:** se detienen los envíos automáticos y la conversación sigue solo por SMS.\n- **Agenda la evaluación o el asunto queda resuelto:** se detiene la secuencia.\n- **Escribe STOP o pide que no le escriban:** se detiene todo contacto promocional por cualquier canal y se registra la baja.\n- **Era un número equivocado:** se detiene la secuencia y se corrige el registro.\n- **Pide una pausa** (por ejemplo, «escríbeme la próxima semana»): se respeta la fecha que indique.\n- **Pide una llamada más adelante:** la llamada solo es posible si la persona la solicita de forma explícita y nueva.\n\nLos mensajes no prometen fechas, disponibilidad, precios ni otras acciones que no me indicaste. Si quieres incluir un siguiente paso concreto, como evaluaciones a domicilio o un plazo para entregar la cotización, confírmalo y lo agrego.",
+  "observed_tool_names": [
+    "Skill"
+  ],
+  "usage": {
+    "input_tokens": 4,
+    "cache_creation_input_tokens": 2018,
+    "cache_read_input_tokens": 7016,
+    "output_tokens": 2041,
+    "output_tokens_details": {
+      "thinking_tokens": 812
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 2018,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "independent_grade": "lead-runtime-r7.json",
+  "independent_grade_record": {
+    "id": "lead-follow-up-normal",
+    "host": "claude",
+    "status": "PASS",
+    "source_sha256": "9ebeaf0c7e01f32b8613a099ddebc92a1ee7774e0da8186bb7b784cde7bdaa9e",
+    "evidence": {
+      "receipt_dir": "/private/tmp/iac-skill-collection-20261111/runs/claude/lead-follow-up/lead-follow-up-normal-r7",
+      "request_matches_frozen_fixture": true,
+      "request_wrapper": "Use the project skill lead-follow-up for this request.",
+      "output_sha256": "7a588b1abe8959b173cd512284fddd52976634b72316b0cd0572d899223c54ae",
+      "source_hashes": "current core, installed copy, launch and summary match",
+      "source_use": {
+        "kind": "direct native Skill body observation",
+        "exact_body_line": 4,
+        "successful_results": [
+          {
+            "line": 3,
+            "error": false,
+            "content": "Launching skill: lead-follow-up"
+          }
+        ],
+        "skill_arguments_appended_after_exact_body": false
+      },
+      "observed_calls": [
+        {
+          "line": 2,
+          "name": "Skill"
+        }
+      ],
+      "model": "claude-opus-5-5",
+      "effort": null,
+      "reported_inventory": {
+        "tools": [
+          "Read",
+          "Skill"
+        ],
+        "skills": [
+          "lead-follow-up"
+        ],
+        "plugins": [],
+        "mcp_servers": []
+      },
+      "controller_sha256": "48eaa350176c49eb92ef348d1ce8d1e852fe9c14f7dd4370c0ce2a89ff675067",
+      "completion": {
+        "exit": 0,
+        "timeout": false
+      },
+      "property_checks": [
+        {
+          "property": "Provides three proposed touches in Spanish using SMS only, without a call script or an automatic English version.",
+          "status": "PASS",
+          "location": "output.txt:11-27",
+          "assessment": "Three ordered Spanish SMS touches; no call script or English variant."
+        },
+        {
+          "property": "Includes a purpose, relative timing, draft message, and stop or branch condition for each touch.",
+          "status": "PASS",
+          "location": "output.txt:11-37",
+          "assessment": "Each has purpose, relative timing and draft; per-touch branches and common stop rules apply."
+        },
+        {
+          "property": "Places the first proposed touch tomorrow after 10 a.m. Eastern Time within the stated business hours.",
+          "status": "PASS",
+          "location": "output.txt:12",
+          "assessment": "Tomorrow after 10 a.m. Eastern before 5 p.m.; no calendar date is inferred."
+        },
+        {
+          "property": "Uses only the supplied business facts and does not invent prices, discounts, availability, familiarity, urgency, or guaranteed outcomes.",
+          "status": "PASS",
+          "location": "output.txt:14,20,26",
+          "assessment": "Supplied interior-painting, assessment and written-estimate facts only. No residential narrowing or future business-response promise."
+        },
+        {
+          "property": "Stops or branches the sequence on replies, bookings, resolution, opt-out, wrong number, or pause requests.",
+          "status": "PASS",
+          "location": "output.txt:31-37",
+          "assessment": "Explicit reply, booking/resolution, opt-out, wrong-number and pause branches."
+        },
+        {
+          "property": "Does not claim that any message was sent or scheduled.",
+          "status": "PASS",
+          "location": "events.jsonl:2-4; output.txt:3-7,11-27",
+          "assessment": "One Skill call; before-use checks and proposed timing. No observed send or schedule."
+        }
+      ],
+      "additional_checks": {
+        "relative_dates_preserved": "PASS",
+        "required_operator_actions_not_reported_complete": "PASS",
+        "no_unapproved_business_promise": "PASS",
+        "known_process_states_only": "PASS",
+        "no_manager_optout_restart": "PASS",
+        "no_unnecessary_file_search_or_git_check": "PASS",
+        "requested_sequence_not_alternatives": "PASS"
+      },
+      "limitations": [
+        "This is a case-level current-source result, not host-wide discovery, permission enforcement, legal-compliance, or universal behavior approval.",
+        "Codex covers the normal case only. Hidden skill injection, backend model identity and full inventories remain unobserved."
+      ]
+    },
+    "findings": []
+  },
+  "findings": []
+}

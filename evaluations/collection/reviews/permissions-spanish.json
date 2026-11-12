@@ -1,0 +1,78 @@
+[
+  {
+    "id": "permissions-spanish",
+    "skill": "agent-permissions-audit",
+    "host": "codex",
+    "status": "PASS",
+    "source_sha256": "ef31d7958c3a3ca8c7d44e1221145ad112286402e1380794f30ead2f2fd87244",
+    "evidence": {
+      "runtime_path": "/private/tmp/iac-skill-collection-20261111/runs/codex/agent-permissions-audit/permissions-spanish-extra",
+      "hashes": {
+        "launch.json": "a236b00783980f2af589877c060f69e558cf244b8964e2b4f32ea2f3d2e70769",
+        "summary.json": "eceb5a38df87b098d9a6bf333ce7cb7281bb168de0c624ec7d9cb0f8e2e7271d",
+        "controls.json": "df915a180f7f026a621f6da2fbf6e531edc18ce44daf59785721d8aa884597fc",
+        "controller.py": "098800edeb8191076a93f3904673717a068889601cb08c539ebf8d6c2d82d117",
+        "prompt.txt": "586c89f1d54ccc11c123bc33edf417032a4e7b58e8b77bb3c5f0d314010e2e7c",
+        "output.txt": "8724d5306b728343e3835e744a27fc93ad41667d9c24ded67064991977d0094e",
+        "events.jsonl": "5309a4fafd679326b2f64021192a87eaf2b59d6124916f169fae82fe0bc70206",
+        "stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "installed_skills_sha256": {
+        "agent-permissions-audit": "ef31d7958c3a3ca8c7d44e1221145ad112286402e1380794f30ead2f2fd87244"
+      },
+      "installed_skills_match_current_public": {
+        "agent-permissions-audit": true
+      },
+      "prompt_matches_frozen_request": true,
+      "separate_expectations_appended": false,
+      "extra_cases_sha256": "93d236819eafc30adfa678f4ab69c9e1884dd4edcb1350a55b86bf39aeec4587",
+      "extra_expectations_sha256": "7b287637cd1d0797dfed231724d406bc03a9b8ae4b0f9bdb8e3e14977d391354",
+      "selection": {
+        "evidence_status": "INFERRED",
+        "mechanism": "Explicit $ invocation, exact installed snapshot and verified same-name selection control in matching normalized profile. No read/body event emitted.",
+        "selection_control_sha256": "f7f20d6abc25c2cb2412b9f687edec4ad6439dd306d148e25459730a1bfd4222",
+        "selection_control_path": "/private/tmp/iac-skill-collection-20261111/controls/selection-result.json",
+        "positive_output_sha256": "167ec9035964d79daeaf61b9ed2ee82c0ca47c67d9b0b47a8e762439ba04b475",
+        "negative_output_sha256": "3a520a325bae3b73c7178364b2d3d9bcaf59cd86498f4f200cd5c64cb36456ad"
+      },
+      "actual_tool_calls": [],
+      "process_exit": 0,
+      "timeout": false,
+      "requested_model": "gpt-6.1-terra (requested; backend identity not emitted)",
+      "requested_effort": "xhigh",
+      "backend_identity": "Not emitted",
+      "host_cli_version": "Not emitted",
+      "property_results": [
+        {
+          "property": "Spanish report; one observed read only; configured denial is not observed enforcement; no execution",
+          "status": "PASS",
+          "assessment": "Verified against actual output and source contract; supporting checks follow."
+        }
+      ],
+      "supporting_checks": [
+        {
+          "location": "output.txt:1-30",
+          "assessment": "Spanish throughout, five-section structure and no questions."
+        },
+        {
+          "location": "output.txt:3,9-16",
+          "assessment": "Exactly one supplied successful read is observed. Other configured/policy restrictions remain unverified."
+        },
+        {
+          "location": "output.txt:20-21",
+          "assessment": "Low conditional risks identify evidence, prerequisites, impact, severity/confidence and proportionate operator checks; no effective bypass or missing control is asserted."
+        },
+        {
+          "location": "output.txt:25-30; raw events",
+          "assessment": "Operator verification only; no command or target execution is recorded."
+        }
+      ],
+      "limits": [
+        "One supplemental run; no universal model, host, language or routing guarantee.",
+        "No external posting, sending or effective enforcement test.",
+        "Routing competitors include historical Lead a96aaea3; no claim about a final all-current collection."
+      ]
+    },
+    "findings": []
+  }
+]

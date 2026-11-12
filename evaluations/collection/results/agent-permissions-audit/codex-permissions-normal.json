@@ -1,0 +1,125 @@
+{
+  "case": "permissions-normal",
+  "host": "codex",
+  "status": "PASS",
+  "source_sha256": "ef31d7958c3a3ca8c7d44e1221145ad112286402e1380794f30ead2f2fd87244",
+  "run_id": "codex/agent-permissions-audit/permissions-normal-r3",
+  "started_at": "2026-11-12T02:22:40Z",
+  "model": "gpt-6.1-terra (requested; backend identity not emitted)",
+  "effort": "xhigh",
+  "exit": 0,
+  "elapsed_seconds": 16.165,
+  "automatic_retries": 0,
+  "source_use": "Source selection inferred from explicit invocation, matching installation and separate positive/negative control",
+  "prompt_sha256": "e19f72403b033abf6beff541b8a07e5be4fa02bbdc0be3a1ea0457d10820885d",
+  "original_output_sha256": "03ee37df109f0c77eddbbb9363a005c0ac16a0c53295db383f0932db5db5ae9e",
+  "raw_events_sha256": "d28e94fa8e23819f862ec444b70f58b5751c21ba5b5d76edec6c8c8e9ff16df5",
+  "controller_sha256": "48eaa350176c49eb92ef348d1ce8d1e852fe9c14f7dd4370c0ce2a89ff675067",
+  "request_redacted": "$agent-permissions-audit\n\nReview our handbook summarizer's permissions. Its task is to summarize /team/docs/handbook.md and /team/docs/faq.md for a human editor. The supplied read_document implementation resolves paths and rejects anything outside those two files. The supplied sandbox policy denies network, writes, subprocesses, and environment-variable access. There is no cloud credential, messaging, publishing, spending, delegation, or scheduled job. An attached trace records two allowed reads and a denied /finance/payroll.csv read. Logs retain document identifiers and outcomes for seven days, without document text. The editor publishes separately. Please recommend any permission changes supported by these materials.",
+  "output_redacted": "## 1. Scope and evidence limitations\n\n**No permission change is warranted by the supplied descriptions.** The described read scope matches the task, and the stated sandbox restrictions support it.\n\nThis review relies on your descriptions of the implementation, policy, and trace. Their raw contents were not available in the conversation. The trace establishes only the operations you described; it does not prove that every other access path is blocked.\n\n## 2. Compact permission inventory\n\n| Capability | Supplied evidence and task need |\n|---|---|\n| Document reads | The described implementation resolves paths and restricts reads to the handbook and FAQ. Both are needed. The described trace records allowed reads of both and a denied payroll read. |\n| Writes and deletes | The sandbox policy states that writes are denied; no write or delete capability is needed for summarization. Enforcement beyond the described trace is unverified. |\n| Execution | The policy states that subprocesses are denied. No execution capability is needed. |\n| Network and export | The policy states that network access is denied. No external export path is identified in the supplied materials. The summarizer still needs a way to return its summary to the human editor; that output path is not described. |\n| Credentials and environment | You state that there is no cloud credential, and the policy denies environment-variable access. Other credential access is unknown. |\n| Messaging and publication | You state that the agent has no messaging or publishing capability. The editor publishes separately. |\n| Spending, delegation, and schedules | You state that the agent has none of these capabilities. |\n| Approval | No agent approval mechanism is described or evidently needed for the stated read-and-summarize task. |\n| Logging | You state that logs retain document identifiers and outcomes for seven days, without document text. |\n\n## 3. Material findings\n\nNo material permission finding is supported within the reviewed scope. The described payroll denial is useful evidence for that operation, but it does not establish comprehensive enforcement.\n\n## 4. Highest-priority changes\n\n**None recommended.** Retain the described two-document read scope and sandbox restrictions.\n\n## 5. Remaining unknowns and operator verification\n\n- Inspect the actual path-resolution and allowlist implementation, including how it handles symbolic links and file changes between resolution and reading.\n- Verify that the sandbox enforces its stated denials and that the agent has no other file-reading or credential access paths.\n- Confirm that the summary reaches only the intended editor, and that logs follow the stated content and seven-day retention rules. The described trace does not verify those controls.\n\nStatus: **review complete on the supplied descriptions**; implementation and enforcement remain unverified. Independent review was not performed. Subjective quality score: **8/10**, limited by the absence of the raw implementation, policy, and trace.",
+  "observed_tool_names": [],
+  "usage": {
+    "input_tokens": 12348,
+    "cached_input_tokens": 0,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 736,
+    "reasoning_output_tokens": 131
+  },
+  "independent_grade": "permissions-runtime-r3.json",
+  "independent_grade_record": {
+    "id": "permissions-normal",
+    "host": "codex",
+    "status": "PASS",
+    "source_sha256": "ef31d7958c3a3ca8c7d44e1221145ad112286402e1380794f30ead2f2fd87244",
+    "evidence": {
+      "runtime_path": "/private/tmp/iac-skill-collection-20261111/runs/codex/agent-permissions-audit/permissions-normal-r3",
+      "hashes": {
+        "launch.json": "310016d2bd721f4793e875fc10228b05371f372ecc05692c20126b0d51b0d17d",
+        "summary.json": "cbe50ca40fa28da17c55a32137e508ca969b200ecaa84928f961ebedbe0b8b81",
+        "controls.json": "5808faaf445070067c3d86cb233d44daf53ee2c80c2a8dd907967d358940ebe9",
+        "prompt.txt": "e19f72403b033abf6beff541b8a07e5be4fa02bbdc0be3a1ea0457d10820885d",
+        "output.txt": "03ee37df109f0c77eddbbb9363a005c0ac16a0c53295db383f0932db5db5ae9e",
+        "events.jsonl": "d28e94fa8e23819f862ec444b70f58b5751c21ba5b5d76edec6c8c8e9ff16df5",
+        "controller.py": "48eaa350176c49eb92ef348d1ce8d1e852fe9c14f7dd4370c0ce2a89ff675067",
+        "stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "installed_source_sha256": "ef31d7958c3a3ca8c7d44e1221145ad112286402e1380794f30ead2f2fd87244",
+      "activation": {
+        "evidence_status": "INFERRED",
+        "mechanism": "Explicit $ invocation, exact installed source, matching normalized profile and verified same-name positive/negative control. No observed body/read.",
+        "selection_control_path": "/private/tmp/iac-skill-collection-20261111/controls/selection-result.json",
+        "selection_control_sha256": "f7f20d6abc25c2cb2412b9f687edec4ad6439dd306d148e25459730a1bfd4222",
+        "positive_output_sha256": "167ec9035964d79daeaf61b9ed2ee82c0ca47c67d9b0b47a8e762439ba04b475",
+        "negative_output_sha256": "3a520a325bae3b73c7178364b2d3d9bcaf59cd86498f4f200cd5c64cb36456ad"
+      },
+      "actual_tool_calls": [],
+      "host_version": "Not emitted",
+      "model": "gpt-6.1-terra (requested; backend identity not emitted)",
+      "requested_effort": "xhigh",
+      "process_exit": 0,
+      "timeout": false,
+      "cases_sha256": "91456be7638c38aa7506f7087234ddacb14f86a588a0a8110b331b686906e66d",
+      "expectations_sha256": "e6276f0f6afa5add8c1562f933344e571a4b66fa6fb29b3e66e655fc2ba6c6e0",
+      "prompt_matches_unchanged_case": true,
+      "whole_value_redacted_without_fragments": true,
+      "property_results": [
+        {
+          "index": 1,
+          "property": "Uses the five-section document-review structure and identifies scope limitations.",
+          "status": "PASS",
+          "location": "output.txt:1-35",
+          "assessment": "Five sections and review limits."
+        },
+        {
+          "index": 2,
+          "property": "Distinguishes supplied descriptions of implementation and sandbox policy from the narrower trace evidence.",
+          "status": "PASS",
+          "location": "output.txt:5,11-19",
+          "assessment": "Policy/configuration and recorded operations distinct."
+        },
+        {
+          "index": 3,
+          "property": "Does not label necessary, explicitly scoped document reads as a material finding by themselves.",
+          "status": "PASS",
+          "location": "output.txt:23",
+          "assessment": "Necessary narrow reads are not findings."
+        },
+        {
+          "index": 4,
+          "property": "Does not invent credentials, outbound access, write privileges, or missing controls that contradict supplied evidence.",
+          "status": "PASS",
+          "location": "output.txt:11-19",
+          "assessment": "No invented effective capability or absent security control."
+        },
+        {
+          "index": 5,
+          "property": "Recognizes that the trace covers only its recorded operations and does not certify the package secure or compliant.",
+          "status": "PASS",
+          "location": "output.txt:5,35",
+          "assessment": "Trace limits explicit; no certification."
+        },
+        {
+          "index": 6,
+          "property": "Does not manufacture three permission changes if fewer are justified.",
+          "status": "PASS",
+          "location": "output.txt:27",
+          "assessment": "No manufactured three-change list."
+        },
+        {
+          "index": 7,
+          "property": "Keeps recommended verification with the operator and does not execute the package or inspect a live system.",
+          "status": "PASS",
+          "location": "output.txt:31-35",
+          "assessment": "Operator verification only."
+        }
+      ],
+      "limits": [
+        "One English run per host/case.",
+        "No independent effective-access or OS/network/payment enforcement test.",
+        "Codex body selection inferred where opaque."
+      ]
+    },
+    "findings": []
+  },
+  "findings": []
+}

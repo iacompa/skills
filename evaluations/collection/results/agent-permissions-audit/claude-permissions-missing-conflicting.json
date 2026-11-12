@@ -1,0 +1,153 @@
+{
+  "case": "permissions-missing-conflicting",
+  "host": "claude",
+  "status": "PASS",
+  "source_sha256": "ef31d7958c3a3ca8c7d44e1221145ad112286402e1380794f30ead2f2fd87244",
+  "run_id": "claude/agent-permissions-audit/permissions-missing-conflicting-r3",
+  "started_at": "2026-11-12T02:20:50Z",
+  "model": "claude-opus-5-5",
+  "effort": null,
+  "exit": 0,
+  "elapsed_seconds": 40.538,
+  "automatic_retries": 0,
+  "source_use": "Direct native Skill body observed",
+  "prompt_sha256": "bd1ea27dcdc90a2d234fb401c9fe1842331201e882278ac14edd3d2cb75b6569",
+  "original_output_sha256": "48f903f5031f76c6d48a07f844db23d22e547ac5edd304225837273318935d37",
+  "raw_events_sha256": "9cdf213bbb1e949aebf59dbea0c108d29e71f468b0a0e6eba55f0a77a2958d06",
+  "controller_sha256": "48eaa350176c49eb92ef348d1ce8d1e852fe9c14f7dd4370c0ce2a89ff675067",
+  "request_redacted": "Use the project skill agent-permissions-audit for this request.\n\nAudit this deployment note for an agent intended to summarize documents. It calls the agent read-only, but the configured tools are read_file(path), write_file(path,text), run_shell(command), and send_message(destination,text). I do not have the implementations. A cloud token is present, but its scope is not recorded. The job runs hourly. Policy says a human approves publishing, and no approval records or enforcement details are attached. This excerpt is all I have today.",
+  "output_redacted": "# Agent Permissions Audit: Document-Summarizer Deployment Note\n\nThis is a provisional review. It covers only the excerpt you supplied, which is a deployment note with no tool implementations, no token scope, and no approval or enforcement records. You said this is all you have, so I didn't ask follow-up questions.\n\n**Bottom line:** The \"read-only\" claim conflicts with the configured tool list. Three of the four tools can cause side effects, and summarizing doesn't need any of them. How far they actually reach is Unknown. The fix that keeps the agent working is to cut it down to a scoped `read_file` and move publishing to a separate step that requires approval.\n\n## 1. Scope and evidence limitations\n\n- **Reviewed:** the note's description of the agent's purpose, the \"read-only\" label, the four configured tool signatures, a cloud token whose scope isn't recorded, the hourly schedule, and the publishing-approval policy.\n- **Not available:**\n  - the tool implementations\n  - path, command or destination restrictions\n  - sandbox or network settings\n  - the token's scope and whether the agent's process can reach it\n  - approval records or how approval is enforced\n  - logs or traces\n- So no behavior has been observed. Every scope below is either \"the config lists\" or Unknown. Nothing was run or probed.\n\n## 2. Compact permission inventory\n\n| Capability | Evidence class | Configured scope | Task need | Unknowns |\n|---|---|---|---|---|\n| \"Read-only\" | Declared (note) | — | Matches the intent | Whether anything enforces it |\n| `read_file(path)` | Configured | Unknown (no path limits shown) | **Needed** | Allowed roots; whether it can reach secrets or config files |\n| `write_file(path,text)` | Configured | Unknown | Not needed (at most, writing output to one fixed location) | Allowed paths; whether it can overwrite inputs, config or code |\n| `run_shell(command)` | Configured | Unknown | Not needed | Sandbox, allowed commands, network egress, user identity, environment variables |\n| `send_message(destination,text)` | Configured | Unknown | Not needed by the summarizer itself | Allowed destinations (internal or external, publication channels) |\n| Cloud token | Present; scope not recorded | Unknown | Not shown to be needed | Which permissions it grants; whether the agent's tools can read it |\n| Publishing approval | Written policy | — | Needed if output gets published | Enforcement mechanism; records |\n| Hourly schedule | Configured | Hourly | Plausible | Overlap controls, spending or usage caps, supervision |\n| Logging and retention | — | Not supplied | — | Unknown |\n\n## 3. Material findings\n\n**F1. The \"read-only\" claim conflicts with the configured tools.**\n- **Evidence:** the note calls the agent read-only, but it lists `write_file`, `run_shell` and `send_message`. No location within the note was supplied.\n- **Condition:** the label describes the intent, but the configuration gives the agent write, execute and messaging capabilities. Nothing supplied shows that writes, commands or messages are blocked.\n- **Impact:** reviewers and operators may treat the agent as having no side effects when it is configured with side-effecting tools. The agent summarizes documents, so the documents are untrusted input. Text inside them could try to steer the agent toward these tools. Whether that works depends on the unknown implementations and guardrails.\n- **Severity:** Medium. The mismatch is established, but the real impact depends on the unknown tool scope.\n- **Confidence:** High that the mismatch exists, because it comes straight from the config.\n- **Recommendation:** remove `write_file`, `run_shell` and `send_message` from the summarizer's tool set. If the summary has to be saved, have the job runner write the returned text to a fixed location instead of the agent.\n\n**F2. Read plus messaging could be an export path (conditional).**\n- **Evidence:** the config lists both `read_file(path)` and `send_message(destination,text)`, and neither shows a path or destination restriction.\n- **Condition:** this becomes a real risk only if both of these are true. Both are unresolved:\n  - `read_file` can reach sensitive files beyond the documents meant for summarizing.\n  - `send_message` accepts destinations outside a trusted set.\n- **Impact:** file contents could be sent to an unintended recipient, for example in response to instructions embedded in a document.\n- **Severity:** Medium.\n- **Confidence:** Low to Medium. The capabilities are configured, but their scope is Unknown.\n- **Recommendation:** limit `read_file` to a designated input directory, and remove `send_message` from the agent.\n\n**F3. The approval policy has no enforcement evidence.**\n- **Evidence:** the policy says a human approves publishing, and no approval records or enforcement details are attached.\n- **Condition:** a written requirement isn't the same as a control that stops unapproved publishing. If `send_message` can reach publication channels and nothing gates it, the agent could publish without approval. I haven't assumed the control is absent; it just isn't shown.\n- **Impact:** content could be published without approval, possibly every hour.\n- **Severity:** Medium.\n- **Confidence:** Low, because both the enforcement and the destinations are Unknown.\n- **Recommendation:** make publishing a separate step outside the agent that cannot run without a recorded human approval. Keep approval records.\n\n**F4. Shell access is configured for a task that doesn't need it.**\n- **Evidence:** the config lists `run_shell(command)`.\n- **Condition:** the sandbox, command limits, network egress and environment are all Unknown. Shell access alone doesn't prove the agent can get around file, network or approval controls. But depending on the implementation, it could allow writes, network access or credential use that the other tools don't.\n- **Impact:** at its broadest, this is the hardest capability to bound. Its effective scope is unresolved.\n- **Severity:** Medium.\n- **Confidence:** Medium. It's clearly configured and clearly unnecessary; its reach is Unknown.\n- **Recommendation:** remove it.\n\n**F5. A cloud token of unknown scope sits alongside execution tools (conditional).**\n- **Evidence:** the note says a cloud token is present and doesn't record its scope.\n- **Condition:** this matters only if the agent's process or shell can read the token. If so, its permissions, whatever they are, become reachable through the agent.\n- **Impact:** Unknown. It ranges from minor to significant depending on the token's scope.\n- **Severity:** Medium.\n- **Confidence:** Low.\n- **Recommendation:** if summarizing doesn't need the token, don't provide it to the agent's runtime. If it does, swap it for a credential limited to read access on the input location only.\n\n**F6. The hourly schedule multiplies the other risks.**\n- **Evidence:** the job runs hourly.\n- **Condition:** the schedule doesn't show whether there's supervision, overlap control or spending limits. They are Unknown, not shown to be absent.\n- **Impact:** if F1–F5 turn out to be real, each could happen on every run. Usage costs could also build up.\n- **Severity:** Low.\n- **Confidence:** Low.\n- **Recommendation:** confirm overlap prevention, a per-run usage cap and alerts on failure or anomalies.\n\n## 4. Top three priority changes\n\n1. **Cut the agent down to `read_file` only,** limited to a designated input directory. Remove `write_file`, `run_shell` and `send_message`. This fixes F1, F2 and F4 and still lets the agent summarize.\n2. **Move publishing out of the agent into a step that requires approval.** The runner takes the returned summary and holds it until a human approves, and that approval is recorded. This turns the written policy into an enforced control (F3).\n3. **Remove the cloud token from the agent's runtime,** or replace it with a read-only credential limited to the input location (F5).\n\n## 5. Remaining unknowns and what to verify\n\nHave the owner or operator check these. No demonstration runs are needed.\n\n- **Tool implementations:** what path roots `read_file` and `write_file` accept; the `run_shell` sandbox, its user identity, environment variables and network egress; and which destinations `send_message` can reach.\n- **Enforcement:** whether anything technically backs the \"read-only\" label, such as tool allowlists or a read-only mount. Ask for evidence that writes, shell commands and messages are actually refused.\n- **Token:** its granted permissions and whether the agent's process environment exposes it.\n- **Approval:** how unapproved publishing is blocked, plus sample approval records.\n- **Schedule:** overlap control, usage or spending caps, logging and retention, and who monitors the runs.\n\nWhen the implementations or the token scope are available, I can revise the review and firm up the severity and confidence ratings.",
+  "observed_tool_names": [
+    "Skill"
+  ],
+  "usage": {
+    "input_tokens": 4,
+    "cache_creation_input_tokens": 2659,
+    "cache_read_input_tokens": 6960,
+    "output_tokens": 3833,
+    "output_tokens_details": {
+      "thinking_tokens": 793
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 2659,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "independent_grade": "permissions-runtime-r3.json",
+  "independent_grade_record": {
+    "id": "permissions-missing-conflicting",
+    "host": "claude",
+    "status": "PASS",
+    "source_sha256": "ef31d7958c3a3ca8c7d44e1221145ad112286402e1380794f30ead2f2fd87244",
+    "evidence": {
+      "runtime_path": "/private/tmp/iac-skill-collection-20261111/runs/claude/agent-permissions-audit/permissions-missing-conflicting-r3",
+      "hashes": {
+        "launch.json": "89b038a588e8dbdd6be16d1b5bdc355dbfa051af8bc66a5a345a82d9127b0b69",
+        "summary.json": "c6e4d9d6664c33571fd9643715456ebe942f55d61d32628b5ca9345c08b8f80c",
+        "controls.json": "02d971bd5febceff0a3ec7bcd78ddcd5d298a5b772b6a5399ecc55de2af8507e",
+        "prompt.txt": "bd1ea27dcdc90a2d234fb401c9fe1842331201e882278ac14edd3d2cb75b6569",
+        "output.txt": "48f903f5031f76c6d48a07f844db23d22e547ac5edd304225837273318935d37",
+        "events.jsonl": "9cdf213bbb1e949aebf59dbea0c108d29e71f468b0a0e6eba55f0a77a2958d06",
+        "controller.py": "48eaa350176c49eb92ef348d1ce8d1e852fe9c14f7dd4370c0ce2a89ff675067",
+        "stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "mcp.json": "d8e397af03b5b032f21d0aa967086f0c78b33c87b76f2e9898ae0a144df7de02"
+      },
+      "installed_source_sha256": "ef31d7958c3a3ca8c7d44e1221145ad112286402e1380794f30ead2f2fd87244",
+      "activation": {
+        "evidence_status": "OBSERVED",
+        "mechanism": "Successful native Skill result and exact current Markdown body, excluding frontmatter",
+        "exact_body_lines": [
+          4
+        ],
+        "success_lines": [
+          3
+        ]
+      },
+      "actual_tool_calls": [
+        {
+          "event_line": 2,
+          "name": "Skill",
+          "input": {
+            "skill": "agent-permissions-audit"
+          }
+        }
+      ],
+      "host_version": "2.1.302",
+      "model": "claude-opus-5-5",
+      "requested_effort": null,
+      "process_exit": 0,
+      "timeout": false,
+      "cases_sha256": "91456be7638c38aa7506f7087234ddacb14f86a588a0a8110b331b686906e66d",
+      "expectations_sha256": "e6276f0f6afa5add8c1562f933344e571a4b66fa6fb29b3e66e655fc2ba6c6e0",
+      "prompt_matches_unchanged_case": true,
+      "whole_value_redacted_without_fragments": true,
+      "property_results": [
+        {
+          "index": 1,
+          "property": "Separates the declared read-only role, configured tools, unobserved effective behavior, and unknown token and implementation scopes.",
+          "status": "PASS",
+          "location": "output.txt:7-17,23-31",
+          "assessment": "Provisional review, unknowns explicit."
+        },
+        {
+          "index": 2,
+          "property": "Does not treat a policy statement as proof that publishing approval is enforced.",
+          "status": "PASS",
+          "location": "output.txt:3-5,35-41",
+          "assessment": "Read-only label and side-effect configuration distinguished."
+        },
+        {
+          "index": 3,
+          "property": "Does not claim unknown controls are absent or unknown token scope is administrator access.",
+          "status": "PASS",
+          "location": "output.txt:23-31,43-83",
+          "assessment": "Scope, supervision and implementations remain unknown."
+        },
+        {
+          "index": 4,
+          "property": "Describes conditional write, execution, messaging, credential, and recurring-job risks in relation to document summarization.",
+          "status": "PASS",
+          "location": "output.txt:43-51,69-75",
+          "assessment": "Token/data/export risks conditional."
+        },
+        {
+          "index": 5,
+          "property": "Includes severity, confidence, evidence, risk conditions, potential impact, and proportionate recommendations for material findings.",
+          "status": "PASS",
+          "location": "output.txt:53-59",
+          "assessment": "Approval policy is not enforcement or proof of no gate."
+        },
+        {
+          "index": 6,
+          "property": "Uses real supplied identifiers without invented file paths or line numbers.",
+          "status": "PASS",
+          "location": "output.txt:35-83",
+          "assessment": "Material fields complete, severities qualified."
+        },
+        {
+          "index": 7,
+          "property": "Provides evidence requests and operator verification steps without probing, running commands, changing settings, or requiring unavailable clarification.",
+          "status": "PASS",
+          "location": "output.txt:85-101",
+          "assessment": "Useful priorities without questions or actions."
+        }
+      ],
+      "limits": [
+        "One English run per host/case.",
+        "No independent effective-access or OS/network/payment enforcement test.",
+        "Codex body selection inferred where opaque."
+      ]
+    },
+    "findings": []
+  },
+  "findings": []
+}

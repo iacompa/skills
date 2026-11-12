@@ -1,0 +1,99 @@
+{
+  "id": "routing-private-translation",
+  "skill": "bilingual-business-reply",
+  "source_sha256": "15368569283d2e06b03f5a5b1ca5e645328649d96d84308c32b96b691751e621",
+  "status": "PASS",
+  "run_id": "codex/bilingual-business-reply/routing-private-translation-routing-final",
+  "request": "Translate our approved private customer reply into respectful U.S. Spanish only: “We can review your $84 refund request within two business days. Approval is still undecided.” Preserve the strength of the commitment.",
+  "output": "Podemos revisar su solicitud de reembolso de $84 en un plazo de dos días hábiles. Aún no se ha decidido si se aprobará.",
+  "original_output_sha256": "d5f2250874fff524c663fc9a3e8842b3baaf0e8c082dcef7ae2d9fa518b075f4",
+  "raw_events_sha256": "acbbbbb27375e2540ed1366adb99dbdb354d0b82dcafb921ec1d8c25ce2a1115",
+  "usage": {
+    "input_tokens": 22902,
+    "cached_input_tokens": 7296,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 135,
+    "reasoning_output_tokens": 8
+  },
+  "independent_grade_record": {
+    "id": "routing-private-translation",
+    "skill": "bilingual-business-reply",
+    "host": "codex",
+    "status": "PASS",
+    "source_sha256": "15368569283d2e06b03f5a5b1ca5e645328649d96d84308c32b96b691751e621",
+    "evidence": {
+      "runtime_path": "/private/tmp/iac-skill-collection-20261111/runs/codex/bilingual-business-reply/routing-private-translation-routing-final",
+      "hashes": {
+        "launch.json": "f30cad9a711bc513576d7a52f4c12038e859d494a45f931a56da0923b91794c0",
+        "summary.json": "05e5da5659bb2cbe4d0c277f03a4d5e04c920be8e3ba1a8ed75687896f94df7a",
+        "controls.json": "85f3a712c793b91257739b301ef4e50dc4e850a7040291f6040043e90f0641f9",
+        "controller.py": "098800edeb8191076a93f3904673717a068889601cb08c539ebf8d6c2d82d117",
+        "prompt.txt": "fe595d2ede221ebf46c05ad1530d9eaf7f4f63a1338af104f30c4af723fc7a18",
+        "output.txt": "d5f2250874fff524c663fc9a3e8842b3baaf0e8c082dcef7ae2d9fa518b075f4",
+        "events.jsonl": "acbbbbb27375e2540ed1366adb99dbdb354d0b82dcafb921ec1d8c25ce2a1115",
+        "stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "installed_skills_sha256": {
+        "review-response": "8c65339b9b2e92d8ce67591661836b55a716aed6a7ce23ef4d427e73df89f8f1",
+        "bilingual-business-reply": "15368569283d2e06b03f5a5b1ca5e645328649d96d84308c32b96b691751e621",
+        "lead-follow-up": "9ebeaf0c7e01f32b8613a099ddebc92a1ee7774e0da8186bb7b784cde7bdaa9e"
+      },
+      "all_three_match_current_public": true,
+      "prompt_matches_frozen_request": true,
+      "explicit_skill_invocation": false,
+      "separate_expectations_appended": false,
+      "extra_cases_sha256": "93d236819eafc30adfa678f4ab69c9e1884dd4edcb1350a55b86bf39aeec4587",
+      "extra_expectations_sha256": "7b287637cd1d0797dfed231724d406bc03a9b8ae4b0f9bdb8e3e14977d391354",
+      "selection": {
+        "evidence_status": "OBSERVED",
+        "mechanism": "Natural request, three final installed sources and successful complete intended-source read",
+        "source_read_event_lines": [
+          5
+        ],
+        "source_read_sha256": "15368569283d2e06b03f5a5b1ca5e645328649d96d84308c32b96b691751e621"
+      },
+      "actual_tool_calls": [
+        {
+          "event_line": 5,
+          "command": "/bin/zsh -c 'cat .agents/skills/bilingual-business-reply/SKILL.md'",
+          "exit_code": 0,
+          "status": "completed",
+          "output_sha256": "15368569283d2e06b03f5a5b1ca5e645328649d96d84308c32b96b691751e621"
+        }
+      ],
+      "process_exit": 0,
+      "timeout": false,
+      "requested_model": "gpt-6.1-terra (requested; backend identity not emitted)",
+      "requested_effort": "xhigh",
+      "backend_identity": "Not emitted",
+      "host_cli_version": "Not emitted",
+      "property_results": [
+        {
+          "property": "Spanish private reply only; preserve can, amount, deadline, undecided approval; no public review or outreach sequence",
+          "status": "PASS",
+          "assessment": "Actual output satisfies this property and the full target contract, with supporting checks below."
+        }
+      ],
+      "supporting_checks": [
+        {
+          "location": "output.txt:1",
+          "assessment": "Spanish only and respectful su; explicit language request overrides default bilingual output."
+        },
+        {
+          "location": "output.txt:1",
+          "assessment": "Podemos preserves can; $84 and within two business days remain intact."
+        },
+        {
+          "location": "output.txt:1",
+          "assessment": "Approval remains undecided; no later update/refund promise or public review/outreach workflow added."
+        }
+      ],
+      "limits": [
+        "One natural near-miss request per target in this exact Codex profile and installed trio.",
+        "No universal routing or cross-host guarantee.",
+        "No external posting/sending or effective host enforcement test."
+      ]
+    },
+    "findings": []
+  }
+}

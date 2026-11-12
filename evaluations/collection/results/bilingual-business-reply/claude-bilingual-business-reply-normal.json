@@ -1,0 +1,67 @@
+{
+  "case": "bilingual-business-reply-normal",
+  "host": "claude",
+  "status": "PASS",
+  "source_sha256": "15368569283d2e06b03f5a5b1ca5e645328649d96d84308c32b96b691751e621",
+  "run_id": "claude/bilingual-business-reply/bilingual-business-reply-normal-r5",
+  "started_at": "2026-11-12T02:19:56Z",
+  "model": "claude-opus-5-5",
+  "effort": null,
+  "exit": 0,
+  "elapsed_seconds": 7.674,
+  "automatic_retries": 0,
+  "source_use": "Direct native Skill body observed",
+  "prompt_sha256": "70f1b2be45bab0a23abbc771ca8ccabdf9093ebd221bd67aed7bbc00410c0338",
+  "original_output_sha256": "5d9fed50581fffd6b62373237936fa15136cbaa90fe14354f1e66b97d6c07acb",
+  "raw_events_sha256": "3eff1331ed8bf1d3cc104cd2e8600dc874d7999a28c10e5f1eeb789a7e47f29d",
+  "controller_sha256": "48eaa350176c49eb92ef348d1ce8d1e852fe9c14f7dd4370c0ce2a89ff675067",
+  "request_redacted": "Use the project skill bilingual-business-reply for this request.\n\nPrepare a customer reply for fictional Brook Studio. Mina asks whether package P-219 still costs USD 165.00 and includes Friday delivery. Our approved price is USD 165.00. Delivery is available Friday only if payment arrives by Wednesday at 3 PM Eastern. Use a friendly professional tone for email.",
+  "output_redacted": "**English (email)**\n\nSubject: Package P-219: price and Friday delivery\n\nHi Mina,\n\nThank you for reaching out.\n\nYes, package P-219 is still USD 165.00.\n\nFriday delivery is available if payment arrives by Wednesday at 3 PM Eastern.\n\nWould you like to go ahead with package P-219?\n\nBest regards,\nBrook Studio\n\n---\n\n**U.S. Spanish (email)**\n\nAsunto: Paquete P-219: precio y entrega el viernes\n\nHola, Mina:\n\nGracias por comunicarse con nosotros.\n\nSí, el paquete P-219 sigue costando USD 165.00.\n\nLa entrega el viernes está disponible si el pago se recibe a más tardar el miércoles a las 3 PM, hora del Este.\n\n¿Desea seguir adelante con el paquete P-219?\n\nSaludos cordiales,\nBrook Studio",
+  "observed_tool_names": [
+    "Skill"
+  ],
+  "usage": {
+    "input_tokens": 4,
+    "cache_creation_input_tokens": 1590,
+    "cache_read_input_tokens": 6880,
+    "output_tokens": 599,
+    "output_tokens_details": {
+      "thinking_tokens": 243
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 1590,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "independent_grade": "bilingual-runtime-r5.json",
+  "independent_grade_record": {
+    "id": "bilingual-business-reply-normal",
+    "host": "claude",
+    "status": "PASS",
+    "source_sha256": "15368569283d2e06b03f5a5b1ca5e645328649d96d84308c32b96b691751e621",
+    "evidence": [
+      "Run directory: /private/tmp/iac-skill-collection-20261111/runs/claude/bilingual-business-reply/bilingual-business-reply-normal-r5",
+      "Claude Code 2.1.302 / claude-opus-5-5: Skill succeeds; event 4 contains the exact reviewed body. Only Skill is called.",
+      "output.txt:9/:28 preserve P-219 and USD 165.00; :11/:30 preserve Friday availability conditional on Wednesday 3 PM Eastern payment. Both languages and Spanish usted are present.",
+      "The question about proceeding asks for customer intent and creates no future business-action commitment.",
+      "output.txt SHA256: 5d9fed50581fffd6b62373237936fa15136cbaa90fe14354f1e66b97d6c07acb",
+      "events.jsonl SHA256: 3eff1331ed8bf1d3cc104cd2e8600dc874d7999a28c10e5f1eeb789a7e47f29d",
+      "launch.json SHA256: c6df686bd0b34f74de2724adb98c1b660b5384e126f809a079db468a0812b125",
+      "summary.json SHA256: 1c18598afd33d0048923d4b45db3cce644b95be7c47bf874e724a94f1d2aa54a",
+      "prompt.txt SHA256: 70f1b2be45bab0a23abbc771ca8ccabdf9093ebd221bd67aed7bbc00410c0338",
+      "controls.json SHA256: 74e33bd36b87809fe44e53a4977fd5abd9ee5acb26d3c9b66976811eacfaa13f",
+      "mcp.json SHA256: d8e397af03b5b032f21d0aa967086f0c78b33c87b76f2e9898ae0a144df7de02"
+    ],
+    "findings": []
+  },
+  "findings": []
+}

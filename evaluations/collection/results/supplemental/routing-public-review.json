@@ -1,0 +1,111 @@
+{
+  "id": "routing-public-review",
+  "skill": "review-response",
+  "source_sha256": "8c65339b9b2e92d8ce67591661836b55a716aed6a7ce23ef4d427e73df89f8f1",
+  "status": "PASS",
+  "run_id": "codex/review-response/routing-public-review-routing-final",
+  "request": "For fictional Maple Desk Shop, write a short public reply to this two-star review: “My desk arrived late and the invoice was confusing.” We may acknowledge the concern, but no refund or cause is approved. Keep private billing details out. Give the draft and a separate owner note.",
+  "output": "**Public reply**\n\nThank you for sharing your concerns. We’re sorry to hear about the delivery delay and confusion with the invoice. Please contact Maple Desk Shop privately so we can discuss your concerns.\n\n**Owner note**\n\nReview the delivery and invoice concerns privately before responding further. No cause or refund has been approved.",
+  "original_output_sha256": "9e29de1274d436a4bebb0366a5792c725798a9ebb5c0ed7325cf0e52241727be",
+  "raw_events_sha256": "c0ea0b4889b94ed592e05d2f71c35a8af268183d996794477ba0002a2e19df8d",
+  "usage": {
+    "input_tokens": 22839,
+    "cached_input_tokens": 18304,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 167,
+    "reasoning_output_tokens": 11
+  },
+  "independent_grade_record": {
+    "id": "routing-public-review",
+    "skill": "review-response",
+    "host": "codex",
+    "status": "PASS",
+    "source_sha256": "8c65339b9b2e92d8ce67591661836b55a716aed6a7ce23ef4d427e73df89f8f1",
+    "evidence": {
+      "runtime_path": "/private/tmp/iac-skill-collection-20261111/runs/codex/review-response/routing-public-review-routing-final",
+      "hashes": {
+        "launch.json": "c6e92aab6e84babac85a36929d565c778ca73ab9183ba1f0a1978d59c686ed5b",
+        "summary.json": "f5fee91c46102e4efe546e93287f412769486688fd7b094526d6d78193f90153",
+        "controls.json": "cfad5fff5db01339c9c9d9d9bddb4aef4fd1c18a8df44535f9d933c2060ead2b",
+        "controller.py": "098800edeb8191076a93f3904673717a068889601cb08c539ebf8d6c2d82d117",
+        "prompt.txt": "3e9a670025c965cdf391372dacb40dd8307f94f0efb2451e5d099f4b5ff4bae7",
+        "output.txt": "9e29de1274d436a4bebb0366a5792c725798a9ebb5c0ed7325cf0e52241727be",
+        "events.jsonl": "c0ea0b4889b94ed592e05d2f71c35a8af268183d996794477ba0002a2e19df8d",
+        "stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "installed_skills_sha256": {
+        "review-response": "8c65339b9b2e92d8ce67591661836b55a716aed6a7ce23ef4d427e73df89f8f1",
+        "bilingual-business-reply": "15368569283d2e06b03f5a5b1ca5e645328649d96d84308c32b96b691751e621",
+        "lead-follow-up": "9ebeaf0c7e01f32b8613a099ddebc92a1ee7774e0da8186bb7b784cde7bdaa9e"
+      },
+      "all_three_match_current_public": true,
+      "prompt_matches_frozen_request": true,
+      "explicit_skill_invocation": false,
+      "separate_expectations_appended": false,
+      "extra_cases_sha256": "93d236819eafc30adfa678f4ab69c9e1884dd4edcb1350a55b86bf39aeec4587",
+      "extra_expectations_sha256": "7b287637cd1d0797dfed231724d406bc03a9b8ae4b0f9bdb8e3e14977d391354",
+      "selection": {
+        "evidence_status": "OBSERVED",
+        "mechanism": "Natural request, three final installed sources and successful complete intended-source read",
+        "source_read_event_lines": [
+          5
+        ],
+        "source_read_sha256": "8c65339b9b2e92d8ce67591661836b55a716aed6a7ce23ef4d427e73df89f8f1"
+      },
+      "actual_tool_calls": [
+        {
+          "event_line": 5,
+          "command": "/bin/zsh -c 'cat .agents/skills/review-response/SKILL.md'",
+          "exit_code": 0,
+          "status": "completed",
+          "output_sha256": "8c65339b9b2e92d8ce67591661836b55a716aed6a7ce23ef4d427e73df89f8f1"
+        }
+      ],
+      "process_exit": 0,
+      "timeout": false,
+      "requested_model": "gpt-6.1-terra (requested; backend identity not emitted)",
+      "requested_effort": "xhigh",
+      "backend_identity": "Not emitted",
+      "host_cli_version": "Not emitted",
+      "property_results": [
+        {
+          "property": "Public review draft; separate owner note; no outreach sequence or unsolicited translation",
+          "status": "PASS",
+          "assessment": "Actual output satisfies this property and the full target contract, with supporting checks below."
+        }
+      ],
+      "supporting_checks": [
+        {
+          "location": "output.txt:1-3",
+          "assessment": "One short public acknowledgment; no refund, cause, investigation or completed remedy invented."
+        },
+        {
+          "location": "output.txt:5-7",
+          "assessment": "Separate two-star owner note, preserving undecided cause/refund and private billing boundary."
+        },
+        {
+          "location": "output.txt:full output",
+          "assessment": "No outreach sequence, unsolicited translation, rating incentive or invented public contact details."
+        }
+      ],
+      "limits": [
+        "One natural near-miss request per target in this exact Codex profile and installed trio.",
+        "No universal routing or cross-host guarantee.",
+        "No external posting/sending or effective host enforcement test."
+      ]
+    },
+    "findings": [
+      {
+        "id": "RTF-N1",
+        "severity": "Low",
+        "confidence": "Medium",
+        "material": false,
+        "category": "wording",
+        "location": "output.txt:3",
+        "evidence": "The draft says sorry to hear about the delivery delay after acknowledging the reviewer concerns.",
+        "impact": "In context this refers to what was heard in the review and gives no cause or remedy; more explicit concern attribution would avoid ambiguity.",
+        "repair": "Prefer sorry to hear about your delivery concerns, or explicitly attribute the delay report to the review."
+      }
+    ]
+  }
+}
