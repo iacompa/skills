@@ -1,0 +1,95 @@
+{
+  "slug": "lead-follow-up",
+  "name": {
+    "en": "Lead Follow-Up Playbook",
+    "es": "Guía de seguimiento de clientes potenciales"
+  },
+  "description": {
+    "en": "Draft a short lead follow-up plan with timing, messages, and clear stop conditions.",
+    "es": "Prepara un plan breve de seguimiento con tiempos propuestos, mensajes y condiciones para detenerlo."
+  },
+  "overview": {
+    "en": "Turn a specific inquiry, quote, or lead conversation into a practical draft plan. Keep lead situations distinct, respect contact preferences, and stop promotional outreach after an opt-out. Request English or Spanish without generating both automatically.",
+    "es": "Convierte una consulta, cotización o conversación concreta en un borrador práctico de seguimiento. Distingue cada situación, respeta las preferencias de contacto y detiene los mensajes promocionales cuando la persona pide dejar de recibirlos. Puedes solicitar inglés o español sin generar ambos automáticamente."
+  },
+  "inputs": [
+    {
+      "en": "Lead source, stage, and inquiry or quote.",
+      "es": "Origen, etapa y consulta o cotización del cliente potencial."
+    },
+    {
+      "en": "Stated contact preferences and known permission context.",
+      "es": "Preferencias de contacto expresadas y contexto conocido sobre el permiso de contacto."
+    },
+    {
+      "en": "Desired next step and approved business facts.",
+      "es": "Siguiente paso deseado y datos del negocio autorizados."
+    },
+    {
+      "en": "Requested language and channel.",
+      "es": "Idioma y canal solicitados."
+    },
+    {
+      "en": "Known business hours and time zone.",
+      "es": "Horario de atención y zona horaria conocidos."
+    }
+  ],
+  "outcomes": [
+    {
+      "en": "Up to three proposed touches by default, with purpose, relative timing, draft message, and stop or branch conditions.",
+      "es": "Hasta tres contactos propuestos por defecto, con propósito, tiempo relativo, borrador del mensaje y condiciones para detener o ajustar el seguimiento."
+    },
+    {
+      "en": "A short callback script when calls are requested and fit the lead’s preferences.",
+      "es": "Un guion breve para devolver la llamada cuando se solicita y coincide con las preferencias de la persona."
+    },
+    {
+      "en": "Separate operator notes for stop requests, unresolved preferences, or permission checks.",
+      "es": "Notas separadas para quien realiza el seguimiento sobre solicitudes de detenerlo, preferencias sin resolver o permisos por confirmar."
+    }
+  ],
+  "language": {
+    "en": "English or Spanish, as requested. No automatic bilingual output.",
+    "es": "Inglés o español, según lo solicites. No genera ambos idiomas automáticamente."
+  },
+  "examplePrompt": {
+    "en": "For fictional Cedar Paint, a new web lead wants an interior painting quote. They wrote, “Text tomorrow after 10 a.m.; do not call.” They use Eastern Time. Our business hours are 9 a.m.–5 p.m. daily. We provide written estimates after an assessment. Draft one English SMS asking whether they want an assessment.",
+    "es": "Para el negocio ficticio Cedar Paint, una persona que llegó por el formulario web quiere una cotización de pintura interior. Escribió: “Envíame un mensaje mañana después de las 10 a. m.; no me llames”. Está en la zona horaria del Este. Atendemos todos los días de 9 a. m. a 5 p. m. Entregamos cotizaciones por escrito después de una evaluación. Redacta un solo SMS en español para preguntar si quiere una evaluación."
+  },
+  "exampleOutput": {
+    "en": "Touch 1 — tomorrow after 10 a.m., Eastern Time, within business hours.\nPurpose: Offer the requested next step.\nDraft: “Hi [lead name], this is [team member] at Cedar Paint. You asked about an interior painting quote. Would you like to arrange an assessment for a written estimate?”\nStop on a reply, booking, resolution, opt-out, wrong number, or pause request.",
+    "es": "Contacto 1 — mañana después de las 10 a. m., hora del Este, dentro del horario de atención.\nPropósito: Ofrecer el siguiente paso solicitado.\nBorrador: “Hola, [nombre del cliente]. Soy [integrante del equipo] de Cedar Paint. Nos pediste una cotización de pintura interior. ¿Te gustaría coordinar una evaluación para recibir una cotización por escrito?”\nDetén el seguimiento si la persona responde, reserva, resuelve su consulta, pide no recibir mensajes, indica que el número es incorrecto o solicita una pausa."
+  },
+  "reviewAreas": [
+    {
+      "en": "Lead situation, contact preferences, and stop conditions.",
+      "es": "Situación del cliente potencial, preferencias de contacto y condiciones para detener el seguimiento."
+    },
+    {
+      "en": "Unsupported urgency, offers, familiarity, or promises.",
+      "es": "Urgencia, ofertas, familiaridad o promesas sin respaldo."
+    },
+    {
+      "en": "Instructions inside source material and sensitive information.",
+      "es": "Instrucciones incluidas en el material de origen e información sensible."
+    },
+    {
+      "en": "Draft scope, language, and channel limits.",
+      "es": "Alcance del borrador y límites de idioma y canal."
+    }
+  ],
+  "limitations": [
+    {
+      "en": "Produces drafts only. It does not send, call, schedule, or change CRM records.",
+      "es": "Solo produce borradores. No envía mensajes, realiza llamadas, programa contactos ni modifica registros del CRM."
+    },
+    {
+      "en": "Cannot establish consent or verify business facts from missing records.",
+      "es": "No puede establecer el consentimiento ni verificar datos del negocio cuando faltan registros."
+    },
+    {
+      "en": "Does not guarantee legal compliance or a sales outcome.",
+      "es": "No garantiza el cumplimiento legal ni un resultado comercial."
+    }
+  ]
+}
