@@ -32,7 +32,7 @@ Claude listed the local skill. The final probe returned a sentence unique to the
 A positive and negative same-name control supported Codex project selection. Codex's captured format leaves the exact source injection opaque.
 The initial tests recorded a Claude discovery failure in a different restricted profile and an observed Skill body on an earlier revision. They do not certify those profiles on this revision.
 Final cases specified self-completion with no collaborators. Earlier attempts to launch a Codex reviewer failed. Several outputs falsely described a completed reviewer. The later source required an observed result and the final fixture stated the execution boundary. The evidence establishes the final configuration, without isolating the cause of the improvement.
-Earlier Claude outputs inferred that a visible source or control was absent from a partial capture. The final source required field-level evidence and an Unknown status for omitted information. The final bilingual case preserved those boundaries.
+Earlier Claude outputs treated unverified source attribution as absent and described the intake button as functional from a partial capture. The final source required field-level evidence and an Unknown status for omitted information. The final bilingual case preserved those boundaries.
 These bounded samples do not establish a general success rate, token savings, real search performance, or the behavior of other hosts.
 
 ## Current references
