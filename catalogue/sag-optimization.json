@@ -1,0 +1,75 @@
+{
+  "slug": "sag-optimization",
+  "name": {
+    "en": "SAG Optimization",
+    "es": "SAG Optimization"
+  },
+  "description": {
+    "en": "Plan or apply SEO, AEO, and GEO improvements to a page or site. Get prioritized fixes, useful copy, and checks for search, answers, and AI citations.",
+    "es": "Planifica o aplica mejoras de SEO, AEO y GEO en una página o sitio. Obtén correcciones prioritarias, textos útiles y un plan para medir resultados."
+  },
+  "overview": {
+    "en": "SAG Optimization combines technical search checks with clear answers and evidence readers can verify. Use it on one URL, a bilingual pair, or a representative set of pages. It can audit supplied captures, draft edits, or implement changes in an authorized project.",
+    "es": "SAG Optimization combina revisiones técnicas para buscadores con respuestas claras y evidencia verificable. Úsala con una URL, un par de páginas en dos idiomas o una muestra representativa. Puede auditar capturas, preparar textos o aplicar cambios en un proyecto autorizado."
+  },
+  "inputs": [
+    {
+      "en": "The page URL or site scope, the audience and languages, and the action you want a visitor to take.",
+      "es": "La URL o el alcance del sitio, el público y sus idiomas, y la acción que quieres que realice la persona que visita la página."
+    },
+    {
+      "en": "Approved facts and their sources. Include rendered pages, HTML, sitemap, and search performance reports when available.",
+      "es": "Los datos aprobados y sus fuentes. Incluye páginas renderizadas, HTML, el mapa del sitio e informes de rendimiento en buscadores si los tienes."
+    }
+  ],
+  "outcomes": [
+    {
+      "en": "A prioritized audit with evidence for each issue, proposed changes, and the checks to run after implementation.",
+      "es": "Una auditoría priorizada con la evidencia de cada problema, los cambios propuestos y las comprobaciones posteriores."
+    },
+    {
+      "en": "Titles, descriptions, direct answers, and source links based on the facts you provide.",
+      "es": "Títulos, descripciones, respuestas directas y enlaces a fuentes basados en los datos que proporciones."
+    },
+    {
+      "en": "Separate measurements for search performance, direct answer selection, and AI citations.",
+      "es": "Mediciones distintas para el rendimiento en buscadores, la selección de respuestas directas y las citas de IA."
+    }
+  ],
+  "reviewAreas": [
+    {
+      "en": "Crawler and snippet access, status codes, canonical URLs, language alternates, internal links, sitemap entries, and visible structured data facts.",
+      "es": "Acceso para rastreo y fragmentos, códigos de estado, URL canónicas, alternativas de idioma, enlaces internos, entradas del mapa y datos estructurados acordes con el contenido visible."
+    },
+    {
+      "en": "Search intent, standalone answer quality, source accuracy, and the scope and freshness of evidence.",
+      "es": "Intención de búsqueda, claridad de las respuestas fuera de contexto, precisión de las fuentes y alcance y vigencia de la evidencia."
+    }
+  ],
+  "limitations": [
+    {
+      "en": "Search engines decide indexing and answer selection. Verify actual performance with authorized reporting or repeated observations.",
+      "es": "Los buscadores deciden qué indexar y qué respuestas mostrar. Verifica el rendimiento real con informes autorizados u observaciones repetidas."
+    },
+    {
+      "en": "Search reporting and live checks depend on access. The skill reports which checks could run and scopes its conclusions to the evidence.",
+      "es": "Los informes y las comprobaciones en línea dependen del acceso. La habilidad indica qué pudo comprobar y limita sus conclusiones a la evidencia."
+    },
+    {
+      "en": "Publishing, submitting URLs for indexing, and changing crawler policies require authority for those actions.",
+      "es": "Publicar, enviar URL para indexación y cambiar políticas de rastreo requieren autorización para cada acción."
+    }
+  ],
+  "language": {
+    "en": "The instructions are in English. Ask for page edits and answers in the languages your site supports.",
+    "es": "Las instrucciones están en inglés. Puedes pedir cambios y respuestas en los idiomas de tu sitio."
+  },
+  "examplePrompt": {
+    "en": "Audit our calendar export help page using the supplied HTML and approved product facts. Draft a page title and direct answer. Preserve the support form and record which search and AI checks still need live evidence.",
+    "es": "Audita nuestra página de ayuda para exportar el calendario con el HTML y los datos aprobados. Redacta un título y una respuesta directa. Conserva el formulario de soporte e indica qué comprobaciones requieren evidencia en línea."
+  },
+  "exampleOutput": {
+    "en": "Title: Export calendar events to an ICS file. First answer: Open Settings, then Export. The ICS file keeps recurring event rules and excludes invitee email addresses. Verify rendered copy and the existing form before publishing. Search indexing and citation measurements are unavailable in this fixture.",
+    "es": "Título: Exporta eventos del calendario a un archivo ICS. Respuesta inicial: Abre Configuración y selecciona Exportar. El archivo conserva las reglas de repetición y excluye los correos de las personas invitadas. Comprueba el texto renderizado y el formulario existente antes de publicar. Este ejemplo carece de datos de indexación y citas."
+  }
+}
