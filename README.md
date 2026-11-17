@@ -12,6 +12,7 @@ Public Agent Skills maintained by IA Compa. Each website entry identifies its so
 | Review Response Assistant 1.0 | Draft a short public reply and separate owner-review concerns. | [Review response](skills/review-response/SKILL.md) |
 | Project Handoff Writer 1.0 | Preserve work state, evidence, constraints, and useful next steps. | [Project handoff](skills/project-handoff/SKILL.md) |
 | Skill Creator 1.0 | Design a portable skill with concise instructions and a separate evaluation plan. | [Skill Creator](skills/skill-creator/SKILL.md) |
+| SAG Optimization 1.0 | Audit or improve a page or site for search, direct answers, and AI citations. | [SAG Optimization](skills/sag-optimization/SKILL.md) |
 
 Browse the [Skills collection](https://iacompa.com/skills) for installation guidance and revision-bound results.
 
@@ -152,6 +153,10 @@ No universal security guarantee or success rate is asserted.
 Send 1.1 evidence covers eight Claude and four Codex behavior sessions. Four Codex cases are NOT RUN after the owner's finish instruction.
 Two initializer failures remain INCONCLUSIVE. The full sixteen-case plan and complete current Codex repair qualification are not claimed.
 Read the [native controls and cohorts](audits/native-verification/2026-11-11/README.md) and separate [owner decision](audits/native-verification/2026-11-11/owner-decision.json).
+
+## SAG Optimization
+
+Use `$sag-optimization` in Codex or `/sag-optimization` in Claude Code. Start with a URL or site scope and the facts readers need. The skill produces prioritized repairs, answer copy, and a measurement plan. The [revision-bound review](audits/sag-optimization/1.0/README.md) records the exact source and tested scope.
 
 ## Source and license
 
