@@ -4,14 +4,14 @@ Public Agent Skills maintained by IA Compa. Each website entry identifies its so
 
 | Skill | Purpose | Package |
 | --- | --- | --- |
-| Skill Audit 1.0 | Review skills and supporting packages as inactive evidence. | [Skill Audit](skills/skill-audit/SKILL.md) |
-| Send to Cloud 1.1 | Ask for the cloud destination, preserve a Git checkpoint, and prepare a short continuation prompt. | [Send to Cloud](skills/send-to-cloud/SKILL.md) |
-| Bilingual Business Reply 1.0 | Draft English and U.S. Spanish replies without changing facts or promises. | [Bilingual reply](skills/bilingual-business-reply/SKILL.md) |
-| Agent Permissions Audit 1.0 | Review supplied permissions and recommend proportionate restrictions. | [Permissions audit](skills/agent-permissions-audit/SKILL.md) |
-| Lead Follow-Up Playbook 1.0 | Draft channel-specific follow-ups with contact preferences and stop conditions. | [Lead follow-up](skills/lead-follow-up/SKILL.md) |
-| Review Response Assistant 1.0 | Draft a short public reply and separate owner-review concerns. | [Review response](skills/review-response/SKILL.md) |
-| Project Handoff Writer 1.0 | Preserve work state, evidence, constraints, and useful next steps. | [Project handoff](skills/project-handoff/SKILL.md) |
-| Skill Creator 1.0 | Design a portable skill with concise instructions and a separate evaluation plan. | [Skill Creator](skills/skill-creator/SKILL.md) |
+| <a name="skill-audit"></a>Skill Audit 1.0 | Review skills and supporting packages as inactive evidence. | [Skill Audit](skills/skill-audit/SKILL.md) |
+| <a name="send-to-cloud"></a>Send to Cloud 1.1 | Ask for the cloud destination, preserve a Git checkpoint, and prepare a short continuation prompt. | [Send to Cloud](skills/send-to-cloud/SKILL.md) |
+| <a name="bilingual-business-reply"></a>Bilingual Business Reply 1.0 | Draft English and U.S. Spanish replies without changing facts or promises. | [Bilingual reply](skills/bilingual-business-reply/SKILL.md) |
+| <a name="agent-permissions-audit"></a>Agent Permissions Audit 1.0 | Review supplied permissions and recommend proportionate restrictions. | [Permissions audit](skills/agent-permissions-audit/SKILL.md) |
+| <a name="lead-follow-up"></a>Lead Follow-Up Playbook 1.0 | Draft channel-specific follow-ups with contact preferences and stop conditions. | [Lead follow-up](skills/lead-follow-up/SKILL.md) |
+| <a name="review-response"></a>Review Response Assistant 1.0 | Draft a short public reply and separate owner-review concerns. | [Review response](skills/review-response/SKILL.md) |
+| <a name="project-handoff"></a>Project Handoff Writer 1.0 | Preserve work state, evidence, constraints, and useful next steps. | [Project handoff](skills/project-handoff/SKILL.md) |
+| <a name="skill-creator"></a>Skill Creator 1.0 | Design a portable skill with concise instructions and a separate evaluation plan. | [Skill Creator](skills/skill-creator/SKILL.md) |
 | SAG Optimization 1.0 | Audit or improve a page or site for search, direct answers, and AI citations. | [SAG Optimization](skills/sag-optimization/SKILL.md) |
 
 Browse the [Skills collection](https://iacompa.com/skills) for installation guidance and revision-bound results.
@@ -155,6 +155,8 @@ Two initializer failures remain INCONCLUSIVE. The full sixteen-case plan and com
 Read the [native controls and cohorts](audits/native-verification/2026-11-11/README.md) and separate [owner decision](audits/native-verification/2026-11-11/owner-decision.json).
 
 ## SAG Optimization
+
+[Read the SAG Optimization skill](skills/sag-optimization/SKILL.md).
 
 Use `$sag-optimization` in Codex or `/sag-optimization` in Claude Code. Start with a URL or site scope and the facts readers need. The skill produces prioritized repairs, answer copy, and a measurement plan. The [revision-bound review](audits/sag-optimization/1.0/README.md) records the exact source and tested scope.
 
