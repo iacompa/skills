@@ -13,6 +13,7 @@ Public Agent Skills maintained by IA Compa. Each website entry identifies its so
 | <a name="project-handoff"></a>Project Handoff Writer 1.0 | Preserve work state, evidence, constraints, and useful next steps. | [Project handoff](skills/project-handoff/SKILL.md) |
 | <a name="skill-creator"></a>Skill Creator 1.0 | Design a portable skill with concise instructions and a separate evaluation plan. | [Skill Creator](skills/skill-creator/SKILL.md) |
 | SAG Optimization 1.1 | Audit or improve a page or site for search, direct answers, and AI citations. | [SAG Optimization](skills/sag-optimization/SKILL.md) |
+| OCMC Plugin Builder 1.0 | Build and adapt MCP tools, apps, and connectors. | [OCMC Plugin Builder](skills/ocmc-plugin-builder/SKILL.md) |
 
 Browse the [Skills collection](https://iacompa.com/skills) for installation guidance and revision-bound results.
 
@@ -22,8 +23,8 @@ It covers prompt injection, security and privacy, permissions, reliability, supp
 
 All packages contain Markdown instructions and optional Markdown references only.
 They include no scripts, hooks, scanners, dependencies, or executable helpers.
-The business and authoring skills in this release have complete standard workflows in `SKILL.md` alone.
-Their examples, catalogue text, fixtures, outputs, and measurements remain outside the installable directories.
+Standalone skills carry their standard workflows in `SKILL.md`. Skills with a `references` folder use the complete package.
+Catalogue text, fixtures, outputs, and measurements remain outside the installable directories.
 
 ## Portable business and authoring skills
 
@@ -167,3 +168,9 @@ Read the [Skill Audit entrypoint](skills/skill-audit/SKILL.md) and its linked re
 The package develops an owner-supplied audit draft into a portable skill.
 Newly authored owner content uses the [MIT License](LICENSE).
 Names and linked platform documentation retain their respective owners and terms.
+
+## OCMC Plugin Builder
+
+Copy the complete OCMC Plugin Builder folder with its seven reference guides for project-local Codex CLI use. The guides cover implementation targets and their documented setup.
+
+[Read the skill](skills/ocmc-plugin-builder/SKILL.md) · [Read the version 1.0 audit](audits/ocmc-plugin-builder/1.0/README.md)
