@@ -23,8 +23,8 @@ It covers prompt injection, security and privacy, permissions, reliability, supp
 
 All packages contain Markdown instructions and optional Markdown references only.
 They include no scripts, hooks, scanners, dependencies, or executable helpers.
-The business and authoring skills in this release have complete standard workflows in `SKILL.md` alone.
-Their examples, catalogue text, fixtures, outputs, and measurements remain outside the installable directories.
+Standalone skills carry their standard workflows in `SKILL.md`. Skills with a `references` folder use the complete package.
+Catalogue text, fixtures, outputs, and measurements remain outside the installable directories.
 
 ## Portable business and authoring skills
 
