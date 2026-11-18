@@ -1,0 +1,75 @@
+{
+  "slug": "ocmc-plugin-builder",
+  "name": {
+    "en": "OCMC Plugin Builder",
+    "es": "OCMC Plugin Builder"
+  },
+  "description": {
+    "en": "Build and adapt MCP tools, apps, and connectors with guidance for OpenAI, Claude, Meta Muse, Cursor, and Grok.",
+    "es": "Crea y adapta herramientas, aplicaciones y conectores MCP con guías para OpenAI, Claude, Meta Muse, Cursor y Grok."
+  },
+  "overview": {
+    "en": "Start with one Model Context Protocol (MCP) tool. Choose the transport, sign-in flow, interface, and package format for each target client. Use the references to plan a shared server and verify each integration with fictional data.",
+    "es": "Empieza con una herramienta del protocolo de contexto de modelos (MCP). Elige el transporte, el inicio de sesión, la interfaz y el formato de distribución para cada cliente. Usa las guías para planificar un servidor compartido y verificar cada integración con datos ficticios."
+  },
+  "inputs": [
+    {
+      "en": "The target client and version, the action your tool should support, and whether it needs an interactive view.",
+      "es": "El cliente de destino y su versión, la acción que debe admitir tu herramienta y si necesita una vista interactiva."
+    },
+    {
+      "en": "The operations users can perform, the access each one requires, and fictional examples for local tests.",
+      "es": "Las operaciones que pueden realizar los usuarios, el acceso que requiere cada una y ejemplos ficticios para las pruebas locales."
+    }
+  ],
+  "outcomes": [
+    {
+      "en": "A tool contract with validated inputs, useful text results, and clear permission checks.",
+      "es": "Un contrato de herramienta con entradas validadas, resultados útiles en texto y comprobaciones claras de permisos."
+    },
+    {
+      "en": "A plan for sharing server logic and adding a view where the target client supports MCP Apps.",
+      "es": "Un plan para compartir la lógica del servidor y agregar una vista cuando el cliente admita MCP Apps."
+    },
+    {
+      "en": "Client-specific installation steps and local checks for discovery, valid calls, and denied actions.",
+      "es": "Pasos de instalación para cada cliente y pruebas locales de descubrimiento, llamadas válidas y acciones denegadas."
+    }
+  ],
+  "reviewAreas": [
+    {
+      "en": "Client capabilities, transport, protocol version, and distribution format.",
+      "es": "Capacidades del cliente, transporte, versión del protocolo y formato de distribución."
+    },
+    {
+      "en": "Tool schemas, OAuth requirements, server-side permissions, and recovery after an uncertain write.",
+      "es": "Esquemas de herramientas, requisitos de OAuth, permisos del servidor y recuperación cuando el resultado de una escritura es incierto."
+    },
+    {
+      "en": "UI resources, text output, and test evidence for each target.",
+      "es": "Recursos de interfaz, resultados en texto y evidencia de pruebas para cada destino."
+    }
+  ],
+  "limitations": [
+    {
+      "en": "Check the target client, version, and account before relying on its widget, sign-in, or distribution capabilities.",
+      "es": "Comprueba el cliente, la versión y la cuenta antes de usar sus funciones de interfaz, inicio de sesión o distribución."
+    },
+    {
+      "en": "Verify live OAuth, widget rendering, and publication separately for each integration.",
+      "es": "Verifica por separado el flujo real de OAuth, la presentación de la interfaz y la publicación de cada integración."
+    }
+  ],
+  "examplePrompt": {
+    "en": "Plan a read-only MCP tool that looks up fictional library books. Add a view for ChatGPT where supported and a text result for Claude Code. Show how to check valid and invalid inputs with local fixtures.",
+    "es": "Planifica una herramienta MCP de solo lectura para buscar libros ficticios de una biblioteca. Agrega una vista para ChatGPT cuando sea compatible y un resultado en texto para Claude Code. Explica cómo comprobar entradas válidas e inválidas con datos de prueba locales."
+  },
+  "language": {
+    "en": "The skill instructions and all seven reference guides are in English.",
+    "es": "Las instrucciones de la habilidad y las siete guías de referencia están en inglés."
+  },
+  "exampleOutput": {
+    "en": "A shared search tool validates a title query and returns a short list of fictional books. The plan identifies the view requirements for ChatGPT and the text output for Claude Code.",
+    "es": "Una herramienta de búsqueda compartida valida la consulta de un título y devuelve una lista breve de libros ficticios. El plan identifica los requisitos de la vista de ChatGPT y la salida en texto para Claude Code."
+  }
+}
