@@ -1,0 +1,9 @@
+mcp-inspector --cli node fixture/catalog.mjs --method tools/list --format json
+0 {"result":{"tools":[{"name":"catalog_search","description":"Search fictional catalogue items","inputSchema":{"type":"object","properties":{"query":{"type":"string","minLength":1}},"required":["query"],"$schema":"https://json-schema.org/draft/2020-12/schema"},"annotations":{"readOnlyHint":true}}]}}
+mcp-inspector --cli http://127.0.0.1:53513/mcp --transport http --method tools/list --format json
+0 {"result":{"tools":[{"name":"catalog_search","description":"Search fictional catalogue items","inputSchema":{"type":"object","properties":{"query":{"type":"string","minLength":1}},"required":["query"],"$schema":"https://json-schema.org/draft/2020-12/schema"},"annotations":{"readOnlyHint":true}}]}}
+mcp-inspector --cli http://127.0.0.1:53513/mcp --transport http --method tools/call --tool-name catalog_search --tool-arg query=canvas --format json
+0 {"result":{"content":[{"type":"text","text":"Canvas Tote"}],"structuredContent":{"items":[{"sku":"DEMO-001","title":"Canvas Tote"}]}}}
+mcp-inspector --cli http://127.0.0.1:53513/mcp --transport http --method tools/call --tool-name catalog_search --format json
+5 {"result":{"content":[{"type":"text","text":"Input validation error: Invalid arguments for tool catalog_search: query: Invalid input: expected string, received undefined"}],"isError":true}}
+PASS: stdio list, HTTP list, valid tool call, invalid-input error
