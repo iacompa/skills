@@ -12,7 +12,7 @@ Public Agent Skills maintained by IA Compa. Each website entry identifies its so
 | <a name="review-response"></a>Review Response Assistant 1.0 | Draft a short public reply and separate owner-review concerns. | [Review response](skills/review-response/SKILL.md) |
 | <a name="project-handoff"></a>Project Handoff Writer 1.0 | Preserve work state, evidence, constraints, and useful next steps. | [Project handoff](skills/project-handoff/SKILL.md) |
 | <a name="skill-creator"></a>Skill Creator 1.0 | Design a portable skill with concise instructions and a separate evaluation plan. | [Skill Creator](skills/skill-creator/SKILL.md) |
-| SAG Optimization 1.0 | Audit or improve a page or site for search, direct answers, and AI citations. | [SAG Optimization](skills/sag-optimization/SKILL.md) |
+| SAG Optimization 1.1 | Audit or improve a page or site for search, direct answers, and AI citations. | [SAG Optimization](skills/sag-optimization/SKILL.md) |
 
 Browse the [Skills collection](https://iacompa.com/skills) for installation guidance and revision-bound results.
 
@@ -158,7 +158,7 @@ Read the [native controls and cohorts](audits/native-verification/2026-11-11/REA
 
 [Read the SAG Optimization skill](skills/sag-optimization/SKILL.md).
 
-Use `$sag-optimization` in Codex or `/sag-optimization` in Claude Code. Start with a URL or site scope and the facts readers need. The skill produces prioritized repairs, answer copy, and a measurement plan. The [revision-bound review](audits/sag-optimization/1.0/README.md) records the exact source and tested scope.
+Use `$sag-optimization` in Codex or `/sag-optimization` in Claude Code. Start with a URL or site scope and the facts readers need. The skill produces prioritized repairs, answer copy, and a measurement plan. The [Version 1.1 review](audits/sag-optimization/1.1/README.md) records the exact source, shorter instructions, and tested scope. The [Version 1.0 review](audits/sag-optimization/1.0/README.md) records the previous release.
 
 ## Source and license
 
